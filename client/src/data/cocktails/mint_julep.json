@@ -1,0 +1,14 @@
+{
+  "id": "mint_julep",
+  "name": "Mint Julep",
+  "ingredients": [
+    { "ingredientId": "angostura-bitters", "amount": "2", "unit": "dashes" },
+    { "ingredientId": "mint-leaves", "amount": "8–12", "unit": "leaves" },
+    { "ingredientId": "bourbon", "amount": "60", "unit": "ml" }
+  ],
+  "method": "Soak, Muddle, Bash, Build & Churn",
+  "glass": "Rocks / Julep Tin",
+  "ice": "Crushed",
+  "garnish": "Mint Sprig",
+  "description": "A classic Southern cocktail traditionally associated with the Kentucky Derby."
+}

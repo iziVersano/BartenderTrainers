@@ -1,0 +1,15 @@
+{
+  "id": "gin_basil_smash",
+  "name": "Gin Basil Smash",
+  "ingredients": [
+    { "ingredientId": "basil-leaves", "amount": "8–12", "unit": "leaves" },
+    { "ingredientId": "fresh-lemon-juice", "amount": "25", "unit": "ml" },
+    { "ingredientId": "sugar-syrup", "amount": "15", "unit": "ml" },
+    { "ingredientId": "gin", "amount": "50", "unit": "ml" }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Rocks",
+  "ice": "Cubed",
+  "garnish": "Basil Leaf",
+  "description": "A contemporary cocktail created by Jörg Meyer featuring fresh basil and gin."
+}

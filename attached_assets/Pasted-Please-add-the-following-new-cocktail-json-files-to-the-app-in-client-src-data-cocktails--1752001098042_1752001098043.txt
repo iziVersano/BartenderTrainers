@@ -1,0 +1,122 @@
+Please add the following new cocktail `.json` files to the app in:
+
+📁 client/src/data/cocktails/
+
+Each file should match the format used in the project, with fields like:
+- id
+- name
+- ingredients
+- method
+- glass
+- garnish
+
+---
+
+🆕 Please create these files:
+
+---
+
+**bramble.json**
+```json
+{
+  "id": "bramble",
+  "name": "Bramble",
+  "ingredients": [
+    { "ingredientId": "fresh-lemon-juice", "amount": 25, "unit": "ml" },
+    { "ingredientId": "sugar-syrup", "amount": 10, "unit": "ml" },
+    { "ingredientId": "gin", "amount": 40, "unit": "ml" },
+    { "ingredientId": "creme-de-mure", "amount": 10, "unit": "ml" }
+  ],
+  "method": "Shake, Strain & Float",
+  "glass": "Rocks",
+  "garnish": "Lemon wedge & 2 Blackberries"
+}
+mojito.json
+
+json
+Copy
+Edit
+{
+  "id": "mojito",
+  "name": "Mojito",
+  "ingredients": [
+    { "ingredientId": "lime-wedges", "amount": 6, "unit": "wedges" },
+    { "ingredientId": "sugar-syrup", "amount": 20, "unit": "ml" },
+    { "ingredientId": "mint-leaves", "amount": "8–12", "unit": "leaves" },
+    { "ingredientId": "light-rum", "amount": 60, "unit": "ml" },
+    { "ingredientId": "soda", "amount": "Fill", "unit": "" }
+  ],
+  "method": "Muddle, Bash, Build & Churn",
+  "glass": "Highball",
+  "garnish": "Mint Sprig"
+}
+caipirinha.json
+
+json
+Copy
+Edit
+{
+  "id": "caipirinha",
+  "name": "Caipirinha",
+  "ingredients": [
+    { "ingredientId": "lime-wedges", "amount": 6, "unit": "wedges" },
+    { "ingredientId": "sugar-syrup", "amount": 20, "unit": "ml" },
+    { "ingredientId": "cachaca", "amount": 60, "unit": "ml" }
+  ],
+  "method": "Muddle, Build & Churn",
+  "glass": "Rocks",
+  "garnish": "Lime Wedge"
+}
+mint_julep.json
+
+json
+Copy
+Edit
+{
+  "id": "mint_julep",
+  "name": "Mint Julep",
+  "ingredients": [
+    { "ingredientId": "angostura-bitters", "amount": 2, "unit": "dashes" },
+    { "ingredientId": "mint-leaves", "amount": "8–12", "unit": "leaves" },
+    { "ingredientId": "bourbon", "amount": 60, "unit": "ml" }
+  ],
+  "method": "Soak, Muddle, Bash, Build & Churn",
+  "glass": "Rocks / Julep Tin",
+  "garnish": "Mint Sprig"
+}
+gin_basil_smash.json
+
+json
+Copy
+Edit
+{
+  "id": "gin_basil_smash",
+  "name": "Gin Basil Smash",
+  "ingredients": [
+    { "ingredientId": "basil-leaves", "amount": "8–12", "unit": "leaves" },
+    { "ingredientId": "fresh-lemon-juice", "amount": 25, "unit": "ml" },
+    { "ingredientId": "sugar-syrup", "amount": 15, "unit": "ml" },
+    { "ingredientId": "gin", "amount": 50, "unit": "ml" }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Rocks",
+  "garnish": "Basil Leaf"
+}
+southside.json
+
+json
+Copy
+Edit
+{
+  "id": "southside",
+  "name": "Southside",
+  "ingredients": [
+    { "ingredientId": "mint-leaves", "amount": "8–12", "unit": "leaves" },
+    { "ingredientId": "gin", "amount": 60, "unit": "ml" },
+    { "ingredientId": "sugar-syrup", "amount": 15, "unit": "ml" },
+    { "ingredientId": "fresh-lime-juice", "amount": 15, "unit": "ml" }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Chilled Martini / Coupe",
+  "garnish": "Single Mint Leaf"
+}

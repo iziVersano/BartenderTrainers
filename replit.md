@@ -172,6 +172,17 @@ Preferred communication style: Simple, everyday language.
   - Added missing ingredients: Grant's Scotch Whisky, Drambuie, Cola
   - Updated cocktail loader to include all 7 recipes for random selection
 
+- July 08, 2025: Added 6 additional cocktail recipes for expanded practice
+  - Bramble (Gin + Lemon Juice + Sugar Syrup + Crème de Mure)
+  - Mojito (Lime Wedges + Sugar Syrup + Mint Leaves + Light Rum + Soda Water)
+  - Caipirinha (Lime Wedges + Sugar Syrup + Cachaça)
+  - Mint Julep (Angostura Bitters + Mint Leaves + Bourbon)
+  - Gin Basil Smash (Basil Leaves + Lemon Juice + Sugar Syrup + Gin)
+  - Southside (Mint Leaves + Gin + Sugar Syrup + Lime Juice)
+  - Added missing ingredients: Angostura Bitters, Mint Leaves, Basil Leaves
+  - Fixed duplicate ingredient entries for better performance
+  - Updated cocktail loader to include all 13 recipes for random selection
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  

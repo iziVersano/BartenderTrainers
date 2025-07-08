@@ -452,6 +452,28 @@ export const ingredients: Ingredient[] = [
     position: { section: 'speed-line', row: 1, col: 12 }
   },
 
+  // Additional ingredients for new cocktails
+  {
+    id: 'angostura-bitters',
+    name: 'Angostura Bitters',
+    category: 'bitters',
+    color: 'from-brown-500 to-brown-700',
+    position: { section: 'back-bar', row: 2, col: 10 }
+  },
+  {
+    id: 'mint-leaves',
+    name: 'Mint Leaves',
+    category: 'garnishes',
+    color: 'from-green-300 to-green-500',
+    position: { section: 'speed-line', row: 1, col: 13 }
+  },
+  {
+    id: 'basil-leaves',
+    name: 'Basil Leaves',
+    category: 'garnishes',
+    color: 'from-green-400 to-green-600',
+    position: { section: 'speed-line', row: 1, col: 14 }
+  },
   // Mixers
   {
     id: 'ginger-ale',
@@ -488,7 +510,6 @@ export const ingredients: Ingredient[] = [
     color: 'from-brown-200 to-brown-400',
     position: { section: 'mixers' }
   },
-
   // Garnish Tray
   {
     id: 'lime-wedges',

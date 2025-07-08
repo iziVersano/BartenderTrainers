@@ -6,6 +6,12 @@ import spiritAndMixer from './spirit_and_mixer.json';
 import cubaLibre from './cuba_libre.json';
 import rustyNail from './rusty_nail.json';
 import godfather from './godfather.json';
+import bramble from './bramble.json';
+import mojito from './mojito.json';
+import caipirinha from './caipirinha.json';
+import mintJulep from './mint_julep.json';
+import ginBasilSmash from './gin_basil_smash.json';
+import southside from './southside.json';
 
 export const cocktails: Cocktail[] = [
   tequilaSunrise as Cocktail,
@@ -15,6 +21,12 @@ export const cocktails: Cocktail[] = [
   cubaLibre as Cocktail,
   rustyNail as Cocktail,
   godfather as Cocktail,
+  bramble as Cocktail,
+  mojito as Cocktail,
+  caipirinha as Cocktail,
+  mintJulep as Cocktail,
+  ginBasilSmash as Cocktail,
+  southside as Cocktail,
 ];
 
 export const getCocktailById = (id: string): Cocktail | undefined => {
