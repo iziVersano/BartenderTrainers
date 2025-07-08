@@ -1,0 +1,27 @@
+{
+  "id": "last-word",
+  "name": "Last Word",
+  "description": "A classic equal-parts cocktail with gin, green chartreuse, maraschino, and lime.",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "method": "Shake & Fine Strain",
+  "garnish": "Cherry",
+  "ingredients": [
+    {
+      "ingredient": "Gin",
+      "amount": "20ml"
+    },
+    {
+      "ingredient": "Green Chartreuse",
+      "amount": "20ml"
+    },
+    {
+      "ingredient": "Maraschino",
+      "amount": "20ml"
+    },
+    {
+      "ingredient": "Fresh Lime Juice",
+      "amount": "20ml"
+    }
+  ]
+}

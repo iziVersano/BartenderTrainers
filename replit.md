@@ -200,6 +200,17 @@ Preferred communication style: Simple, everyday language.
   - Added CSS styling for overflow-wrap and hyphens for better text breaking
   - Fixed display issues for long names like "White Crème de Cacao" and "Grant's Scotch Whisky"
 
+- July 08, 2025: Added 6 new cocktail recipes from batch addition
+  - B52 (Coffee Liqueur + Baileys + Triple Sec layered shot)
+  - Pornstar Martini (Passionfruit Liqueur + Vodka + Passion Fruit Purée + Lime + Vanilla Syrup + Champagne side)
+  - Bellini (Peach Purée + Peach Liqueur + Prosecco)
+  - French 75 (Gin + Lemon Juice + Sugar Syrup + Champagne)
+  - Last Word (Gin + Green Chartreuse + Maraschino + Lime Juice)
+  - Old Fashioned (Bourbon + Sugar Syrup + Angostura Bitters + Orange Zest)
+  - Added missing ingredients: Passionfruit Liqueur, Passion Fruit Purée, Vanilla Syrup, Brut Champagne, Peach Purée, Maraschino, Green Chartreuse, Cherry, Orange Zest
+  - Expanded cocktail library to 19 total recipes for random selection
+  - Cleaned up duplicate ingredient entries to fix React key warnings
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  

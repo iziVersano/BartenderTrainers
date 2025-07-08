@@ -1,0 +1,27 @@
+{
+  "id": "french-75",
+  "name": "French 75",
+  "description": "A sophisticated cocktail combining gin, lemon, and champagne for a refreshing drink.",
+  "glass": "Champagne Flute",
+  "ice": "None",
+  "method": "Shake & Fine Strain",
+  "garnish": "Lemon Zest",
+  "ingredients": [
+    {
+      "ingredient": "Gin",
+      "amount": "30ml"
+    },
+    {
+      "ingredient": "Fresh Lemon Juice",
+      "amount": "10ml"
+    },
+    {
+      "ingredient": "Sugar Syrup",
+      "amount": "10ml"
+    },
+    {
+      "ingredient": "Champagne",
+      "amount": "Top"
+    }
+  ]
+}

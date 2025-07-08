@@ -1,0 +1,23 @@
+{
+  "id": "bellini",
+  "name": "Bellini",
+  "description": "A classic Italian cocktail with peach and sparkling wine, perfect for brunch.",
+  "glass": "Champagne Flute",
+  "ice": "None",
+  "method": "Build & Stir Gently",
+  "garnish": "None",
+  "ingredients": [
+    {
+      "ingredient": "Peach Purée",
+      "amount": "10ml"
+    },
+    {
+      "ingredient": "Peach Liqueur",
+      "amount": "10ml"
+    },
+    {
+      "ingredient": "Prosecco",
+      "amount": "Fill"
+    }
+  ]
+}

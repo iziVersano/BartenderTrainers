@@ -1,0 +1,23 @@
+{
+  "id": "old-fashioned",
+  "name": "Old Fashioned",
+  "description": "A timeless whiskey cocktail with bitters, sugar, and orange zest.",
+  "glass": "Rocks",
+  "ice": "Cubed",
+  "method": "Stir & Julep Strain",
+  "garnish": "Orange Zest",
+  "ingredients": [
+    {
+      "ingredient": "Bourbon",
+      "amount": "60ml"
+    },
+    {
+      "ingredient": "Sugar Syrup",
+      "amount": "10ml"
+    },
+    {
+      "ingredient": "Angostura Bitters",
+      "amount": "2 dashes"
+    }
+  ]
+}

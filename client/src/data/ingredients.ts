@@ -474,6 +474,67 @@ export const ingredients: Ingredient[] = [
     color: 'from-green-400 to-green-600',
     position: { section: 'speed-line', row: 1, col: 14 }
   },
+  
+  // Additional ingredients for new cocktails
+  {
+    id: 'passionfruit-liqueur',
+    name: 'Passionfruit Liqueur',
+    category: 'liqueurs',
+    color: 'from-orange-300 to-orange-500',
+    position: { section: 'back-bar', row: 1, col: 15 }
+  },
+  {
+    id: 'passion-fruit-puree',
+    name: 'Passion Fruit Purée',
+    category: 'mixers',
+    color: 'from-orange-400 to-orange-600',
+    position: { section: 'speed-line', row: 0, col: 15 }
+  },
+
+  {
+    id: 'brut-champagne',
+    name: 'Brut Champagne',
+    category: 'wine',
+    color: 'from-yellow-200 to-yellow-400',
+    position: { section: 'back-bar', row: 2, col: 15 }
+  },
+  {
+    id: 'peach-puree',
+    name: 'Peach Purée',
+    category: 'mixers',
+    color: 'from-orange-200 to-orange-400',
+    position: { section: 'speed-line', row: 0, col: 17 }
+  },
+
+
+  {
+    id: 'maraschino',
+    name: 'Maraschino',
+    category: 'liqueurs',
+    color: 'from-red-200 to-red-400',
+    position: { section: 'back-bar', row: 1, col: 16 }
+  },
+  {
+    id: 'green-chartreuse',
+    name: 'Green Chartreuse',
+    category: 'liqueurs',
+    color: 'from-green-500 to-green-700',
+    position: { section: 'back-bar', row: 1, col: 17 }
+  },
+  {
+    id: 'cherry',
+    name: 'Cherry',
+    category: 'garnishes',
+    color: 'from-red-400 to-red-600',
+    position: { section: 'garnish-tray' }
+  },
+  {
+    id: 'orange-zest',
+    name: 'Orange Zest',
+    category: 'garnishes',
+    color: 'from-orange-400 to-orange-600',
+    position: { section: 'garnish-tray' }
+  },
   // Mixers
   {
     id: 'ginger-ale',

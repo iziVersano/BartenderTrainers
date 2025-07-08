@@ -1,0 +1,144 @@
+[
+  {
+    "name": "B52",
+    "glass": "Shooter",
+    "ice": "None",
+    "method": "Layer in Order",
+    "garnish": "None",
+    "ingredients": [
+      {
+        "ingredient": "Kahlua",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Baileys",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Triple Sec",
+        "amount": "20 ml"
+      }
+    ]
+  },
+  {
+    "name": "Pornstar Martini",
+    "glass": "Chilled Martini / Coupe",
+    "ice": "None",
+    "method": "Shake & Fine Strain",
+    "garnish": "1/2 Passionfruit",
+    "ingredients": [
+      {
+        "ingredient": "Passionfruit Liqueur",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Vodka",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Passion Fruit Pur\u00e9e",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Fresh Lime Juice",
+        "amount": "10 ml"
+      },
+      {
+        "ingredient": "Vanilla Syrup",
+        "amount": "10 ml"
+      },
+      {
+        "ingredient": "Brut Champagne",
+        "amount": "Shot on the side"
+      }
+    ]
+  },
+  {
+    "name": "Bellini",
+    "glass": "Champagne Flute",
+    "ice": "None",
+    "method": "Build & Stir Gently",
+    "garnish": "None",
+    "ingredients": [
+      {
+        "ingredient": "Peach Pur\u00e9e",
+        "amount": "10 ml"
+      },
+      {
+        "ingredient": "Peach Liqueur",
+        "amount": "10 ml"
+      },
+      {
+        "ingredient": "Prosecco",
+        "amount": "Fill"
+      }
+    ]
+  },
+  {
+    "name": "French 75",
+    "glass": "Champagne Flute",
+    "ice": "None",
+    "method": "Shake & Fine Strain",
+    "garnish": "Lemon Zest",
+    "ingredients": [
+      {
+        "ingredient": "Fresh Lemon Juice",
+        "amount": "10 ml"
+      },
+      {
+        "ingredient": "Sugar Syrup",
+        "amount": "10 ml"
+      },
+      {
+        "ingredient": "Champagne",
+        "amount": "Top"
+      }
+    ]
+  },
+  {
+    "name": "Last Word",
+    "glass": "Chilled Martini / Coupe",
+    "ice": "None",
+    "method": "Shake & Fine Strain",
+    "garnish": "Cherry",
+    "ingredients": [
+      {
+        "ingredient": "Maraschino",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Fresh Lime Juice",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Green Chartreuse",
+        "amount": "20 ml"
+      },
+      {
+        "ingredient": "Gin",
+        "amount": "20 ml"
+      }
+    ]
+  },
+  {
+    "name": "Old Fashioned",
+    "glass": "Rocks",
+    "ice": "Cubed",
+    "method": "Stir & Julep Strain",
+    "garnish": "Orange Zest",
+    "ingredients": [
+      {
+        "ingredient": "Angostura Bitters",
+        "amount": "2 dashes"
+      },
+      {
+        "ingredient": "Bourbon",
+        "amount": "60 ml"
+      },
+      {
+        "ingredient": "Sugar Syrup",
+        "amount": "10 ml"
+      }
+    ]
+  }
+]
