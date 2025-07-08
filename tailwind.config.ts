@@ -62,6 +62,10 @@ export default {
           ring: "var(--sidebar-ring)",
         },
       },
+      width: {
+        '7/10': '70%',
+        '3/10': '30%',
+      },
       keyframes: {
         "accordion-down": {
           from: {

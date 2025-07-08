@@ -33,7 +33,7 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex">
+      <main className="flex-1 flex flex-col lg:flex-row">
         <BarStation />
         <BuildArea />
       </main>

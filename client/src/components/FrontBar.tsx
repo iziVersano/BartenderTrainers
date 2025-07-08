@@ -29,13 +29,13 @@ export default function FrontBar() {
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm min-h-12 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words px-1 py-2",
+                    "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words px-2 py-2",
                     ingredient.color,
                     ingredient.id === 'egg-white' || ingredient.id === 'milk' ? "text-gray-800" : "text-gray-800"
                   )}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
-                  <span className="leading-tight">{ingredient.name}</span>
+                  <span className="leading-tight whitespace-normal text-center break-words">{ingredient.name}</span>
                 </div>
               ))}
             </div>
@@ -53,13 +53,13 @@ export default function FrontBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
                   ingredient.color,
                   "text-gray-800"
                 )}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                <span className="leading-tight">{ingredient.name}</span>
+                <span className="leading-tight whitespace-normal break-words">{ingredient.name}</span>
               </div>
             ))}
           </div>
@@ -73,13 +73,13 @@ export default function FrontBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
                   ingredient.color,
                   "text-white"
                 )}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                <span className="leading-tight">{ingredient.name}</span>
+                <span className="leading-tight whitespace-normal break-words">{ingredient.name}</span>
               </div>
             ))}
           </div>

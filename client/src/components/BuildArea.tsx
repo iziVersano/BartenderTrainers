@@ -90,17 +90,17 @@ export default function BuildArea() {
   };
 
   return (
-    <div className="w-2/5 bg-white p-6 border-l border-gray-200">
+    <div className="w-full lg:w-3/10 bg-white p-4 lg:p-6 border-l-0 lg:border-l border-gray-200">
       <div className="h-full flex flex-col">
         {/* Build Header */}
-        <div className="mb-6">
+        <div className="mb-4 lg:mb-6">
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Build Area</h3>
           <p className="text-sm text-gray-600">Selected ingredients will appear here</p>
         </div>
 
         {/* Selected Ingredients */}
-        <div className="flex-1 mb-6">
-          <div className="space-y-3">
+        <div className="flex-1 mb-4 lg:mb-6">
+          <div className="space-y-2 lg:space-y-3">
             {selectedIngredients.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
                 <div className="text-4xl mb-4">🍸</div>

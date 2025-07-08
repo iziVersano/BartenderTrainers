@@ -92,7 +92,7 @@ export const ingredients: Ingredient[] = [
     id: 'coffee-liqueur',
     name: 'Coffee Liqueur',
     category: 'liqueurs',
-    color: 'from-brown-200 to-brown-400',
+    color: 'from-amber-400 to-amber-600',
     position: { section: 'back-bar', row: 1, col: 2 }
   },
   {
@@ -106,7 +106,7 @@ export const ingredients: Ingredient[] = [
     id: 'dark-creme-de-cacao',
     name: 'Dark Crème de Cacao',
     category: 'liqueurs',
-    color: 'from-brown-300 to-brown-500',
+    color: 'from-orange-400 to-orange-600',
     position: { section: 'back-bar', row: 1, col: 4 }
   },
   {
@@ -457,7 +457,7 @@ export const ingredients: Ingredient[] = [
     id: 'angostura-bitters',
     name: 'Angostura Bitters',
     category: 'bitters',
-    color: 'from-brown-500 to-brown-700',
+    color: 'from-red-600 to-red-800',
     position: { section: 'back-bar', row: 2, col: 10 }
   },
   {
