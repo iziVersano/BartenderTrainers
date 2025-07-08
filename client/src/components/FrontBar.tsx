@@ -14,22 +14,22 @@ export default function FrontBar() {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {/* Speed Line */}
-      <div className="bg-bar-surface rounded-lg p-4">
-        <h4 className="text-white font-medium mb-3 text-center text-sm">SPEED LINE</h4>
-        <div className="space-y-2">
+    <div className="w-full">
+      {/* Speed Line Only */}
+      <div className="bg-bar-surface rounded-lg p-4 max-w-4xl mx-auto">
+        <h4 className="text-white font-medium mb-4 text-center text-sm">---------- SPEED LINE ----------</h4>
+        <div className="space-y-3">
           {speedLineRows.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className="grid gap-2 mb-3"
+              className="grid gap-2"
               style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
             >
               {row.map((ingredient) => (
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "ingredient-item bg-gradient-to-b rounded-sm h-10 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-1 text-center",
+                    "bottle-item bg-gradient-to-b rounded-sm h-12 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-2 text-center",
                     ingredient.color,
                     ingredient.id === 'egg-white' ? "text-gray-800" : "text-gray-800"
                   )}
@@ -43,7 +43,8 @@ export default function FrontBar() {
         </div>
       </div>
 
-      {/* Mixers */}
+      {/* Mixers - Temporarily commented out */}
+      {/* 
       <div className="bg-bar-surface rounded-lg p-4">
         <h4 className="text-white font-medium mb-3 text-center text-sm">MIXERS</h4>
         <div className="grid grid-cols-2 gap-2">
@@ -61,8 +62,10 @@ export default function FrontBar() {
           ))}
         </div>
       </div>
+      */}
 
-      {/* Garnish Tray */}
+      {/* Garnish Tray - Temporarily commented out */}
+      {/* 
       <div className="bg-bar-surface rounded-lg p-4">
         <h4 className="text-white font-medium mb-3 text-center text-sm">GARNISH TRAY</h4>
         <div className="grid grid-cols-2 gap-2">
@@ -81,6 +84,7 @@ export default function FrontBar() {
           ))}
         </div>
       </div>
+      */}
     </div>
   );
 }
