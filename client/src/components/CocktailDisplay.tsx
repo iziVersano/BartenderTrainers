@@ -20,38 +20,44 @@ export default function CocktailDisplay() {
           <h2 className="text-xl font-semibold text-gray-800">{currentCocktail.name}</h2>
           <p className="text-sm text-gray-600">Build this cocktail using the station below</p>
           {showRecipe && (
-            <div className="mt-2 p-3 bg-gray-50 rounded-md">
-              <h3 className="font-medium text-gray-700 mb-3">Recipe:</h3>
+            <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-yellow-800 mb-4 text-base">📝 Recipe Details</h3>
               
               {/* Recipe Parameters */}
-              <div className="grid grid-cols-2 gap-3 mb-3 text-sm">
-                <div className="flex items-center space-x-2">
+              <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                <div className="flex items-center space-x-2 bg-white p-2 rounded-md border border-yellow-100">
                   <span className="text-lg">🥃</span>
-                  <span className="text-gray-600"><strong>Glass:</strong> {currentCocktail.glass}</span>
+                  <span className="text-yellow-700"><strong>Glass:</strong> {currentCocktail.glass}</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 bg-white p-2 rounded-md border border-yellow-100">
                   <span className="text-lg">❄️</span>
-                  <span className="text-gray-600"><strong>Ice:</strong> {currentCocktail.ice || 'Cubed'}</span>
+                  <span className="text-yellow-700"><strong>Ice:</strong> {currentCocktail.ice || 'Cubed'}</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 bg-white p-2 rounded-md border border-yellow-100">
                   <span className="text-lg">🍸</span>
-                  <span className="text-gray-600"><strong>Method:</strong> {currentCocktail.method}</span>
+                  <span className="text-yellow-700"><strong>Method:</strong> {currentCocktail.method}</span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 bg-white p-2 rounded-md border border-yellow-100">
                   <span className="text-lg">🍋</span>
-                  <span className="text-gray-600"><strong>Garnish:</strong> {currentCocktail.garnish}</span>
+                  <span className="text-yellow-700"><strong>Garnish:</strong> {currentCocktail.garnish}</span>
                 </div>
               </div>
 
               {/* Ingredients List */}
-              <div className="border-t pt-3">
-                <h4 className="font-medium text-gray-700 mb-2">Ingredients:</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
+              <div className="border-t border-yellow-200 pt-4">
+                <h4 className="font-semibold text-yellow-800 mb-3 flex items-center">
+                  <span className="text-lg mr-2">🧪</span>
+                  Ingredients:
+                </h4>
+                <ul className="text-sm text-yellow-700 space-y-2 bg-white p-3 rounded-md border border-yellow-100">
                   {currentCocktail.ingredients.map((ingredient, index) => {
                     const ingredientData = getIngredientById(ingredient.ingredientId);
                     return (
-                      <li key={index}>
-                        {ingredient.amount} {ingredient.unit} {ingredientData?.name || ingredient.ingredientId.replace('-', ' ')}
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
+                        <span>
+                          <strong>{ingredient.amount} {ingredient.unit}</strong> {ingredientData?.name || ingredient.ingredientId.replace('-', ' ')}
+                        </span>
                       </li>
                     );
                   })}

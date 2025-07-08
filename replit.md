@@ -110,6 +110,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Improved recipe display visual design for better clarity
+  - Added distinctive yellow-themed background (bg-yellow-50) with border
+  - Enhanced parameter cards with white backgrounds and subtle borders
+  - Added visual bullet points for ingredient list items
+  - Improved typography with better color contrast and spacing
+  - Added icons for section headers (📝 Recipe Details, 🧪 Ingredients)
+  - Made recipe section stand out clearly from rest of page layout
+
 - July 08, 2025: Enhanced cocktail recipe display with complete parameters
   - Added glass type display with 🥃 icon (Highball, Rocks, etc.)
   - Added ice specification with ❄️ icon (Cubed or specified type)
