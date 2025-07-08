@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom Bar Colors */
+  --bar-dark: hsl(0, 0%, 18%);
+  --bar-surface: hsl(0, 0%, 26%);
+  --bar-accent: hsl(24, 100%, 50%);
+  --bar-primary: hsl(207, 90%, 54%);
+  --bar-success: hsl(120, 60%, 50%);
+  --bar-error: hsl(0, 84%, 60%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-bar-dark {
+    background-color: var(--bar-dark);
+  }
+  
+  .bg-bar-surface {
+    background-color: var(--bar-surface);
+  }
+  
+  .bg-bar-accent {
+    background-color: var(--bar-accent);
+  }
+  
+  .bg-bar-primary {
+    background-color: var(--bar-primary);
+  }
+  
+  .bg-bar-success {
+    background-color: var(--bar-success);
+  }
+  
+  .bg-bar-error {
+    background-color: var(--bar-error);
+  }
+  
+  .text-bar-accent {
+    color: var(--bar-accent);
+  }
+  
+  .text-bar-primary {
+    color: var(--bar-primary);
+  }
+  
+  .text-bar-success {
+    color: var(--bar-success);
+  }
+  
+  .text-bar-error {
+    color: var(--bar-error);
+  }
+  
+  .hover\:bg-bar-accent:hover {
+    background-color: var(--bar-accent);
+  }
+  
+  .hover\:bg-bar-primary:hover {
+    background-color: var(--bar-primary);
+  }
+}
+
+/* Custom gradients for ingredients */
+.from-amber-200 { --tw-gradient-from: #fde68a; }
+.to-amber-400 { --tw-gradient-to: #f59e0b; }
+.from-amber-100 { --tw-gradient-from: #fef3c7; }
+.to-amber-300 { --tw-gradient-to: #f7bf00; }
+.from-amber-300 { --tw-gradient-from: #f7bf00; }
+.to-amber-500 { --tw-gradient-to: #d97706; }
+.from-amber-400 { --tw-gradient-from: #f59e0b; }
+.to-amber-600 { --tw-gradient-to: #c05621; }
+.from-amber-500 { --tw-gradient-from: #d97706; }
+.to-amber-700 { --tw-gradient-to: #a16207; }
+.from-amber-600 { --tw-gradient-from: #c05621; }
+.to-amber-800 { --tw-gradient-to: #78350f; }
+
+/* Additional color gradients for all ingredients */
+.from-brown-200 { --tw-gradient-from: #d4a574; }
+.to-brown-400 { --tw-gradient-to: #a16207; }
+.from-brown-400 { --tw-gradient-from: #a16207; }
+.to-brown-600 { --tw-gradient-to: #78350f; }

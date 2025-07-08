@@ -1,0 +1,30 @@
+{
+  "id": "woo_woo",
+  "name": "Woo Woo",
+  "ingredients": [
+    {
+      "ingredientId": "vodka",
+      "amount": "1",
+      "unit": "oz"
+    },
+    {
+      "ingredientId": "peach-schnapps",
+      "amount": "1",
+      "unit": "oz"
+    },
+    {
+      "ingredientId": "cranberry-juice",
+      "amount": "2",
+      "unit": "oz"
+    },
+    {
+      "ingredientId": "pineapple-juice",
+      "amount": "2",
+      "unit": "oz"
+    }
+  ],
+  "method": "build",
+  "glass": "highball",
+  "garnish": "lime-wheel",
+  "description": "A fruity and refreshing cocktail perfect for any occasion"
+}
