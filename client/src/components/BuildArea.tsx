@@ -99,7 +99,18 @@ export default function BuildArea() {
       <div className="h-full flex flex-col">
         {/* Build Header */}
         <div className="mb-4 lg:mb-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">Build Area</h3>
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="text-lg font-semibold text-gray-800">Build Area</h3>
+            <Button 
+              variant="outline" 
+              size="sm"
+              className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
+              onClick={handleSkipCocktail}
+            >
+              <SkipForward className="w-4 h-4 mr-2" />
+              Skip Cocktail
+            </Button>
+          </div>
           <p className="text-sm text-gray-600">Selected ingredients will appear here</p>
         </div>
 
@@ -166,25 +177,15 @@ export default function BuildArea() {
             <Check className="w-4 h-4 mr-2" />
             Submit Cocktail
           </Button>
-          <div className="flex gap-2">
-            <Button 
-              variant="outline" 
-              className="flex-1"
-              onClick={handleClearAll}
-              disabled={selectedIngredients.length === 0}
-            >
-              <Trash2 className="w-4 h-4 mr-2" />
-              Clear All
-            </Button>
-            <Button 
-              variant="outline" 
-              className="flex-1 bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
-              onClick={handleSkipCocktail}
-            >
-              <SkipForward className="w-4 h-4 mr-2" />
-              Skip Cocktail
-            </Button>
-          </div>
+          <Button 
+            variant="outline" 
+            className="w-full"
+            onClick={handleClearAll}
+            disabled={selectedIngredients.length === 0}
+          >
+            <Trash2 className="w-4 h-4 mr-2" />
+            Clear All
+          </Button>
         </div>
 
         {/* Feedback Area */}
