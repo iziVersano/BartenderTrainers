@@ -110,6 +110,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Improved recipe visibility UI layout for better user experience
+  - Hide method and glass dropdowns when recipe is visible to reduce clutter
+  - Repositioned "Hide Recipe" button to bottom right corner of recipe panel
+  - Separated recipe display and controls into distinct sections
+  - Added proper spacing and alignment with mt-4 margin and flex justify-end
+  - Improved visual hierarchy with cleaner state management between show/hide modes
+  - Enhanced responsive behavior across all device sizes
+
 - July 08, 2025: Extended yellow card styling for cohesive UI across all recipe sections
   - Applied consistent yellow card styling to Recipe Details, Ingredients, and Description sections
   - Enhanced responsive layout with proper mobile/tablet/desktop breakpoints
