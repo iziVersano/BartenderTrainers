@@ -4,27 +4,23 @@
   "ingredients": [
     {
       "ingredientId": "vodka",
-      "amount": "30",
+      "amount": "40",
       "unit": "ml"
     },
     {
-      "ingredientId": "triple-sec",
-      "amount": "30",
+      "ingredientId": "peach-liqueur",
+      "amount": "20",
       "unit": "ml"
     },
     {
       "ingredientId": "cranberry-juice",
-      "amount": "60",
-      "unit": "ml"
-    },
-    {
-      "ingredientId": "pineapple-juice",
-      "amount": "60",
-      "unit": "ml"
+      "amount": "Fill",
+      "unit": ""
     }
   ],
-  "method": "build",
-  "glass": "highball",
-  "garnish": "lime-wheel",
-  "description": "A fruity and refreshing cocktail perfect for any occasion"
+  "method": "Build",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "garnish": "Lime Wedge",
+  "description": "An official EBS cocktail made with vodka, peach liqueur, and cranberry juice."
 }

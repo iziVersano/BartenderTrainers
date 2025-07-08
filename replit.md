@@ -110,6 +110,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Updated cocktail recipes to official EBS specifications
+  - Woo Woo: Vodka 40ml, Peach Liqueur 20ml, Cranberry Juice (Fill)
+  - Tequila Sunrise: Tequila 40ml, Orange Juice (Fill), Grenadine 10ml (Sink)
+  - Added proper method descriptions (Build, Build & Sink)
+  - Updated glass types, ice specifications, and garnish details
+  - Standardized JSON structure with accurate EBS measurements
+
 - July 08, 2025: Enhanced ingredient matching with flexible fuzzy logic
   - Replaced strict equality with inclusion-based matching using isMatch() function
   - "Amaretto" now matches "Amaretto Liqueur" and vice versa

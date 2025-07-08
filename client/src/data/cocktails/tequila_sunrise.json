@@ -4,17 +4,23 @@
   "ingredients": [
     {
       "ingredientId": "tequila",
-      "amount": "50",
+      "amount": "40",
       "unit": "ml"
     },
     {
       "ingredientId": "orange-juice",
       "amount": "Fill",
+      "unit": ""
+    },
+    {
+      "ingredientId": "grenadine",
+      "amount": "10",
       "unit": "ml"
     }
   ],
-  "method": "build",
-  "glass": "highball",
-  "garnish": "orange-peel",
-  "description": "A classic layered cocktail with a beautiful sunrise effect"
+  "method": "Build & Sink",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "garnish": "None",
+  "description": "An official EBS cocktail with tequila, orange juice, and grenadine sink."
 }
