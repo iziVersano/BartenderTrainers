@@ -8,16 +8,19 @@
   "garnish": "None",
   "ingredients": [
     {
-      "ingredient": "Peach Purée",
-      "amount": "10ml"
+      "ingredientId": "peach-puree",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Peach Liqueur",
-      "amount": "10ml"
+      "ingredientId": "peach-liqueur",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Prosecco",
-      "amount": "Fill"
+      "ingredientId": "prosecco",
+      "amount": "Fill",
+      "unit": ""
     }
   ]
 }

@@ -8,16 +8,19 @@
   "garnish": "Orange Zest",
   "ingredients": [
     {
-      "ingredient": "Bourbon",
-      "amount": "60ml"
+      "ingredientId": "bourbon",
+      "amount": "60",
+      "unit": "ml"
     },
     {
-      "ingredient": "Sugar Syrup",
-      "amount": "10ml"
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Angostura Bitters",
-      "amount": "2 dashes"
+      "ingredientId": "angostura-bitters",
+      "amount": "2",
+      "unit": "dashes"
     }
   ]
 }

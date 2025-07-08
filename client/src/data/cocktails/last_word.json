@@ -8,20 +8,24 @@
   "garnish": "Cherry",
   "ingredients": [
     {
-      "ingredient": "Gin",
-      "amount": "20ml"
+      "ingredientId": "gin",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Green Chartreuse",
-      "amount": "20ml"
+      "ingredientId": "green-chartreuse",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Maraschino",
-      "amount": "20ml"
+      "ingredientId": "maraschino",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Fresh Lime Juice",
-      "amount": "20ml"
+      "ingredientId": "fresh-lime-juice",
+      "amount": "20",
+      "unit": "ml"
     }
   ]
 }

@@ -8,28 +8,34 @@
   "garnish": "1/2 Passionfruit",
   "ingredients": [
     {
-      "ingredient": "Passionfruit Liqueur",
-      "amount": "20ml"
+      "ingredientId": "passionfruit-liqueur",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Vodka",
-      "amount": "20ml"
+      "ingredientId": "vodka",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Passion Fruit Purée",
-      "amount": "20ml"
+      "ingredientId": "passion-fruit-puree",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Fresh Lime Juice",
-      "amount": "10ml"
+      "ingredientId": "fresh-lime-juice",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Vanilla Syrup",
-      "amount": "10ml"
+      "ingredientId": "vanilla-syrup",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Brut Champagne",
-      "amount": "Shot on the side"
+      "ingredientId": "brut-champagne",
+      "amount": "Shot on the side",
+      "unit": ""
     }
   ]
 }

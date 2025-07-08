@@ -8,20 +8,24 @@
   "garnish": "Lemon Zest",
   "ingredients": [
     {
-      "ingredient": "Gin",
-      "amount": "30ml"
+      "ingredientId": "gin",
+      "amount": "30",
+      "unit": "ml"
     },
     {
-      "ingredient": "Fresh Lemon Juice",
-      "amount": "10ml"
+      "ingredientId": "fresh-lemon-juice",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Sugar Syrup",
-      "amount": "10ml"
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
     },
     {
-      "ingredient": "Champagne",
-      "amount": "Top"
+      "ingredientId": "champagne",
+      "amount": "Top",
+      "unit": ""
     }
   ]
 }

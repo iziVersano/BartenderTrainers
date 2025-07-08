@@ -107,7 +107,7 @@ export default function CocktailDisplay() {
                     <li key={index} className="flex items-center space-x-3 bg-white p-3 rounded-md border border-yellow-100 shadow-sm">
                       <span className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0"></span>
                       <span className="text-yellow-700">
-                        <strong className="text-yellow-800">{ingredient.amount} {ingredient.unit}</strong> {ingredientData?.name || ingredient.ingredientId.replace('-', ' ')}
+                        <strong className="text-yellow-800">{ingredient.amount} {ingredient.unit}</strong> {ingredientData?.name || ingredient.ingredientId?.replace('-', ' ') || 'Unknown ingredient'}
                       </span>
                     </li>
                   );

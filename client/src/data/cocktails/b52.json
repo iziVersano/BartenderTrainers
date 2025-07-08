@@ -8,16 +8,19 @@
   "garnish": "None",
   "ingredients": [
     {
-      "ingredient": "Coffee Liqueur",
-      "amount": "20ml"
+      "ingredientId": "coffee-liqueur",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Baileys",
-      "amount": "20ml"
+      "ingredientId": "baileys",
+      "amount": "20",
+      "unit": "ml"
     },
     {
-      "ingredient": "Triple Sec",
-      "amount": "20ml"
+      "ingredientId": "triple-sec",
+      "amount": "20",
+      "unit": "ml"
     }
   ]
 }
