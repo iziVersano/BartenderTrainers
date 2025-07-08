@@ -247,104 +247,195 @@ export const ingredients: Ingredient[] = [
 
   // Speed Line - Row 0
   {
-    id: 'muddler-barspoon',
-    name: 'Muddler & Barspoon',
+    id: 'milk',
+    name: 'Milk',
     category: 'mixers',
-    color: 'from-gray-300 to-gray-500',
+    color: 'from-white to-gray-200',
     position: { section: 'speed-line', row: 0, col: 0 }
   },
+  {
+    id: 'grapefruit-juice',
+    name: 'Grapefruit Juice',
+    category: 'juices',
+    color: 'from-pink-300 to-pink-500',
+    position: { section: 'speed-line', row: 0, col: 1 }
+  },
+  {
+    id: 'pineapple-juice',
+    name: 'Pineapple Juice',
+    category: 'juices',
+    color: 'from-yellow-300 to-yellow-500',
+    position: { section: 'speed-line', row: 0, col: 2 }
+  },
+  {
+    id: 'orange-juice',
+    name: 'Orange Juice',
+    category: 'juices',
+    color: 'from-orange-300 to-orange-500',
+    position: { section: 'speed-line', row: 0, col: 3 }
+  },
+  {
+    id: 'cranberry-juice',
+    name: 'Cranberry Juice',
+    category: 'juices',
+    color: 'from-red-300 to-red-500',
+    position: { section: 'speed-line', row: 0, col: 4 }
+  },
+  {
+    id: 'bloody-mary-pre-mix',
+    name: 'Bloody Mary Pre-Mix',
+    category: 'mixers',
+    color: 'from-red-400 to-red-600',
+    position: { section: 'speed-line', row: 0, col: 5 }
+  },
+  {
+    id: 'orgeat-syrup',
+    name: 'Orgeat Syrup',
+    category: 'syrups',
+    color: 'from-amber-200 to-amber-400',
+    position: { section: 'speed-line', row: 0, col: 6 }
+  },
+  {
+    id: 'lime-cordial',
+    name: 'Lime Cordial',
+    category: 'syrups',
+    color: 'from-green-300 to-green-500',
+    position: { section: 'speed-line', row: 0, col: 7 }
+  },
+  {
+    id: 'grenadine',
+    name: 'Grenadine',
+    category: 'syrups',
+    color: 'from-red-300 to-red-500',
+    position: { section: 'speed-line', row: 0, col: 8 }
+  },
+  {
+    id: 'vanilla-syrup',
+    name: 'Vanilla Syrup',
+    category: 'syrups',
+    color: 'from-yellow-200 to-yellow-400',
+    position: { section: 'speed-line', row: 0, col: 9 }
+  },
+  {
+    id: 'cinnamon-syrup',
+    name: 'Cinnamon Syrup',
+    category: 'syrups',
+    color: 'from-brown-300 to-brown-500',
+    position: { section: 'speed-line', row: 0, col: 10 }
+  },
+  {
+    id: 'sugar-syrup',
+    name: 'Sugar Syrup',
+    category: 'syrups',
+    color: 'from-gray-200 to-gray-400',
+    position: { section: 'speed-line', row: 0, col: 11 }
+  },
+  {
+    id: 'fresh-lime-juice',
+    name: 'Fresh Lime Juice',
+    category: 'juices',
+    color: 'from-green-400 to-green-600',
+    position: { section: 'speed-line', row: 0, col: 12 }
+  },
+  {
+    id: 'fresh-lemon-juice',
+    name: 'Fresh Lemon Juice',
+    category: 'juices',
+    color: 'from-yellow-400 to-yellow-600',
+    position: { section: 'speed-line', row: 0, col: 13 }
+  },
+
+  // Speed Line - Row 1
   {
     id: 'mint-basil-leaves',
     name: 'Mint / Basil Leaves',
     category: 'garnishes',
     color: 'from-green-300 to-green-500',
-    position: { section: 'speed-line', row: 0, col: 1 }
+    position: { section: 'speed-line', row: 1, col: 0 }
   },
   {
     id: 'raspberry-puree',
     name: 'Raspberry Purée',
     category: 'mixers',
     color: 'from-red-300 to-red-500',
-    position: { section: 'speed-line', row: 0, col: 2 }
+    position: { section: 'speed-line', row: 1, col: 1 }
   },
   {
     id: 'egg-white',
     name: 'Egg White',
     category: 'mixers',
     color: 'from-white to-gray-200',
-    position: { section: 'speed-line', row: 0, col: 3 }
+    position: { section: 'speed-line', row: 1, col: 2 }
   },
   {
-    id: 'passion-fruit-puree',
-    name: 'Passion Fruit Purée',
+    id: 'passion-f-puree',
+    name: 'Passion F. Purée',
     category: 'mixers',
     color: 'from-yellow-300 to-yellow-500',
-    position: { section: 'speed-line', row: 0, col: 4 }
+    position: { section: 'speed-line', row: 1, col: 3 }
   },
   {
     id: 'espresso',
     name: 'Espresso',
     category: 'mixers',
     color: 'from-brown-400 to-brown-600',
-    position: { section: 'speed-line', row: 0, col: 5 }
+    position: { section: 'speed-line', row: 1, col: 4 }
   },
   {
     id: 'coconut-cream',
     name: 'Coconut Cream',
     category: 'mixers',
     color: 'from-gray-200 to-gray-400',
-    position: { section: 'speed-line', row: 0, col: 6 }
+    position: { section: 'speed-line', row: 1, col: 5 }
   },
   {
     id: 'peach-puree',
     name: 'Peach Purée',
     category: 'mixers',
     color: 'from-orange-300 to-orange-500',
-    position: { section: 'speed-line', row: 0, col: 7 }
+    position: { section: 'speed-line', row: 1, col: 6 }
   },
-
-  // Speed Line - Row 1
   {
     id: 'triple-sec',
     name: 'Triple Sec',
     category: 'liqueurs',
     color: 'from-blue-200 to-blue-400',
-    position: { section: 'speed-line', row: 1, col: 0 }
+    position: { section: 'speed-line', row: 1, col: 7 }
   },
   {
     id: 'bourbon',
     name: 'Bourbon',
     category: 'spirits',
     color: 'from-amber-400 to-amber-600',
-    position: { section: 'speed-line', row: 1, col: 1 }
+    position: { section: 'speed-line', row: 1, col: 8 }
   },
   {
     id: 'tequila',
     name: 'Tequila',
     category: 'spirits',
     color: 'from-gray-300 to-gray-500',
-    position: { section: 'speed-line', row: 1, col: 2 }
+    position: { section: 'speed-line', row: 1, col: 9 }
   },
   {
     id: 'light-rum',
     name: 'Light Rum',
     category: 'spirits',
     color: 'from-gray-200 to-gray-400',
-    position: { section: 'speed-line', row: 1, col: 3 }
+    position: { section: 'speed-line', row: 1, col: 10 }
   },
   {
     id: 'gin',
     name: 'Gin',
     category: 'spirits',
     color: 'from-green-200 to-green-400',
-    position: { section: 'speed-line', row: 1, col: 4 }
+    position: { section: 'speed-line', row: 1, col: 11 }
   },
   {
     id: 'vodka',
     name: 'Vodka',
     category: 'spirits',
     color: 'from-blue-200 to-blue-400',
-    position: { section: 'speed-line', row: 1, col: 5 }
+    position: { section: 'speed-line', row: 1, col: 12 }
   },
 
   // Mixers
@@ -353,13 +444,6 @@ export const ingredients: Ingredient[] = [
     name: 'Ginger Ale',
     category: 'mixers',
     color: 'from-green-200 to-green-400',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'grenadine',
-    name: 'Grenadine',
-    category: 'mixers',
-    color: 'from-red-300 to-red-500',
     position: { section: 'mixers' }
   },
   {

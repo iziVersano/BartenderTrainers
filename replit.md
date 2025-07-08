@@ -110,6 +110,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Updated Speed Line with comprehensive 2-row layout
+  - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
+  - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  
+  - Removed duplicate ingredients from Mixers section
+  - Updated UI styling with improved text wrapping and spacing
+  - Dynamic grid layout adapts to row content length
+
 - July 08, 2025: Updated Bar Station to match official European Bartender School (EBS) layout
   - Replaced back bar ingredients with authentic EBS 3-row layout
   - Row 0: Base spirits (Citron Vodka, Hendrick's, Patron Silver, etc.)

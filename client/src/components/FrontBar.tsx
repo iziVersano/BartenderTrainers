@@ -29,9 +29,9 @@ export default function FrontBar() {
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm h-12 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-2 text-center",
+                    "bottle-item bg-gradient-to-b rounded-sm min-h-12 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words px-1 py-2",
                     ingredient.color,
-                    ingredient.id === 'egg-white' ? "text-gray-800" : "text-gray-800"
+                    ingredient.id === 'egg-white' || ingredient.id === 'milk' ? "text-gray-800" : "text-gray-800"
                   )}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
