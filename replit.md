@@ -192,6 +192,14 @@ Preferred communication style: Simple, everyday language.
   - Enhanced button heights and spacing for better touch targets on mobile devices
   - Updated custom Tailwind width classes (7/10, 3/10) for precise layout control
 
+- July 08, 2025: Fixed button text overflow issues across all bar sections
+  - Implemented proper text wrapping with white-space: normal and word-wrap: break-word
+  - Added dynamic text sizing based on ingredient name length (smaller for >15 characters)
+  - Applied consistent 4px 6px padding and line-height: 1.2 for better text display
+  - Changed button heights to min-height for flexible vertical expansion
+  - Added CSS styling for overflow-wrap and hyphens for better text breaking
+  - Fixed display issues for long names like "White Crème de Cacao" and "Grant's Scotch Whisky"
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  

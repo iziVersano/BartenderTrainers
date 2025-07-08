@@ -29,13 +29,22 @@ export default function FrontBar() {
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words px-2 py-2",
+                    "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                     ingredient.color,
-                    ingredient.id === 'egg-white' || ingredient.id === 'milk' ? "text-gray-800" : "text-gray-800"
+                    ingredient.id === 'egg-white' || ingredient.id === 'milk' ? "text-gray-800" : "text-gray-800",
+                    // Dynamic text sizing based on name length
+                    ingredient.name.length > 15 ? "text-xs" : "text-sm"
                   )}
+                  style={{
+                    padding: '4px 6px',
+                    whiteSpace: 'normal',
+                    wordWrap: 'break-word',
+                    textAlign: 'center',
+                    lineHeight: '1.2'
+                  }}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
-                  <span className="leading-tight whitespace-normal text-center break-words">{ingredient.name}</span>
+                  <span className="leading-tight">{ingredient.name}</span>
                 </div>
               ))}
             </div>
@@ -53,13 +62,22 @@ export default function FrontBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                   ingredient.color,
-                  "text-gray-800"
+                  "text-gray-800",
+                  // Dynamic text sizing based on name length
+                  ingredient.name.length > 15 ? "text-xs" : "text-sm"
                 )}
+                style={{
+                  padding: '4px 6px',
+                  whiteSpace: 'normal',
+                  wordWrap: 'break-word',
+                  textAlign: 'center',
+                  lineHeight: '1.2'
+                }}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                <span className="leading-tight whitespace-normal break-words">{ingredient.name}</span>
+                <span className="leading-tight">{ingredient.name}</span>
               </div>
             ))}
           </div>
@@ -73,13 +91,22 @@ export default function FrontBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                   ingredient.color,
-                  "text-white"
+                  "text-white",
+                  // Dynamic text sizing based on name length
+                  ingredient.name.length > 15 ? "text-xs" : "text-sm"
                 )}
+                style={{
+                  padding: '4px 6px',
+                  whiteSpace: 'normal',
+                  wordWrap: 'break-word',
+                  textAlign: 'center',
+                  lineHeight: '1.2'
+                }}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                <span className="leading-tight whitespace-normal break-words">{ingredient.name}</span>
+                <span className="leading-tight">{ingredient.name}</span>
               </div>
             ))}
           </div>

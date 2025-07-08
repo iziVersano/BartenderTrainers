@@ -26,16 +26,25 @@ export default function BackBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm h-12 lg:h-14 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-2 text-center",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                   ingredient.color,
                   // Better text color logic based on ingredient category
                   ingredient.category === 'bitters' ? "text-white" : 
                   ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-800" : 
-                  rowIndex <= 1 ? "text-gray-800" : "text-white"
+                  rowIndex <= 1 ? "text-gray-800" : "text-white",
+                  // Dynamic text sizing based on name length
+                  ingredient.name.length > 15 ? "text-xs" : "text-sm"
                 )}
+                style={{
+                  padding: '4px 6px',
+                  whiteSpace: 'normal',
+                  wordWrap: 'break-word',
+                  textAlign: 'center',
+                  lineHeight: '1.2'
+                }}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                <span className="leading-tight whitespace-normal text-center break-words">
+                <span className="leading-tight">
                   {ingredient.name}
                 </span>
               </div>

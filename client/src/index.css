@@ -135,3 +135,27 @@
 .to-brown-400 { --tw-gradient-to: #a16207; }
 .from-brown-400 { --tw-gradient-from: #a16207; }
 .to-brown-600 { --tw-gradient-to: #78350f; }
+
+/* Custom styling for bottle items - improved text wrapping */
+.bottle-item {
+  @apply transition-all duration-200 ease-in-out;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+}
+
+.bottle-item:hover {
+  @apply scale-105 shadow-lg;
+}
+
+/* Additional text wrapping for long ingredient names */
+.bottle-item span {
+  display: block;
+  white-space: normal;
+  word-wrap: break-word;
+  text-align: center;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
