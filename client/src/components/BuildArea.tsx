@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback } from '@/store/gameSlice';
+import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
+import { getRandomCocktailExcluding } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Check, Trash2, X } from 'lucide-react';
@@ -39,6 +40,12 @@ export default function BuildArea() {
         isCorrect: true,
         message: `Perfect! You've selected all the correct ingredients for a ${currentCocktail.name}.`
       }));
+      
+      // Automatically load next cocktail after successful submission
+      setTimeout(() => {
+        const nextCocktail = getRandomCocktailExcluding(currentCocktail.id);
+        dispatch(loadNextCocktail(nextCocktail));
+      }, 2000); // 2 second delay to show success message
     } else {
       let message = 'Not quite right. ';
       if (!hasAllRequired) {

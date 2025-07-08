@@ -25,3 +25,9 @@ export const getRandomCocktail = (): Cocktail => {
   const randomIndex = Math.floor(Math.random() * cocktails.length);
   return cocktails[randomIndex];
 };
+
+export const getRandomCocktailExcluding = (excludeId?: string): Cocktail => {
+  const availableCocktails = excludeId ? cocktails.filter(cocktail => cocktail.id !== excludeId) : cocktails;
+  const randomIndex = Math.floor(Math.random() * availableCocktails.length);
+  return availableCocktails[randomIndex];
+};
