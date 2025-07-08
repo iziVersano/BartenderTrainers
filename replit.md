@@ -220,6 +220,13 @@ Preferred communication style: Simple, everyday language.
   - Positioned in top-right corner of BuildArea header for easy access
   - Users can now skip difficult cocktails and continue practicing with others
 
+- July 08, 2025: Enhanced ingredient matching for better user experience
+  - Improved isMatch function to handle spacing variations (e.g., "Passionfruit" vs "Passion fruit")
+  - Added normalization that removes spaces and converts to lowercase
+  - Added specific variation mappings for common ingredient name differences
+  - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
+  - More forgiving validation system reduces false negatives in cocktail submissions
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  

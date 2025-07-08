@@ -32,9 +32,33 @@ export default function BuildArea() {
 
   // Flexible ingredient matching function
   const isMatch = (expected: string, selected: string): boolean => {
-    const a = expected.toLowerCase();
-    const b = selected.toLowerCase();
-    return a.includes(b) || b.includes(a);
+    const normalize = (str: string) => str.toLowerCase().trim().replace(/\s+/g, '');
+    const a = normalize(expected);
+    const b = normalize(selected);
+    
+    // Direct match after normalization (handles spacing issues)
+    if (a.includes(b) || b.includes(a)) {
+      return true;
+    }
+    
+    // Handle specific variations
+    const variations = [
+      ['passionfruit', 'passionfruit'],
+      ['passion fruit', 'passionfruit'],
+      ['peach puree', 'peach purée'],
+      ['peach purée', 'peach puree']
+    ];
+    
+    for (const [variant1, variant2] of variations) {
+      const norm1 = normalize(variant1);
+      const norm2 = normalize(variant2);
+      if ((a.includes(norm1) && b.includes(norm2)) ||
+          (a.includes(norm2) && b.includes(norm1))) {
+        return true;
+      }
+    }
+    
+    return false;
   };
 
   const handleSubmit = () => {
