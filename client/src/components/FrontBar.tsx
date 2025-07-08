@@ -22,7 +22,7 @@ export default function FrontBar() {
           {speedLineRows.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className="grid gap-2"
+              className="grid gap-2 mb-3"
               style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
             >
               {row.map((ingredient) => (
