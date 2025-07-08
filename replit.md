@@ -110,6 +110,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Enhanced ingredient matching with flexible fuzzy logic
+  - Replaced strict equality with inclusion-based matching using isMatch() function
+  - "Amaretto" now matches "Amaretto Liqueur" and vice versa
+  - Improved validation compares ingredient names instead of IDs
+  - Better error messages show actual ingredient names in feedback
+  - More forgiving system allows natural ingredient variations
+
 - July 08, 2025: Implemented automatic cocktail progression system
   - After successful cocktail submission, system automatically loads new random cocktail
   - 2-second delay shows success message before switching to next challenge

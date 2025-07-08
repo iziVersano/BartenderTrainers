@@ -25,14 +25,34 @@ export default function BuildArea() {
     dispatch(clearAllIngredients());
   };
 
+  // Flexible ingredient matching function
+  const isMatch = (expected: string, selected: string): boolean => {
+    const a = expected.toLowerCase();
+    const b = selected.toLowerCase();
+    return a.includes(b) || b.includes(a);
+  };
+
   const handleSubmit = () => {
     if (!currentCocktail) return;
 
-    const requiredIngredients = currentCocktail.ingredients.map(ing => ing.ingredientId);
-    const selectedIngredientIds = selectedIngredients.map(ing => ing.ingredientId);
+    const requiredIngredients = currentCocktail.ingredients.map(ing => {
+      const ingredient = getIngredientById(ing.ingredientId);
+      return ingredient ? ingredient.name : ing.ingredientId;
+    });
+    
+    const selectedIngredientNames = selectedIngredients.map(ing => {
+      const ingredient = getIngredientById(ing.ingredientId);
+      return ingredient ? ingredient.name : ing.ingredientId;
+    });
 
-    const hasAllRequired = requiredIngredients.every(id => selectedIngredientIds.includes(id));
-    const hasOnlyRequired = selectedIngredientIds.every(id => requiredIngredients.includes(id));
+    const hasAllRequired = requiredIngredients.every(required => 
+      selectedIngredientNames.some(selected => isMatch(required, selected))
+    );
+    
+    const hasOnlyRequired = selectedIngredientNames.every(selected => 
+      requiredIngredients.some(required => isMatch(required, selected))
+    );
+    
     const isCorrect = hasAllRequired && hasOnlyRequired;
 
     if (isCorrect) {
@@ -49,11 +69,15 @@ export default function BuildArea() {
     } else {
       let message = 'Not quite right. ';
       if (!hasAllRequired) {
-        const missing = requiredIngredients.filter(id => !selectedIngredientIds.includes(id));
+        const missing = requiredIngredients.filter(required => 
+          !selectedIngredientNames.some(selected => isMatch(required, selected))
+        );
         message += `Missing: ${missing.join(', ')}. `;
       }
       if (!hasOnlyRequired) {
-        const extra = selectedIngredientIds.filter(id => !requiredIngredients.includes(id));
+        const extra = selectedIngredientNames.filter(selected => 
+          !requiredIngredients.some(required => isMatch(required, selected))
+        );
         message += `Extra: ${extra.join(', ')}. `;
       }
       message += 'Try again!';
