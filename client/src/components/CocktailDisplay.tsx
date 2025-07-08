@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Eye } from 'lucide-react';
 import { METHOD_OPTIONS, GLASS_OPTIONS } from '@/types';
+import { getIngredientById } from '@/data/ingredients';
 
 export default function CocktailDisplay() {
   const dispatch = useDispatch();
@@ -22,11 +23,14 @@ export default function CocktailDisplay() {
             <div className="mt-2 p-3 bg-gray-50 rounded-md">
               <h3 className="font-medium text-gray-700 mb-2">Recipe:</h3>
               <ul className="text-sm text-gray-600 space-y-1">
-                {currentCocktail.ingredients.map((ingredient, index) => (
-                  <li key={index}>
-                    {ingredient.amount} {ingredient.unit} {ingredient.ingredientId.replace('-', ' ')}
-                  </li>
-                ))}
+                {currentCocktail.ingredients.map((ingredient, index) => {
+                  const ingredientData = getIngredientById(ingredient.ingredientId);
+                  return (
+                    <li key={index}>
+                      {ingredient.amount} {ingredient.unit} {ingredientData?.name || ingredient.ingredientId.replace('-', ' ')}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

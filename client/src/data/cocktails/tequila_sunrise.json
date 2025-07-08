@@ -3,19 +3,14 @@
   "name": "Tequila Sunrise",
   "ingredients": [
     {
-      "ingredientId": "tequila",
-      "amount": "2",
-      "unit": "oz"
+      "ingredientId": "patron-silver",
+      "amount": "50",
+      "unit": "ml"
     },
     {
       "ingredientId": "orange-juice",
-      "amount": "4",
-      "unit": "oz"
-    },
-    {
-      "ingredientId": "grenadine",
-      "amount": "0.5",
-      "unit": "oz"
+      "amount": "Fill",
+      "unit": "ml"
     }
   ],
   "method": "build",

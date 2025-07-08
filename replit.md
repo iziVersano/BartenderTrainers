@@ -108,7 +108,17 @@ The Bar Station Trainer is a full-stack cocktail training application that simul
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+- July 08, 2025: Updated Bar Station to match official European Bartender School (EBS) layout
+  - Replaced back bar ingredients with authentic EBS 3-row layout
+  - Row 0: Base spirits (Citron Vodka, Hendrick's, Patron Silver, etc.)
+  - Row 1: Liqueurs (Baileys, Amaretto, Coffee Liqueur, etc.)
+  - Row 2: Wines & Bitters (Aperol, Campari, Bénédictine DOM, etc.)
+  - Updated measurements from oz to ml (10ml-60ml, Fill, Splash, Dash, Sink)
+  - Fixed Back Bar text alignment and spacing
+  - Updated cocktail recipes to use new ingredient IDs and ml measurements
+
 ## Changelog
 
-Changelog:
-- July 08, 2025. Initial setup
+- July 08, 2025: Initial setup and EBS layout implementation

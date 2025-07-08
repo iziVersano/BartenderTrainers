@@ -3,24 +3,24 @@
   "name": "Woo Woo",
   "ingredients": [
     {
-      "ingredientId": "vodka",
-      "amount": "1",
-      "unit": "oz"
+      "ingredientId": "citron-vodka",
+      "amount": "30",
+      "unit": "ml"
     },
     {
-      "ingredientId": "peach-schnapps",
-      "amount": "1",
-      "unit": "oz"
+      "ingredientId": "peach-liqueur",
+      "amount": "30",
+      "unit": "ml"
     },
     {
       "ingredientId": "cranberry-juice",
-      "amount": "2",
-      "unit": "oz"
+      "amount": "60",
+      "unit": "ml"
     },
     {
       "ingredientId": "pineapple-juice",
-      "amount": "2",
-      "unit": "oz"
+      "amount": "60",
+      "unit": "ml"
     }
   ],
   "method": "build",

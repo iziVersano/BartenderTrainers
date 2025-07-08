@@ -17,7 +17,10 @@ export default function BackBar() {
       
       <div className="space-y-3">
         {backBarRows.map((row, rowIndex) => (
-          <div key={rowIndex} className="grid grid-cols-12 gap-2">
+          <div key={rowIndex} className={cn(
+            "grid gap-2",
+            rowIndex === 0 ? "grid-cols-10" : rowIndex === 1 ? "grid-cols-14" : "grid-cols-10"
+          )}>
             {row.map((ingredient) => (
               <div
                 key={ingredient.id}
