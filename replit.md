@@ -210,6 +210,15 @@ Preferred communication style: Simple, everyday language.
   - Added missing ingredients: Passionfruit Liqueur, Passion Fruit Purée, Vanilla Syrup, Brut Champagne, Peach Purée, Maraschino, Green Chartreuse, Cherry, Orange Zest
   - Expanded cocktail library to 19 total recipes for random selection
   - Cleaned up duplicate ingredient entries to fix React key warnings
+  - Fixed runtime error by correcting cocktail JSON structure to match schema
+
+- July 08, 2025: Added Skip Cocktail functionality for improved user experience
+  - Added "Skip Cocktail" button (⏭️) next to Clear All button in BuildArea
+  - Implemented skipCocktail Redux action to load new random cocktail
+  - Button clears current build area and loads completely new random cocktail
+  - Orange-themed styling to distinguish from other action buttons
+  - Side-by-side layout with Clear All button for better space usage
+  - Users can now skip difficult cocktails and continue practicing with others
 
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice

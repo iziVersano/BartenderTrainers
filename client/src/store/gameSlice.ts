@@ -76,6 +76,12 @@ const gameSlice = createSlice({
       state.showRecipe = false;
       state.feedback.visible = false;
     },
+    skipCocktail: (state, action: PayloadAction<Cocktail>) => {
+      state.currentCocktail = action.payload;
+      state.selectedIngredients = [];
+      state.showRecipe = false;
+      state.feedback.visible = false;
+    },
   },
 });
 
@@ -89,6 +95,7 @@ export const {
   setFeedback,
   clearFeedback,
   loadNextCocktail,
+  skipCocktail,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

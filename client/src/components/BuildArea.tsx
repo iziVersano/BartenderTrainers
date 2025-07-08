@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail } from '@/store/gameSlice';
+import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail, skipCocktail } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
-import { getRandomCocktailExcluding } from '@/data/cocktails';
+import { getRandomCocktailExcluding, getRandomCocktail } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Check, Trash2, X } from 'lucide-react';
+import { Check, Trash2, X, SkipForward } from 'lucide-react';
 import { AMOUNT_OPTIONS } from '@/types';
 import FeedbackArea from './FeedbackArea';
 
@@ -23,6 +23,11 @@ export default function BuildArea() {
 
   const handleClearAll = () => {
     dispatch(clearAllIngredients());
+  };
+
+  const handleSkipCocktail = () => {
+    const newCocktail = getRandomCocktail();
+    dispatch(skipCocktail(newCocktail));
   };
 
   // Flexible ingredient matching function
@@ -161,15 +166,25 @@ export default function BuildArea() {
             <Check className="w-4 h-4 mr-2" />
             Submit Cocktail
           </Button>
-          <Button 
-            variant="outline" 
-            className="w-full"
-            onClick={handleClearAll}
-            disabled={selectedIngredients.length === 0}
-          >
-            <Trash2 className="w-4 h-4 mr-2" />
-            Clear All
-          </Button>
+          <div className="flex gap-2">
+            <Button 
+              variant="outline" 
+              className="flex-1"
+              onClick={handleClearAll}
+              disabled={selectedIngredients.length === 0}
+            >
+              <Trash2 className="w-4 h-4 mr-2" />
+              Clear All
+            </Button>
+            <Button 
+              variant="outline" 
+              className="flex-1 bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
+              onClick={handleSkipCocktail}
+            >
+              <SkipForward className="w-4 h-4 mr-2" />
+              Skip Cocktail
+            </Button>
+          </div>
         </div>
 
         {/* Feedback Area */}
