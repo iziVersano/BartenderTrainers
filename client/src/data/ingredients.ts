@@ -245,51 +245,151 @@ export const ingredients: Ingredient[] = [
     position: { section: 'back-bar', row: 2, col: 9 }
   },
 
-  // Speed Line
+  // Speed Line - Row 0
+  {
+    id: 'muddler-barspoon',
+    name: 'Muddler & Barspoon',
+    category: 'mixers',
+    color: 'from-gray-300 to-gray-500',
+    position: { section: 'speed-line', row: 0, col: 0 }
+  },
+  {
+    id: 'mint-basil-leaves',
+    name: 'Mint / Basil Leaves',
+    category: 'garnishes',
+    color: 'from-green-300 to-green-500',
+    position: { section: 'speed-line', row: 0, col: 1 }
+  },
+  {
+    id: 'raspberry-puree',
+    name: 'Raspberry Purée',
+    category: 'mixers',
+    color: 'from-red-300 to-red-500',
+    position: { section: 'speed-line', row: 0, col: 2 }
+  },
+  {
+    id: 'egg-white',
+    name: 'Egg White',
+    category: 'mixers',
+    color: 'from-white to-gray-200',
+    position: { section: 'speed-line', row: 0, col: 3 }
+  },
+  {
+    id: 'passion-fruit-puree',
+    name: 'Passion Fruit Purée',
+    category: 'mixers',
+    color: 'from-yellow-300 to-yellow-500',
+    position: { section: 'speed-line', row: 0, col: 4 }
+  },
+  {
+    id: 'espresso',
+    name: 'Espresso',
+    category: 'mixers',
+    color: 'from-brown-400 to-brown-600',
+    position: { section: 'speed-line', row: 0, col: 5 }
+  },
+  {
+    id: 'coconut-cream',
+    name: 'Coconut Cream',
+    category: 'mixers',
+    color: 'from-gray-200 to-gray-400',
+    position: { section: 'speed-line', row: 0, col: 6 }
+  },
+  {
+    id: 'peach-puree',
+    name: 'Peach Purée',
+    category: 'mixers',
+    color: 'from-orange-300 to-orange-500',
+    position: { section: 'speed-line', row: 0, col: 7 }
+  },
+
+  // Speed Line - Row 1
+  {
+    id: 'triple-sec',
+    name: 'Triple Sec',
+    category: 'liqueurs',
+    color: 'from-blue-200 to-blue-400',
+    position: { section: 'speed-line', row: 1, col: 0 }
+  },
+  {
+    id: 'bourbon',
+    name: 'Bourbon',
+    category: 'spirits',
+    color: 'from-amber-400 to-amber-600',
+    position: { section: 'speed-line', row: 1, col: 1 }
+  },
+  {
+    id: 'tequila',
+    name: 'Tequila',
+    category: 'spirits',
+    color: 'from-gray-300 to-gray-500',
+    position: { section: 'speed-line', row: 1, col: 2 }
+  },
+  {
+    id: 'light-rum',
+    name: 'Light Rum',
+    category: 'spirits',
+    color: 'from-gray-200 to-gray-400',
+    position: { section: 'speed-line', row: 1, col: 3 }
+  },
+  {
+    id: 'gin',
+    name: 'Gin',
+    category: 'spirits',
+    color: 'from-green-200 to-green-400',
+    position: { section: 'speed-line', row: 1, col: 4 }
+  },
+  {
+    id: 'vodka',
+    name: 'Vodka',
+    category: 'spirits',
+    color: 'from-blue-200 to-blue-400',
+    position: { section: 'speed-line', row: 1, col: 5 }
+  },
+
+  // Mixers
   {
     id: 'orange-juice',
     name: 'Orange Juice',
     category: 'juices',
     color: 'from-orange-300 to-orange-500',
-    position: { section: 'speed-line' }
+    position: { section: 'mixers' }
   },
   {
     id: 'cranberry-juice',
     name: 'Cranberry Juice',
     category: 'juices',
     color: 'from-red-300 to-red-500',
-    position: { section: 'speed-line' }
+    position: { section: 'mixers' }
   },
   {
     id: 'pineapple-juice',
     name: 'Pineapple Juice',
     category: 'juices',
     color: 'from-yellow-300 to-yellow-500',
-    position: { section: 'speed-line' }
+    position: { section: 'mixers' }
   },
   {
     id: 'lime-juice',
     name: 'Lime Juice',
     category: 'juices',
     color: 'from-green-300 to-green-500',
-    position: { section: 'speed-line' }
+    position: { section: 'mixers' }
   },
   {
     id: 'lemon-juice',
     name: 'Lemon Juice',
     category: 'juices',
     color: 'from-yellow-400 to-yellow-600',
-    position: { section: 'speed-line' }
+    position: { section: 'mixers' }
   },
   {
     id: 'grapefruit-juice',
     name: 'Grapefruit Juice',
     category: 'juices',
     color: 'from-pink-300 to-pink-500',
-    position: { section: 'speed-line' }
+    position: { section: 'mixers' }
   },
-
-  // Mixers
   {
     id: 'soda-water',
     name: 'Soda Water',
@@ -392,6 +492,24 @@ export const getBackBarIngredients = (): Ingredient[][] => {
   const rows: Ingredient[][] = [[], [], []];
   
   backBarIngredients.forEach(ing => {
+    if (ing.position.row !== undefined) {
+      rows[ing.position.row].push(ing);
+    }
+  });
+  
+  // Sort each row by column
+  rows.forEach(row => {
+    row.sort((a, b) => (a.position.col || 0) - (b.position.col || 0));
+  });
+  
+  return rows;
+};
+
+export const getSpeedLineIngredients = (): Ingredient[][] => {
+  const speedLineIngredients = ingredients.filter(ing => ing.position.section === 'speed-line');
+  const rows: Ingredient[][] = [[], []];
+  
+  speedLineIngredients.forEach(ing => {
     if (ing.position.row !== undefined) {
       rows[ing.position.row].push(ing);
     }

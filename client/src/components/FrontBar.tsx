@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { addIngredient } from '@/store/gameSlice';
-import { getIngredientsBySection } from '@/data/ingredients';
+import { getSpeedLineIngredients, getIngredientsBySection } from '@/data/ingredients';
 import { cn } from '@/lib/utils';
 
 export default function FrontBar() {
   const dispatch = useDispatch();
-  const speedLineIngredients = getIngredientsBySection('speed-line');
+  const speedLineRows = getSpeedLineIngredients();
   const mixersIngredients = getIngredientsBySection('mixers');
   const garnishIngredients = getIngredientsBySection('garnish-tray');
 
@@ -18,17 +18,26 @@ export default function FrontBar() {
       {/* Speed Line */}
       <div className="bg-bar-surface rounded-lg p-4">
         <h4 className="text-white font-medium mb-3 text-center text-sm">SPEED LINE</h4>
-        <div className="grid grid-cols-3 gap-2">
-          {speedLineIngredients.map((ingredient) => (
+        <div className="space-y-2">
+          {speedLineRows.map((row, rowIndex) => (
             <div
-              key={ingredient.id}
-              className={cn(
-                "ingredient-item bg-gradient-to-b rounded-sm h-10 flex items-center justify-center text-xs font-medium text-gray-800 hover:shadow-lg transition-all cursor-pointer",
-                ingredient.color
-              )}
-              onClick={() => handleIngredientClick(ingredient.id)}
+              key={rowIndex}
+              className="grid gap-2"
+              style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
             >
-              {ingredient.name}
+              {row.map((ingredient) => (
+                <div
+                  key={ingredient.id}
+                  className={cn(
+                    "ingredient-item bg-gradient-to-b rounded-sm h-10 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-1 text-center",
+                    ingredient.color,
+                    ingredient.id === 'egg-white' ? "text-gray-800" : "text-gray-800"
+                  )}
+                  onClick={() => handleIngredientClick(ingredient.id)}
+                >
+                  <span className="leading-tight">{ingredient.name}</span>
+                </div>
+              ))}
             </div>
           ))}
         </div>

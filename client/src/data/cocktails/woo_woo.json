@@ -3,12 +3,12 @@
   "name": "Woo Woo",
   "ingredients": [
     {
-      "ingredientId": "citron-vodka",
+      "ingredientId": "vodka",
       "amount": "30",
       "unit": "ml"
     },
     {
-      "ingredientId": "peach-liqueur",
+      "ingredientId": "triple-sec",
       "amount": "30",
       "unit": "ml"
     },

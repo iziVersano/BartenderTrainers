@@ -3,7 +3,7 @@
   "name": "Tequila Sunrise",
   "ingredients": [
     {
-      "ingredientId": "patron-silver",
+      "ingredientId": "tequila",
       "amount": "50",
       "unit": "ml"
     },
