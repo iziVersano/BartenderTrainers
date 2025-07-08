@@ -13,17 +13,18 @@ export interface BarSection {
 }
 
 export const AMOUNT_OPTIONS = [
-  '0.5 oz',
-  '1 oz',
-  '1.5 oz',
-  '2 oz',
-  '3 oz',
-  '4 oz',
-  '6 oz',
+  '10 ml',
+  '15 ml',
+  '20 ml',
+  '30 ml',
+  '40 ml',
+  '50 ml',
+  '60 ml',
+  'Fill',
+  'Fill equal parts',
   'Splash',
   'Dash',
-  'Top off',
-  'Rim'
+  'Sink'
 ];
 
 export const METHOD_OPTIONS = [

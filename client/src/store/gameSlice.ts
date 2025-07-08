@@ -39,7 +39,7 @@ const gameSlice = createSlice({
       if (!exists) {
         state.selectedIngredients.push({
           ingredientId,
-          amount: '1 oz', // default amount
+          amount: '30 ml', // default amount
         });
       }
     },

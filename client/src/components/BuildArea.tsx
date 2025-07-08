@@ -92,7 +92,7 @@ export default function BuildArea() {
                           value={selectedIngredient.amount} 
                           onValueChange={(value) => handleAmountChange(selectedIngredient.ingredientId, value)}
                         >
-                          <SelectTrigger className="w-20">
+                          <SelectTrigger className="w-32">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>

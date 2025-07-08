@@ -22,13 +22,13 @@ export default function BackBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm h-12 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer",
+                  "bottle-item bg-gradient-to-b rounded-sm h-12 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-1 text-center",
                   ingredient.color,
                   rowIndex <= 1 ? "text-gray-800" : "text-white"
                 )}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                {ingredient.name}
+                <span className="leading-tight">{ingredient.name}</span>
               </div>
             ))}
           </div>
