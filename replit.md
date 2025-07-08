@@ -110,6 +110,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Added 5 new cocktail recipes for student practice
+  - Gin & Tonic (Gin + Tonic Water + Lime Wedges)
+  - Spirit & Mixer (Vodka + Tonic Water + Garnish options)
+  - Cuba Libre (Light Rum + Fresh Lime Juice + Cola + Lime Wedges)
+  - Rusty Nail (Grant's Scotch Whisky + Drambuie + Lemon Zest)
+  - Godfather (Grant's Scotch Whisky + Amaretto)
+  - Added missing ingredients: Grant's Scotch Whisky, Drambuie, Cola
+  - Updated cocktail loader to include all 7 recipes for random selection
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  

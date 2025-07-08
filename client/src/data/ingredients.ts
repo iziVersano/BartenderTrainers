@@ -244,6 +244,20 @@ export const ingredients: Ingredient[] = [
     color: 'from-amber-200 to-amber-400',
     position: { section: 'back-bar', row: 2, col: 9 }
   },
+  {
+    id: 'grants-scotch-whisky',
+    name: 'Grant\'s Scotch Whisky',
+    category: 'spirits',
+    color: 'from-amber-500 to-amber-700',
+    position: { section: 'back-bar', row: 0, col: 10 }
+  },
+  {
+    id: 'drambuie',
+    name: 'Drambuie',
+    category: 'liqueurs',
+    color: 'from-yellow-400 to-yellow-600',
+    position: { section: 'back-bar', row: 1, col: 10 }
+  },
 
   // Speed Line - Row 0
   {
@@ -465,6 +479,13 @@ export const ingredients: Ingredient[] = [
     name: 'Lemonade',
     category: 'mixers',
     color: 'from-yellow-300 to-yellow-500',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'cola',
+    name: 'Cola',
+    category: 'mixers',
+    color: 'from-brown-200 to-brown-400',
     position: { section: 'mixers' }
   },
 

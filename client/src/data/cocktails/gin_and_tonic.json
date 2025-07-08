@@ -1,0 +1,13 @@
+{
+  "id": "gin_and_tonic",
+  "name": "Gin & Tonic",
+  "glass": "highball",
+  "ice": "cubed",
+  "method": "build",
+  "ingredients": [
+    { "ingredientId": "gin", "amount": "40", "unit": "ml" },
+    { "ingredientId": "tonic-water", "amount": "Fill", "unit": "" }
+  ],
+  "garnish": "Lime Wedges",
+  "optional": "Replace Gin with Vodka"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "rusty_nail",
+  "name": "Rusty Nail",
+  "glass": "rocks",
+  "ice": "cubed",
+  "method": "build",
+  "ingredients": [
+    { "ingredientId": "grants-scotch-whisky", "amount": "30", "unit": "ml" },
+    { "ingredientId": "drambuie", "amount": "30", "unit": "ml" }
+  ],
+  "garnish": "Lemon Zest",
+  "optional": null
+}
