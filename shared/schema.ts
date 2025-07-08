@@ -17,7 +17,7 @@ export const ingredientSchema = z.object({
 export const cocktailIngredientSchema = z.object({
   ingredientId: z.string(),
   amount: z.string(),
-  unit: z.enum(["oz", "ml", "dash", "splash", "top", "rim"])
+  unit: z.string() // Allow any unit string for flexibility
 });
 
 // Cocktail schema
@@ -25,8 +25,9 @@ export const cocktailSchema = z.object({
   id: z.string(),
   name: z.string(),
   ingredients: z.array(cocktailIngredientSchema),
-  method: z.enum(["build", "shake", "stir", "blend", "layer"]),
-  glass: z.enum(["highball", "rocks", "martini", "shot", "coupe", "flute", "wine"]),
+  method: z.string(), // Allow any method string for flexibility
+  glass: z.string(), // Allow any glass string for flexibility
+  ice: z.string().optional(), // Add ice field
   garnish: z.string().optional(),
   description: z.string().optional()
 });

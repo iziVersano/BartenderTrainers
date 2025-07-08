@@ -21,17 +21,42 @@ export default function CocktailDisplay() {
           <p className="text-sm text-gray-600">Build this cocktail using the station below</p>
           {showRecipe && (
             <div className="mt-2 p-3 bg-gray-50 rounded-md">
-              <h3 className="font-medium text-gray-700 mb-2">Recipe:</h3>
-              <ul className="text-sm text-gray-600 space-y-1">
-                {currentCocktail.ingredients.map((ingredient, index) => {
-                  const ingredientData = getIngredientById(ingredient.ingredientId);
-                  return (
-                    <li key={index}>
-                      {ingredient.amount} {ingredient.unit} {ingredientData?.name || ingredient.ingredientId.replace('-', ' ')}
-                    </li>
-                  );
-                })}
-              </ul>
+              <h3 className="font-medium text-gray-700 mb-3">Recipe:</h3>
+              
+              {/* Recipe Parameters */}
+              <div className="grid grid-cols-2 gap-3 mb-3 text-sm">
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🥃</span>
+                  <span className="text-gray-600"><strong>Glass:</strong> {currentCocktail.glass}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">❄️</span>
+                  <span className="text-gray-600"><strong>Ice:</strong> {currentCocktail.ice || 'Cubed'}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🍸</span>
+                  <span className="text-gray-600"><strong>Method:</strong> {currentCocktail.method}</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-lg">🍋</span>
+                  <span className="text-gray-600"><strong>Garnish:</strong> {currentCocktail.garnish}</span>
+                </div>
+              </div>
+
+              {/* Ingredients List */}
+              <div className="border-t pt-3">
+                <h4 className="font-medium text-gray-700 mb-2">Ingredients:</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  {currentCocktail.ingredients.map((ingredient, index) => {
+                    const ingredientData = getIngredientById(ingredient.ingredientId);
+                    return (
+                      <li key={index}>
+                        {ingredient.amount} {ingredient.unit} {ingredientData?.name || ingredient.ingredientId.replace('-', ' ')}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           )}
         </div>

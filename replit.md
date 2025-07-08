@@ -110,6 +110,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 08, 2025: Enhanced cocktail recipe display with complete parameters
+  - Added glass type display with 🥃 icon (Highball, Rocks, etc.)
+  - Added ice specification with ❄️ icon (Cubed or specified type)
+  - Added method display with 🍸 icon (Build, Shake, Build & Sink, etc.)
+  - Added garnish display with 🍋 icon (Lime Wedge, None, etc.)
+  - Updated schema to include ice field and flexible string types
+  - Organized recipe display with visual grid layout and ingredient section
+
 - July 08, 2025: Updated cocktail recipes to official EBS specifications
   - Woo Woo: Vodka 40ml, Peach Liqueur 20ml, Cranberry Juice (Fill)
   - Tequila Sunrise: Tequila 40ml, Orange Juice (Fill), Grenadine 10ml (Sink)
