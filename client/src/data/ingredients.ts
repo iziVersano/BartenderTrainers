@@ -349,45 +349,17 @@ export const ingredients: Ingredient[] = [
 
   // Mixers
   {
-    id: 'orange-juice',
-    name: 'Orange Juice',
-    category: 'juices',
-    color: 'from-orange-300 to-orange-500',
+    id: 'ginger-ale',
+    name: 'Ginger Ale',
+    category: 'mixers',
+    color: 'from-green-200 to-green-400',
     position: { section: 'mixers' }
   },
   {
-    id: 'cranberry-juice',
-    name: 'Cranberry Juice',
-    category: 'juices',
+    id: 'grenadine',
+    name: 'Grenadine',
+    category: 'mixers',
     color: 'from-red-300 to-red-500',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'pineapple-juice',
-    name: 'Pineapple Juice',
-    category: 'juices',
-    color: 'from-yellow-300 to-yellow-500',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'lime-juice',
-    name: 'Lime Juice',
-    category: 'juices',
-    color: 'from-green-300 to-green-500',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'lemon-juice',
-    name: 'Lemon Juice',
-    category: 'juices',
-    color: 'from-yellow-400 to-yellow-600',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'grapefruit-juice',
-    name: 'Grapefruit Juice',
-    category: 'juices',
-    color: 'from-pink-300 to-pink-500',
     position: { section: 'mixers' }
   },
   {
@@ -405,75 +377,47 @@ export const ingredients: Ingredient[] = [
     position: { section: 'mixers' }
   },
   {
-    id: 'cola',
-    name: 'Cola',
+    id: 'lemonade',
+    name: 'Lemonade',
     category: 'mixers',
-    color: 'from-brown-200 to-brown-400',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'ginger-beer',
-    name: 'Ginger Beer',
-    category: 'mixers',
-    color: 'from-green-200 to-green-400',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'energy-drink',
-    name: 'Energy Drink',
-    category: 'mixers',
-    color: 'from-purple-200 to-purple-400',
-    position: { section: 'mixers' }
-  },
-  {
-    id: 'milk',
-    name: 'Milk',
-    category: 'mixers',
-    color: 'from-gray-200 to-gray-400',
+    color: 'from-yellow-300 to-yellow-500',
     position: { section: 'mixers' }
   },
 
   // Garnish Tray
   {
-    id: 'lime-wheel',
-    name: 'Lime Wheel',
+    id: 'lime-wedges',
+    name: 'Lime Wedges',
     category: 'garnishes',
     color: 'from-green-400 to-green-600',
     position: { section: 'garnish-tray' }
   },
   {
-    id: 'lemon-wheel',
-    name: 'Lemon Wheel',
+    id: 'lemon-wedges',
+    name: 'Lemon Wedges',
     category: 'garnishes',
     color: 'from-yellow-400 to-yellow-600',
     position: { section: 'garnish-tray' }
   },
   {
-    id: 'cherry',
-    name: 'Cherry',
-    category: 'garnishes',
-    color: 'from-red-400 to-red-600',
-    position: { section: 'garnish-tray' }
-  },
-  {
-    id: 'olives',
-    name: 'Olives',
-    category: 'garnishes',
-    color: 'from-green-500 to-green-700',
-    position: { section: 'garnish-tray' }
-  },
-  {
-    id: 'orange-peel',
-    name: 'Orange Peel',
+    id: 'zests-orange-grapefruit',
+    name: 'Zests: Orange & Grapefruit Slice',
     category: 'garnishes',
     color: 'from-orange-400 to-orange-600',
     position: { section: 'garnish-tray' }
   },
   {
-    id: 'salt-rim',
-    name: 'Salt Rim',
+    id: 'pineapple-passion-fruit',
+    name: 'Pineapple Wedges & Passion Fruit',
     category: 'garnishes',
-    color: 'from-white to-gray-200',
+    color: 'from-yellow-400 to-yellow-600',
+    position: { section: 'garnish-tray' }
+  },
+  {
+    id: 'raspberries-olives-cherries',
+    name: 'Raspberries, Olives & Cherries',
+    category: 'garnishes',
+    color: 'from-red-400 to-red-600',
     position: { section: 'garnish-tray' }
   }
 ];

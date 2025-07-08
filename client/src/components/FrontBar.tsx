@@ -53,7 +53,7 @@ export default function FrontBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm h-10 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-1 text-center",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
                   ingredient.color,
                   "text-gray-800"
                 )}
@@ -73,9 +73,9 @@ export default function FrontBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm h-10 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer px-1 text-center",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 px-2 py-1 flex items-center justify-center text-xs font-medium hover:shadow-lg transition-all cursor-pointer text-center break-words",
                   ingredient.color,
-                  ingredient.id === 'salt-rim' ? 'text-gray-800' : 'text-white'
+                  "text-white"
                 )}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
