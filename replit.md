@@ -228,7 +228,7 @@ Preferred communication style: Simple, everyday language.
   - More forgiving validation system reduces false negatives in cocktail submissions
 
 - July 09, 2025: Added 6 new cocktail recipes expanding the training library
-  - El Diablo (Tequila + Crème de Cassis + Ginger Beer)
+  - El Diablo (Tequila + Crème de Cassis + Fresh Lime Juice + Ginger Beer)
   - Sex on the Beach (Peach Liqueur + Vodka + Cranberry + Orange Juice)
   - Cosmopolitan (Citron Vodka + Triple Sec + Lime Juice + Cranberry Juice)
   - Daiquiri (Light Rum + Lime Juice + Sugar Syrup)
@@ -237,6 +237,7 @@ Preferred communication style: Simple, everyday language.
   - Added missing ingredients: Ginger Beer, Sprite/Lemonade, Raspberry garnish
   - Expanded cocktail library from 19 to 25 total recipes for random selection
   - All cocktails follow proper EBS specifications with correct measurements and methods
+  - Fixed El Diablo recipe to include missing Fresh Lime Juice (20ml)
 
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
