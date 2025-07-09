@@ -627,6 +627,78 @@ export const ingredients: Ingredient[] = [
     category: 'garnishes',
     color: 'from-red-400 to-red-600',
     position: { section: 'garnish-tray' }
+  },
+
+  // Missing ingredients for new cocktails
+  {
+    id: 'dark-rum',
+    name: 'Dark Rum',
+    category: 'spirits',
+    color: 'from-amber-700 to-amber-900',
+    position: { section: 'back-bar', row: 0, col: 11 }
+  },
+  {
+    id: 'worcestershire-sauce',
+    name: 'Worcestershire Sauce',
+    category: 'condiments',
+    color: 'from-amber-500 to-amber-700',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'tabasco',
+    name: 'Tabasco',
+    category: 'condiments',
+    color: 'from-red-600 to-red-800',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'black-pepper',
+    name: 'Black Pepper',
+    category: 'condiments',
+    color: 'from-gray-700 to-gray-900',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'celery-salt',
+    name: 'Celery Salt',
+    category: 'condiments',
+    color: 'from-green-600 to-green-800',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'tomato-juice',
+    name: 'Tomato Juice',
+    category: 'juices',
+    color: 'from-red-400 to-red-600',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'celery-stick',
+    name: 'Celery Stick',
+    category: 'garnishes',
+    color: 'from-green-400 to-green-600',
+    position: { section: 'garnish-tray' }
+  },
+  {
+    id: 'sweet-vermouth',
+    name: 'Sweet Vermouth',
+    category: 'liqueurs',
+    color: 'from-red-500 to-red-700',
+    position: { section: 'back-bar', row: 2, col: 11 }
+  },
+  {
+    id: 'orange-slice',
+    name: 'Orange Slice',
+    category: 'garnishes',
+    color: 'from-orange-400 to-orange-600',
+    position: { section: 'garnish-tray' }
+  },
+  {
+    id: 'lemon-zest',
+    name: 'Lemon Zest',
+    category: 'garnishes',
+    color: 'from-yellow-400 to-yellow-600',
+    position: { section: 'garnish-tray' }
   }
 ];
 

@@ -244,6 +244,17 @@ Preferred communication style: Simple, everyday language.
   - Enhanced responsive design with proper width distribution
   - Bar stations now have full height and more space for ingredient rows
 
+- July 09, 2025: Added 6 additional cocktail recipes expanding the training library to 31 total
+  - Dark & Stormy (Fresh Lime Juice + Ginger Beer + Dark Rum Float)
+  - Hemingway Daiquiri (Light Rum + Maraschino + Fresh Lime Juice + Grapefruit Juice)
+  - White Lady (Gin + Triple Sec + Fresh Lemon Juice + Sugar Syrup)
+  - Bloody Mary (Vodka + Lemon Juice + Bloody Mary Pre-Mix + Worcestershire + Tabasco + Black Pepper + Celery Salt + Tomato Juice)
+  - Negroni (Gin + Sweet Vermouth + Campari)
+  - Boulevardier (Bourbon + Sweet Vermouth + Campari)
+  - Added missing ingredients: Dark Rum, Worcestershire Sauce, Tabasco, Black Pepper, Celery Salt, Tomato Juice, Celery Stick, Sweet Vermouth, Orange Slice, Lemon Zest
+  - All cocktails follow proper EBS specifications with correct measurements and methods
+  - Expanded cocktail library from 25 to 31 total recipes for random selection
+
 - July 09, 2025: Added 6 new cocktail recipes expanding the training library
   - El Diablo (Tequila + Crème de Cassis + Fresh Lime Juice + Ginger Ale)
   - Sex on the Beach (Peach Liqueur + Vodka + Cranberry + Orange Juice)

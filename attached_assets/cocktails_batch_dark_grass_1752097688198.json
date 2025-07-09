@@ -1,0 +1,157 @@
+[
+    {
+        "name": "Dark & Stormy",
+        "method": "Build & Float",
+        "glass": "Highball",
+        "ice": "Cubed",
+        "ingredients": [
+            {
+                "ingredient": "Fresh Lime Juice",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Ginger Beer",
+                "amount": "Fill"
+            },
+            {
+                "ingredient": "Dark Rum (Float)",
+                "amount": "40 ml"
+            }
+        ],
+        "garnish": "Lime Wedge",
+        "optional": "Use Goslings Black Rum for original recipe. Fidel Castro: Build and fill with Ginger Ale"
+    },
+    {
+        "name": "Hemingway Daiquiri",
+        "method": "Shake & Fine Strain",
+        "glass": "Chilled Martini / Coupe",
+        "ice": "None",
+        "ingredients": [
+            {
+                "ingredient": "Light Rum",
+                "amount": "50 ml"
+            },
+            {
+                "ingredient": "Maraschino",
+                "amount": "10 ml"
+            },
+            {
+                "ingredient": "Fresh Lime Juice",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Grapefruit Juice",
+                "amount": "20 ml"
+            }
+        ],
+        "garnish": "1 Cherry",
+        "optional": "On the Rocks: served in a rocks glass with cubed ice"
+    },
+    {
+        "name": "White Lady",
+        "method": "Shake & Fine Strain",
+        "glass": "Chilled Martini / Coupe",
+        "ice": "None",
+        "ingredients": [
+            {
+                "ingredient": "Gin",
+                "amount": "40 ml"
+            },
+            {
+                "ingredient": "Triple Sec",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Fresh Lemon Juice",
+                "amount": "30 ml"
+            },
+            {
+                "ingredient": "Sugar Syrup",
+                "amount": "10 ml"
+            }
+        ],
+        "garnish": "Lemon Zest",
+        "optional": "Pink Lady: Add 1 dash of Grenadine"
+    },
+    {
+        "name": "Bloody Mary",
+        "method": "Build",
+        "glass": "Highball",
+        "ice": "Cubed",
+        "ingredients": [
+            {
+                "ingredient": "Fresh Lemon Juice",
+                "amount": "10 ml"
+            },
+            {
+                "ingredient": "Bloody Mary Pre-Mix",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Worcestershire Sauce",
+                "amount": "3 Dashes"
+            },
+            {
+                "ingredient": "Tabasco",
+                "amount": "3 Dashes"
+            },
+            {
+                "ingredient": "Black Pepper",
+                "amount": "3 Grinds"
+            },
+            {
+                "ingredient": "Celery Salt",
+                "amount": "1 Pinch"
+            },
+            {
+                "ingredient": "Tomato Juice",
+                "amount": "Fill"
+            }
+        ],
+        "garnish": "Celery Stick",
+        "optional": "Red Snapper: Replace Vodka with Gin"
+    },
+    {
+        "name": "Negroni",
+        "method": "Stir & Julep Strain",
+        "glass": "Rocks",
+        "ice": "Cubed",
+        "ingredients": [
+            {
+                "ingredient": "Sweet Vermouth",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Gin",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Campari",
+                "amount": "20 ml"
+            }
+        ],
+        "garnish": "Orange Zest or Orange Slice",
+        "optional": "Negroni Sbagliato: Replace Gin with Prosecco"
+    },
+    {
+        "name": "Boulevardier",
+        "method": "Stir & Julep Strain",
+        "glass": "Rocks",
+        "ice": "Cubed",
+        "ingredients": [
+            {
+                "ingredient": "Sweet Vermouth",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Campari",
+                "amount": "20 ml"
+            },
+            {
+                "ingredient": "Bourbon",
+                "amount": "20 ml"
+            }
+        ],
+        "garnish": "Orange Zest or Orange Slice"
+    }
+]

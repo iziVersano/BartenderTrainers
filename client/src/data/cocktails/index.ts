@@ -24,6 +24,12 @@ import cosmopolitan from './cosmopolitan.json';
 import daiquiri from './daiquiri.json';
 import frenchMartini from './french_martini.json';
 import lynchburgLemonade from './lynchburg_lemonade.json';
+import darkAndStormy from './dark_and_stormy.json';
+import hemingwayDaiquiri from './hemingway_daiquiri.json';
+import whiteLady from './white_lady.json';
+import bloodyMary from './bloody_mary.json';
+import negroni from './negroni.json';
+import boulevardier from './boulevardier.json';
 
 export const cocktails: Cocktail[] = [
   tequilaSunrise as Cocktail,
@@ -51,6 +57,12 @@ export const cocktails: Cocktail[] = [
   daiquiri as Cocktail,
   frenchMartini as Cocktail,
   lynchburgLemonade as Cocktail,
+  darkAndStormy as Cocktail,
+  hemingwayDaiquiri as Cocktail,
+  whiteLady as Cocktail,
+  bloodyMary as Cocktail,
+  negroni as Cocktail,
+  boulevardier as Cocktail,
 ];
 
 export const getCocktailById = (id: string): Cocktail | undefined => {
