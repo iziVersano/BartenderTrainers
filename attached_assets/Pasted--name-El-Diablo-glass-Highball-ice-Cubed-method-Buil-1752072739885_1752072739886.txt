@@ -1,0 +1,78 @@
+[
+  {
+    "name": "El Diablo",
+    "glass": "Highball",
+    "ice": "Cubed",
+    "method": "Build",
+    "garnish": "Lime Wedge",
+    "ingredients": [
+      { "amount": "30 ml", "ingredient": "Tequila" },
+      { "amount": "10 ml", "ingredient": "Crème de Cassis" },
+      { "amount": "Fill", "ingredient": "Ginger Beer" }
+    ]
+  },
+  {
+    "name": "Sex on the Beach",
+    "glass": "Highball",
+    "ice": "Cubed",
+    "method": "Build",
+    "garnish": "None",
+    "ingredients": [
+      { "amount": "20 ml", "ingredient": "Peach Liqueur" },
+      { "amount": "20 ml", "ingredient": "Vodka" },
+      { "amount": "Fill equal parts", "ingredient": "Cranberry Juice" },
+      { "amount": "Fill equal parts", "ingredient": "Orange Juice" }
+    ]
+  },
+  {
+    "name": "Cosmopolitan",
+    "glass": "Chilled Martini / Coupe",
+    "ice": "None",
+    "method": "Shake & Fine Strain",
+    "garnish": "Orange Zest",
+    "ingredients": [
+      { "amount": "40 ml", "ingredient": "Citron Vodka" },
+      { "amount": "20 ml", "ingredient": "Triple Sec" },
+      { "amount": "10 ml", "ingredient": "Fresh Lime Juice" },
+      { "amount": "30 ml", "ingredient": "Cranberry Juice" }
+    ]
+  },
+  {
+    "name": "Daiquiri",
+    "glass": "Chilled Martini / Coupe",
+    "ice": "None",
+    "method": "Shake & Fine Strain",
+    "garnish": "None",
+    "ingredients": [
+      { "amount": "60 ml", "ingredient": "Light Rum" },
+      { "amount": "30 ml", "ingredient": "Fresh Lime Juice" },
+      { "amount": "15 ml", "ingredient": "Sugar Syrup" }
+    ]
+  },
+  {
+    "name": "French Martini",
+    "glass": "Chilled Martini / Coupe",
+    "ice": "None",
+    "method": "Shake & Fine Strain",
+    "garnish": "Raspberry",
+    "ingredients": [
+      { "amount": "40 ml", "ingredient": "Vodka" },
+      { "amount": "20 ml", "ingredient": "Chambord" },
+      { "amount": "40 ml", "ingredient": "Pineapple Juice" }
+    ]
+  },
+  {
+    "name": "Lynchburg Lemonade",
+    "glass": "Highball",
+    "ice": "Cubed",
+    "method": "Shake & Strain",
+    "garnish": "Lemon Wedge",
+    "ingredients": [
+      { "amount": "40 ml", "ingredient": "Jack Daniel's" },
+      { "amount": "20 ml", "ingredient": "Triple Sec" },
+      { "amount": "20 ml", "ingredient": "Fresh Lemon Juice" },
+      { "amount": "10 ml", "ingredient": "Sugar Syrup" },
+      { "amount": "Top", "ingredient": "Sprite / Lemonade" }
+    ]
+  }
+]

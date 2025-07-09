@@ -227,6 +227,17 @@ Preferred communication style: Simple, everyday language.
   - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
   - More forgiving validation system reduces false negatives in cocktail submissions
 
+- July 09, 2025: Added 6 new cocktail recipes expanding the training library
+  - El Diablo (Tequila + Crème de Cassis + Ginger Beer)
+  - Sex on the Beach (Peach Liqueur + Vodka + Cranberry + Orange Juice)
+  - Cosmopolitan (Citron Vodka + Triple Sec + Lime Juice + Cranberry Juice)
+  - Daiquiri (Light Rum + Lime Juice + Sugar Syrup)
+  - French Martini (Vodka + Chambord + Pineapple Juice)
+  - Lynchburg Lemonade (Jack Daniel's + Triple Sec + Lemon Juice + Sugar Syrup + Sprite/Lemonade)
+  - Added missing ingredients: Ginger Beer, Sprite/Lemonade, Raspberry garnish
+  - Expanded cocktail library from 19 to 25 total recipes for random selection
+  - All cocktails follow proper EBS specifications with correct measurements and methods
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  

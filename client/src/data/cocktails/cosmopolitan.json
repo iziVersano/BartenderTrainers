@@ -1,0 +1,31 @@
+{
+  "id": "cosmopolitan",
+  "name": "Cosmopolitan",
+  "ingredients": [
+    {
+      "ingredientId": "citron-vodka",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "triple-sec",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime-juice",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "cranberry-juice",
+      "amount": "30",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "garnish": "Orange Zest",
+  "description": "A sophisticated cocktail with citron vodka, triple sec, and cranberry juice."
+}

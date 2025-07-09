@@ -571,6 +571,27 @@ export const ingredients: Ingredient[] = [
     color: 'from-brown-200 to-brown-400',
     position: { section: 'mixers' }
   },
+  {
+    id: 'ginger-beer',
+    name: 'Ginger Beer',
+    category: 'mixers',
+    color: 'from-amber-200 to-amber-400',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'sprite-lemonade',
+    name: 'Sprite / Lemonade',
+    category: 'mixers',
+    color: 'from-yellow-200 to-yellow-400',
+    position: { section: 'mixers' }
+  },
+  {
+    id: 'raspberry',
+    name: 'Raspberry',
+    category: 'garnishes',
+    color: 'from-red-300 to-red-500',
+    position: { section: 'garnish-tray' }
+  },
   // Garnish Tray
   {
     id: 'lime-wedges',

@@ -1,0 +1,26 @@
+{
+  "id": "french_martini",
+  "name": "French Martini",
+  "ingredients": [
+    {
+      "ingredientId": "vodka",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "chambord",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "pineapple-juice",
+      "amount": "40",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "garnish": "Raspberry",
+  "description": "A fruity cocktail with vodka, Chambord, and pineapple juice."
+}
