@@ -121,15 +121,13 @@ export default function BuildArea() {
 
   return (
     <div className="h-full flex flex-col">
-      {/* Cocktail Display */}
-      <div className="flex-shrink-0 mb-6">
-        <CocktailDisplay />
-      </div>
+      {/* Cocktail Info Section */}
+      <CocktailDisplay />
 
-      {/* Build Header */}
-      <div className="mb-4 lg:mb-6 flex-shrink-0">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-semibold text-gray-800">Build Area</h3>
+      {/* Build Area Section */}
+      <div className="flex-1 flex flex-col min-h-0 mb-4">
+        <div className="flex justify-between items-center mb-3">
+          <h3 className="text-lg font-semibold text-gray-800">Selected Ingredients</h3>
           <Button 
             variant="outline" 
             size="sm"
@@ -137,88 +135,87 @@ export default function BuildArea() {
             onClick={handleSkipCocktail}
           >
             <SkipForward className="w-4 h-4 mr-2" />
-            Skip Cocktail
+            Skip
           </Button>
         </div>
-        <p className="text-sm text-gray-600">Selected ingredients will appear here</p>
-      </div>
 
-      {/* Selected Ingredients */}
-      <div className="flex-1 overflow-hidden mb-4 lg:mb-6">
-        <div className="h-full overflow-y-auto space-y-2 lg:space-y-3 pr-2 pb-32">
-            {selectedIngredients.length === 0 ? (
-              <div className="text-center py-8 text-gray-500">
-                <div className="text-4xl mb-4">🍸</div>
-                <p>Click ingredients from the bar station to add them here</p>
-              </div>
-            ) : (
-              selectedIngredients.map((selectedIngredient) => {
-                const ingredient = getIngredientById(selectedIngredient.ingredientId);
-                if (!ingredient) return null;
+        {/* Selected Ingredients List */}
+        <div className="flex-1 overflow-y-auto space-y-2 pr-2 min-h-0">
+          {selectedIngredients.length === 0 ? (
+            <div className="text-center py-6 text-gray-500">
+              <div className="text-3xl mb-3">🍸</div>
+              <p className="text-sm">Click ingredients from the bar station to add them here</p>
+            </div>
+          ) : (
+            selectedIngredients.map((selectedIngredient) => {
+              const ingredient = getIngredientById(selectedIngredient.ingredientId);
+              if (!ingredient) return null;
 
-                return (
-                  <div key={selectedIngredient.ingredientId} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-3 h-3 bg-bar-accent rounded-full"></div>
-                        <span className="font-medium text-gray-800">{ingredient.name}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Select 
-                          value={selectedIngredient.amount} 
-                          onValueChange={(value) => handleAmountChange(selectedIngredient.ingredientId, value)}
-                        >
-                          <SelectTrigger className="w-32">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {AMOUNT_OPTIONS.map(amount => (
-                              <SelectItem key={amount} value={amount}>
-                                {amount}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleRemoveIngredient(selectedIngredient.ingredientId)}
-                          className="text-red-500 hover:text-red-700 hover:bg-red-50"
-                        >
-                          <X className="w-4 h-4" />
-                        </Button>
-                      </div>
+              return (
+                <div key={selectedIngredient.ingredientId} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-bar-accent rounded-full"></div>
+                      <span className="font-medium text-gray-800 text-sm">{ingredient.name}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Select 
+                        value={selectedIngredient.amount} 
+                        onValueChange={(value) => handleAmountChange(selectedIngredient.ingredientId, value)}
+                      >
+                        <SelectTrigger className="w-24 text-xs">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {AMOUNT_OPTIONS.map(amount => (
+                            <SelectItem key={amount} value={amount}>
+                              {amount}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => handleRemoveIngredient(selectedIngredient.ingredientId)}
+                        className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1"
+                      >
+                        <X className="w-3 h-3" />
+                      </Button>
                     </div>
                   </div>
-                );
-              })
-            )}
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
 
-      {/* Action Buttons - Sticky at bottom */}
-      <div className="sticky bottom-0 bg-white py-4 z-10 border-t border-gray-200 -mx-4 lg:-mx-6 px-4 lg:px-6 space-y-3">
-          <Button 
-            className="w-full bg-bar-primary hover:bg-blue-700 text-white"
-            onClick={handleSubmit}
-            disabled={selectedIngredients.length === 0}
-          >
-            <Check className="w-4 h-4 mr-2" />
-            Submit Cocktail
-          </Button>
+      {/* Action Buttons - Always visible */}
+      <div className="flex-shrink-0 space-y-2 border-t border-gray-200 pt-4">
+        <Button 
+          className="w-full bg-bar-primary hover:bg-blue-700 text-white"
+          onClick={handleSubmit}
+          disabled={selectedIngredients.length === 0}
+        >
+          <Check className="w-4 h-4 mr-2" />
+          Submit Cocktail
+        </Button>
+        <div className="flex space-x-2">
           <Button 
             variant="outline" 
-            className="w-full"
+            className="flex-1"
             onClick={handleClearAll}
             disabled={selectedIngredients.length === 0}
           >
             <Trash2 className="w-4 h-4 mr-2" />
             Clear All
           </Button>
+        </div>
       </div>
 
       {/* Feedback Area */}
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 mt-2">
         <FeedbackArea />
       </div>
     </div>
