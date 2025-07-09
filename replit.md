@@ -227,6 +227,14 @@ Preferred communication style: Simple, everyday language.
   - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
   - More forgiving validation system reduces false negatives in cocktail submissions
 
+- July 09, 2025: Major layout restructure for improved user experience
+  - Moved Suggested Cocktail section to right panel (1/3 width) within BuildArea
+  - Expanded left panel to 2/3 width for better bar station visibility
+  - CocktailDisplay now appears at top of right panel above Build Area
+  - All buttons (Show Recipe, Skip Cocktail, Submit) remain on right side
+  - Enhanced responsive design with proper width distribution
+  - Bar stations now have full height and more space for ingredient rows
+
 - July 09, 2025: Added 6 new cocktail recipes expanding the training library
   - El Diablo (Tequila + Crème de Cassis + Fresh Lime Juice + Ginger Ale)
   - Sex on the Beach (Peach Liqueur + Vodka + Cranberry + Orange Juice)

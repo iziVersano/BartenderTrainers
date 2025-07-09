@@ -1,12 +1,9 @@
-import CocktailDisplay from './CocktailDisplay';
 import BackBar from './BackBar';
 import FrontBar from './FrontBar';
 
 export default function BarStation() {
   return (
-    <div className="w-full lg:w-7/10 bg-gray-50 p-4 lg:p-6">
-      <CocktailDisplay />
-      
+    <div className="w-full bg-gray-50 p-4 lg:p-6">
       <div className="space-y-4 lg:space-y-6">
         <BackBar />
         

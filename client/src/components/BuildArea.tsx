@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Check, Trash2, X, SkipForward } from 'lucide-react';
 import { AMOUNT_OPTIONS } from '@/types';
 import FeedbackArea from './FeedbackArea';
+import CocktailDisplay from './CocktailDisplay';
 
 export default function BuildArea() {
   const dispatch = useDispatch();
@@ -119,28 +120,32 @@ export default function BuildArea() {
   };
 
   return (
-    <div className="w-full lg:w-3/10 bg-white p-4 lg:p-6 border-l-0 lg:border-l border-gray-200">
-      <div className="h-full flex flex-col">
-        {/* Build Header */}
-        <div className="mb-4 lg:mb-6 flex-shrink-0">
-          <div className="flex justify-between items-start mb-2">
-            <h3 className="text-lg font-semibold text-gray-800">Build Area</h3>
-            <Button 
-              variant="outline" 
-              size="sm"
-              className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
-              onClick={handleSkipCocktail}
-            >
-              <SkipForward className="w-4 h-4 mr-2" />
-              Skip Cocktail
-            </Button>
-          </div>
-          <p className="text-sm text-gray-600">Selected ingredients will appear here</p>
-        </div>
+    <div className="h-full flex flex-col">
+      {/* Cocktail Display */}
+      <div className="flex-shrink-0 mb-6">
+        <CocktailDisplay />
+      </div>
 
-        {/* Selected Ingredients */}
-        <div className="flex-1 overflow-hidden mb-4 lg:mb-6">
-          <div className="h-full overflow-y-auto space-y-2 lg:space-y-3 pr-2 pb-32">
+      {/* Build Header */}
+      <div className="mb-4 lg:mb-6 flex-shrink-0">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-lg font-semibold text-gray-800">Build Area</h3>
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
+            onClick={handleSkipCocktail}
+          >
+            <SkipForward className="w-4 h-4 mr-2" />
+            Skip Cocktail
+          </Button>
+        </div>
+        <p className="text-sm text-gray-600">Selected ingredients will appear here</p>
+      </div>
+
+      {/* Selected Ingredients */}
+      <div className="flex-1 overflow-hidden mb-4 lg:mb-6">
+        <div className="h-full overflow-y-auto space-y-2 lg:space-y-3 pr-2 pb-32">
             {selectedIngredients.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
                 <div className="text-4xl mb-4">🍸</div>
@@ -188,11 +193,11 @@ export default function BuildArea() {
                 );
               })
             )}
-          </div>
         </div>
+      </div>
 
-        {/* Action Buttons - Sticky at bottom */}
-        <div className="sticky bottom-0 bg-white py-4 z-10 border-t border-gray-200 -mx-4 lg:-mx-6 px-4 lg:px-6 space-y-3">
+      {/* Action Buttons - Sticky at bottom */}
+      <div className="sticky bottom-0 bg-white py-4 z-10 border-t border-gray-200 -mx-4 lg:-mx-6 px-4 lg:px-6 space-y-3">
           <Button 
             className="w-full bg-bar-primary hover:bg-blue-700 text-white"
             onClick={handleSubmit}
@@ -210,12 +215,11 @@ export default function BuildArea() {
             <Trash2 className="w-4 h-4 mr-2" />
             Clear All
           </Button>
-        </div>
+      </div>
 
-        {/* Feedback Area */}
-        <div className="flex-shrink-0">
-          <FeedbackArea />
-        </div>
+      {/* Feedback Area */}
+      <div className="flex-shrink-0">
+        <FeedbackArea />
       </div>
     </div>
   );
