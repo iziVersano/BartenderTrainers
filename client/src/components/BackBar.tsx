@@ -26,14 +26,14 @@ export default function BackBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-12 lg:min-h-14 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-14 lg:min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                   ingredient.color,
                   // Better text color logic based on ingredient category
                   ingredient.category === 'bitters' ? "text-white" : 
                   ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-800" : 
                   rowIndex <= 1 ? "text-gray-800" : "text-white",
                   // Dynamic text sizing based on name length
-                  ingredient.name.length > 15 ? "text-xs" : "text-sm"
+                  ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
                 )}
                 style={{
                   padding: '4px 6px',

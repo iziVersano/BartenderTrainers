@@ -227,6 +227,15 @@ Preferred communication style: Simple, everyday language.
   - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
   - More forgiving validation system reduces false negatives in cocktail submissions
 
+- July 09, 2025: Optimized layout with expanded bar station area for better ingredient visibility
+  - Increased left panel width from 2/3 to 3/4 (75%) for more space for ingredient buttons
+  - Reduced right panel width from 1/3 to 1/4 (25%) while maintaining functionality
+  - Enhanced ingredient button sizing: increased min-height from 12/14 to 14/16 for better readability
+  - Improved text sizing logic: base text for short names, small for medium, xs for long ingredient names
+  - Updated mixers and garnish sections with responsive grid layouts (4/6/8 columns)
+  - Added mobile-responsive breakpoints: stacked layout on mobile, side-by-side on desktop
+  - Accommodates longer ingredient names like "White Crème de Cacao" without text overflow
+
 - July 09, 2025: Redesigned right panel for intuitive, no-scroll cocktail training
   - Compact cocktail info section with large bold name and 2x2 grid dropdowns
   - Ice and garnish info displayed in compact gray boxes

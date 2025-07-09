@@ -33,14 +33,14 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex h-full">
+      <main className="flex-1 flex flex-col lg:flex-row h-full">
         {/* LEFT: Bar Station Area */}
-        <div className="w-2/3 p-4 overflow-y-auto">
+        <div className="w-full lg:w-3/4 p-4 overflow-y-auto">
           <BarStation />
         </div>
 
         {/* RIGHT: Cocktail & Build Area */}
-        <div className="w-1/3 p-4 overflow-y-auto bg-white border-l border-gray-200">
+        <div className="w-full lg:w-1/4 p-4 overflow-y-auto bg-white border-t lg:border-t-0 lg:border-l border-gray-200">
           <BuildArea />
         </div>
       </main>
