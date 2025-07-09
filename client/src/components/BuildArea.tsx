@@ -139,8 +139,8 @@ export default function BuildArea() {
         </div>
 
         {/* Selected Ingredients */}
-        <div className="flex-1 mb-4 lg:mb-6">
-          <div className="space-y-2 lg:space-y-3">
+        <div className="mb-4 lg:mb-6">
+          <div className="max-h-60 overflow-y-auto space-y-2 lg:space-y-3">
             {selectedIngredients.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
                 <div className="text-4xl mb-4">🍸</div>
@@ -191,8 +191,8 @@ export default function BuildArea() {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="space-y-3">
+        {/* Action Buttons - Always visible at bottom */}
+        <div className="mt-auto space-y-3">
           <Button 
             className="w-full bg-bar-primary hover:bg-blue-700 text-white"
             onClick={handleSubmit}

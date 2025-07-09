@@ -240,6 +240,13 @@ Preferred communication style: Simple, everyday language.
   - Fixed El Diablo recipe to include missing Fresh Lime Juice (20ml)
   - Corrected El Diablo to use Ginger Ale instead of Ginger Beer
 
+- July 09, 2025: Improved BuildArea layout for better usability
+  - Fixed Submit Cocktail button position to always be visible without scrolling
+  - Added max-height (max-h-60) to ingredients section with overflow scrolling
+  - Used mt-auto to keep action buttons anchored at bottom of BuildArea
+  - Enhanced user experience by eliminating need to scroll to reach submit button
+  - Ingredients list now scrolls independently while buttons stay accessible
+
 - July 08, 2025: Updated Speed Line with comprehensive 2-row layout
   - Row 0: 14 ingredients (Milk, Juices, Syrups) - Milk → Fresh Lemon Juice
   - Row 1: 13 ingredients (Garnishes, Purées, Spirits) - Mint/Basil → Vodka  
