@@ -122,7 +122,7 @@ export default function BuildArea() {
     <div className="w-full lg:w-3/10 bg-white p-4 lg:p-6 border-l-0 lg:border-l border-gray-200">
       <div className="h-full flex flex-col">
         {/* Build Header */}
-        <div className="mb-4 lg:mb-6">
+        <div className="mb-4 lg:mb-6 flex-shrink-0">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-semibold text-gray-800">Build Area</h3>
             <Button 
@@ -139,8 +139,8 @@ export default function BuildArea() {
         </div>
 
         {/* Selected Ingredients */}
-        <div className="mb-4 lg:mb-6">
-          <div className="max-h-60 overflow-y-auto space-y-2 lg:space-y-3">
+        <div className="flex-1 overflow-hidden mb-4 lg:mb-6">
+          <div className="h-full overflow-y-auto space-y-2 lg:space-y-3 pr-2">
             {selectedIngredients.length === 0 ? (
               <div className="text-center py-8 text-gray-500">
                 <div className="text-4xl mb-4">🍸</div>
@@ -192,7 +192,7 @@ export default function BuildArea() {
         </div>
 
         {/* Action Buttons - Always visible at bottom */}
-        <div className="mt-auto space-y-3">
+        <div className="flex-shrink-0 space-y-3">
           <Button 
             className="w-full bg-bar-primary hover:bg-blue-700 text-white"
             onClick={handleSubmit}
@@ -213,7 +213,9 @@ export default function BuildArea() {
         </div>
 
         {/* Feedback Area */}
-        <FeedbackArea />
+        <div className="flex-shrink-0">
+          <FeedbackArea />
+        </div>
       </div>
     </div>
   );
