@@ -227,6 +227,18 @@ Preferred communication style: Simple, everyday language.
   - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
   - More forgiving validation system reduces false negatives in cocktail submissions
 
+- July 09, 2025: Added 9 new cocktail recipes expanding the training library to 40 total
+  - Aperol Spritz (Prosecco + Aperol + Soda Water)
+  - Apple Martini (Vodka + Apple Liqueur + Fresh Lemon Juice + Sugar Syrup)
+  - Kir Royal (Crème de Cassis + Brut Champagne)
+  - Zombie (Light Rum + Overproof Rum + Dark Rum + Lime Juice + Grenadine + Cinnamon Syrup + Pineapple Juice + Passion Fruit Purée)
+  - Piña Colada (Light Rum + Coconut Liqueur + Pineapple Juice + Coconut Cream)
+  - Lemon Drop (Vodka + Fresh Lemon Juice + Sugar Syrup)
+  - Kamikaze (Vodka + Triple Sec + Fresh Lime Juice)
+  - Singapore Sling (Gin + Pineapple Juice + Lime Juice + Cherry Liqueur + Triple Sec + Bénédictine DOM + Grenadine + Angostura Bitters)
+  - Added missing ingredients: Apple Liqueur, Crème de Cassis, Cherry Liqueur, Cinnamon Syrup, Coconut Cream
+  - Expanded cocktail library from 31 to 40 total recipes for random selection
+
 - July 09, 2025: Enhanced cocktail recipe display with method information for better training
   - Added Method display box above ice and garnish information with blue styling
   - Method shown both in main display and recipe view for comprehensive preparation guidance

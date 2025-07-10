@@ -245,19 +245,28 @@ export const ingredients: Ingredient[] = [
     position: { section: 'back-bar', row: 2, col: 9 }
   },
   {
+    id: 'brut-champagne',
+    name: 'Brut Champagne',
+    category: 'liqueurs',
+    color: 'from-amber-200 to-amber-400',
+    position: { section: 'back-bar', row: 2, col: 10 }
+  },
+
+  {
+    id: 'cherry-liqueur',
+    name: 'Cherry Liqueur',
+    category: 'liqueurs',
+    color: 'from-red-400 to-red-600',
+    position: { section: 'back-bar', row: 1, col: 16 }
+  },
+  {
     id: 'grants-scotch-whisky',
     name: 'Grant\'s Scotch Whisky',
     category: 'spirits',
     color: 'from-amber-500 to-amber-700',
     position: { section: 'back-bar', row: 0, col: 10 }
   },
-  {
-    id: 'drambuie',
-    name: 'Drambuie',
-    category: 'liqueurs',
-    color: 'from-yellow-400 to-yellow-600',
-    position: { section: 'back-bar', row: 1, col: 10 }
-  },
+
 
   // Speed Line - Row 0
   {
@@ -491,13 +500,7 @@ export const ingredients: Ingredient[] = [
     position: { section: 'speed-line', row: 0, col: 15 }
   },
 
-  {
-    id: 'brut-champagne',
-    name: 'Brut Champagne',
-    category: 'wine',
-    color: 'from-yellow-200 to-yellow-400',
-    position: { section: 'back-bar', row: 2, col: 15 }
-  },
+
   {
     id: 'peach-puree',
     name: 'Peach Purée',
@@ -507,13 +510,7 @@ export const ingredients: Ingredient[] = [
   },
 
 
-  {
-    id: 'maraschino',
-    name: 'Maraschino',
-    category: 'liqueurs',
-    color: 'from-red-200 to-red-400',
-    position: { section: 'back-bar', row: 1, col: 16 }
-  },
+
   {
     id: 'green-chartreuse',
     name: 'Green Chartreuse',

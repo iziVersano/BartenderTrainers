@@ -30,6 +30,14 @@ import whiteLady from './white_lady.json';
 import bloodyMary from './bloody_mary.json';
 import negroni from './negroni.json';
 import boulevardier from './boulevardier.json';
+import aperolSpritz from './aperol_spritz.json';
+import appleMartini from './apple_martini.json';
+import kirRoyal from './kir_royal.json';
+import zombie from './zombie.json';
+import pinaColada from './pina_colada.json';
+import lemonDrop from './lemon_drop.json';
+import kamikaze from './kamikaze.json';
+import singaporeSling from './singapore_sling.json';
 
 export const cocktails: Cocktail[] = [
   tequilaSunrise as Cocktail,
@@ -63,6 +71,14 @@ export const cocktails: Cocktail[] = [
   bloodyMary as Cocktail,
   negroni as Cocktail,
   boulevardier as Cocktail,
+  aperolSpritz as Cocktail,
+  appleMartini as Cocktail,
+  kirRoyal as Cocktail,
+  zombie as Cocktail,
+  pinaColada as Cocktail,
+  lemonDrop as Cocktail,
+  kamikaze as Cocktail,
+  singaporeSling as Cocktail,
 ];
 
 export const getCocktailById = (id: string): Cocktail | undefined => {

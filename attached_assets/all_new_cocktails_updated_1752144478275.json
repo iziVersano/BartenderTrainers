@@ -1,0 +1,259 @@
+[
+  {
+    "name": "Aperol Spritz",
+    "glass": "Rocks / Wine Glass",
+    "method": "Build in Order",
+    "ice": "Cubed",
+    "garnish": "Orange Slice",
+    "ingredients": [
+      {
+        "unit": "ml",
+        "amount": 60,
+        "ingredient": "Prosecco"
+      },
+      {
+        "unit": "ml",
+        "amount": 40,
+        "ingredient": "Aperol"
+      },
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Soda Water"
+      }
+    ]
+  },
+  {
+    "name": "Apple Martini",
+    "glass": "Chilled Martini / Coupe",
+    "method": "Shake & Fine Strain",
+    "ice": "None",
+    "garnish": "Lemon Zest",
+    "ingredients": [
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Vodka"
+      },
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Apple Liqueur"
+      },
+      {
+        "unit": "ml",
+        "amount": 10,
+        "ingredient": "Fresh Lemon Juice"
+      },
+      {
+        "unit": "ml",
+        "amount": 10,
+        "ingredient": "Sugar Syrup"
+      }
+    ]
+  },
+  {
+    "name": "Kir Royal",
+    "glass": "Champagne Flute",
+    "method": "Build",
+    "ice": "None",
+    "garnish": "None",
+    "ingredients": [
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Cr\u00e8me de Cassis"
+      },
+      {
+        "unit": "ml",
+        "amount": null,
+        "ingredient": "Fill Champagne"
+      }
+    ]
+  },
+  {
+    "name": "Zombie",
+    "glass": "Highball / Tiki Mug",
+    "method": "Shake & Strain",
+    "ice": "Cubed",
+    "garnish": "Mint Sprig",
+    "ingredients": [
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Light Rum"
+      },
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Overproof Rum"
+      },
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Dark Rum"
+      },
+      {
+        "unit": "ml",
+        "amount": 10,
+        "ingredient": "Fresh Lime Juice"
+      },
+      {
+        "unit": "ml",
+        "amount": 10,
+        "ingredient": "Grenadine"
+      },
+      {
+        "unit": "ml",
+        "amount": 10,
+        "ingredient": "Cinnamon Syrup"
+      },
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Pineapple Juice"
+      },
+      {
+        "unit": "ml",
+        "amount": 20,
+        "ingredient": "Passion Fruit Pur\u00e9e"
+      }
+    ]
+  },
+  {
+    "name": "Pi\u00f1a Colada",
+    "method": "Shake & Strain",
+    "glass": "Highball / Hurricane",
+    "ice": "Cubed",
+    "garnish": "Pineapple Wedge & Cherry",
+    "ingredients": [
+      {
+        "amount": "40 ml",
+        "ingredient": "Light Rum"
+      },
+      {
+        "amount": "40 ml",
+        "ingredient": "Coconut Liqueur"
+      },
+      {
+        "amount": "40 ml",
+        "ingredient": "Pineapple Juice"
+      },
+      {
+        "amount": "40 ml",
+        "ingredient": "Coconut Cream"
+      }
+    ]
+  },
+  {
+    "name": "Lemon Drop",
+    "method": "Shake & Fine Strain",
+    "glass": "Shooter",
+    "ice": "None",
+    "garnish": "Sugar-coated Lemon Wedge",
+    "ingredients": [
+      {
+        "amount": "20 ml",
+        "ingredient": "Vodka"
+      },
+      {
+        "amount": "10 ml",
+        "ingredient": "Fresh Lemon Juice"
+      },
+      {
+        "amount": "10 ml",
+        "ingredient": "Sugar Syrup"
+      }
+    ]
+  },
+  {
+    "name": "Apple Martini",
+    "glass": "Chilled Martini / Coupe",
+    "method": "Shake & Fine Strain",
+    "ice": "None",
+    "ingredients": [
+      {
+        "name": "Vodka",
+        "amount": "40 ml"
+      },
+      {
+        "name": "Apple Liqueur",
+        "amount": "20 ml"
+      },
+      {
+        "name": "Fresh Lemon Juice",
+        "amount": "10 ml"
+      },
+      {
+        "name": "Sugar Syrup",
+        "amount": "10 ml"
+      }
+    ],
+    "garnish": "Lemon Zest",
+    "description": "Optional: Apple Leaf"
+  },
+  {
+    "name": "Kamikaze",
+    "glass": "Shooter",
+    "method": "Shake & Fine Strain",
+    "ice": "None",
+    "ingredients": [
+      {
+        "name": "Vodka",
+        "amount": "10 ml"
+      },
+      {
+        "name": "Triple Sec",
+        "amount": "10 ml"
+      },
+      {
+        "name": "Fresh Lime Juice",
+        "amount": "10 ml"
+      }
+    ],
+    "garnish": "None",
+    "description": "None"
+  },
+  {
+    "name": "Singapore Sling",
+    "glass": "Highball / Sling",
+    "method": "Shake & Strain",
+    "ice": "Cubed",
+    "ingredients": [
+      {
+        "name": "Angostura Bitters",
+        "amount": "1 Dash"
+      },
+      {
+        "name": "Grenadine",
+        "amount": "1 Dash"
+      },
+      {
+        "name": "Benedictine D.O.M",
+        "amount": "5 ml"
+      },
+      {
+        "name": "Triple Sec",
+        "amount": "10 ml"
+      },
+      {
+        "name": "Cherry Liqueur",
+        "amount": "10 ml"
+      },
+      {
+        "name": "Fresh Lime Juice",
+        "amount": "10 ml"
+      },
+      {
+        "name": "Gin",
+        "amount": "20 ml"
+      },
+      {
+        "name": "Pineapple Juice",
+        "amount": "20 ml"
+      }
+    ],
+    "garnish": "Pineapple Wedge & Cherry",
+    "description": "None"
+  }
+]

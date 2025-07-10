@@ -2,10 +2,10 @@
   "id": "bramble",
   "name": "Bramble",
   "ingredients": [
-    { "ingredientId": "fresh-lemon-juice", "amount": "25", "unit": "ml" },
+    { "ingredientId": "fresh-lemon-juice", "amount": "20", "unit": "ml" },
     { "ingredientId": "sugar-syrup", "amount": "10", "unit": "ml" },
     { "ingredientId": "gin", "amount": "40", "unit": "ml" },
-    { "ingredientId": "creme-de-mure", "amount": "10", "unit": "ml" }
+    { "ingredientId": "creme-de-mure", "amount": "20", "unit": "ml" }
   ],
   "method": "Shake, Strain & Float",
   "glass": "Rocks",
