@@ -3,6 +3,16 @@
   "name": "Zombie",
   "ingredients": [
     {
+      "ingredientId": "absinthe",
+      "amount": "Rinse",
+      "unit": ""
+    },
+    {
+      "ingredientId": "angostura-bitters",
+      "amount": "4",
+      "unit": "Dash"
+    }
+    {
       "ingredientId": "light-rum",
       "amount": "20",
       "unit": "ml"
@@ -32,16 +42,6 @@
       "amount": "10",
       "unit": "ml"
     },
-    {
-      "ingredientId": "pineapple-juice",
-      "amount": "20",
-      "unit": "ml"
-    },
-    {
-      "ingredientId": "passion-fruit-puree",
-      "amount": "20",
-      "unit": "ml"
-    }
   ],
   "method": "Shake & Strain",
   "glass": "Highball / Tiki Mug",
