@@ -26,25 +26,37 @@ export default function BackBar() {
               <div
                 key={ingredient.id}
                 className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-14 lg:min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-20 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
                   ingredient.color,
-                  // Better text color logic based on ingredient category
-                  ingredient.category === 'bitters' ? "text-white" : 
-                  ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-800" : 
-                  rowIndex <= 1 ? "text-gray-800" : "text-white",
+                  // Better text color logic with stronger contrast
+                  ingredient.category === 'bitters' ? "text-white shadow-inner" : 
+                  ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-900 shadow-inner" : 
+                  rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
                   // Dynamic text sizing based on name length
-                  ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
+                  ingredient.name.length > 20 ? "text-xs" : ingredient.name.length > 15 ? "text-sm" : "text-base"
                 )}
                 style={{
-                  padding: '4px 6px',
+                  padding: '6px 8px',
                   whiteSpace: 'normal',
                   wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                  hyphens: 'auto',
                   textAlign: 'center',
-                  lineHeight: '1.2'
+                  lineHeight: '1.1',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
-                <span className="leading-tight">
+                <span 
+                  className="leading-tight block"
+                  style={{
+                    textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
+                    maxWidth: '100%',
+                    wordBreak: 'break-word'
+                  }}
+                >
                   {ingredient.name}
                 </span>
               </div>
