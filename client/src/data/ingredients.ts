@@ -696,6 +696,34 @@ export const ingredients: Ingredient[] = [
     category: 'garnishes',
     color: 'from-yellow-400 to-yellow-600',
     position: { section: 'garnish-tray' }
+  },
+  {
+    id: 'orange-bitters',
+    name: 'Orange Bitters',
+    category: 'bitters',
+    color: 'from-orange-600 to-orange-800',
+    position: { section: 'back-bar', row: 2, col: 12 }
+  },
+  {
+    id: 'peychauds-bitters',
+    name: 'Peychaud\'s Bitters',
+    category: 'bitters',
+    color: 'from-red-600 to-red-800',
+    position: { section: 'back-bar', row: 2, col: 13 }
+  },
+  {
+    id: 'absinthe',
+    name: 'Absinthe',
+    category: 'spirits',
+    color: 'from-green-600 to-green-800',
+    position: { section: 'back-bar', row: 2, col: 14 }
+  },
+  {
+    id: 'lime-zest',
+    name: 'Lime Zest',
+    category: 'garnishes',
+    color: 'from-lime-400 to-lime-600',
+    position: { section: 'garnish-tray' }
   }
 ];
 

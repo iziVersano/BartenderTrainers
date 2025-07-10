@@ -227,6 +227,14 @@ Preferred communication style: Simple, everyday language.
   - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
   - More forgiving validation system reduces false negatives in cocktail submissions
 
+- July 09, 2025: Added 3 additional classic cocktail recipes expanding the training library to 43 total
+  - Gimlet (Gin + Lime Cordial)
+  - Martinez (Gin + Sweet Vermouth + Maraschino + Angostura Bitters + Orange Bitters)
+  - Sazerac (Absinthe Rinse + Cognac + Sugar Syrup + Peychaud's Bitters)
+  - Added missing ingredients: Orange Bitters, Peychaud's Bitters, Absinthe, Lime Zest
+  - Expanded cocktail library from 40 to 43 total recipes for random selection
+  - Fixed JSON syntax error in zombie.json file
+
 - July 09, 2025: Added 9 new cocktail recipes expanding the training library to 40 total
   - Aperol Spritz (Prosecco + Aperol + Soda Water)
   - Apple Martini (Vodka + Apple Liqueur + Fresh Lemon Juice + Sugar Syrup)
