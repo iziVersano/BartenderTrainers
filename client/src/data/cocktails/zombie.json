@@ -11,7 +11,7 @@
       "ingredientId": "angostura-bitters",
       "amount": "4",
       "unit": "Dash"
-    }
+    },
     {
       "ingredientId": "light-rum",
       "amount": "20",
@@ -41,7 +41,7 @@
       "ingredientId": "cinnamon-syrup",
       "amount": "10",
       "unit": "ml"
-    },
+    }
   ],
   "method": "Shake & Strain",
   "glass": "Highball / Tiki Mug",
