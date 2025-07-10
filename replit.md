@@ -227,6 +227,14 @@ Preferred communication style: Simple, everyday language.
   - Enhanced matching handles accented characters (e.g., "purée" vs "puree")
   - More forgiving validation system reduces false negatives in cocktail submissions
 
+- July 09, 2025: Enhanced cocktail recipe display with method information for better training
+  - Added Method display box above ice and garnish information with blue styling
+  - Method shown both in main display and recipe view for comprehensive preparation guidance
+  - Examples: "Build & Sink", "Shake & Fine Strain", "Stir & Julep Strain"
+  - Recipe view now shows "Recipe Details" with method prominently displayed
+  - Method information helps users understand cocktail preparation technique
+  - Enhanced visual hierarchy with color-coded sections (blue for method, yellow for ingredients)
+
 - July 09, 2025: Optimized layout with expanded bar station area for better ingredient visibility
   - Increased left panel width from 2/3 to 3/4 (75%) for more space for ingredient buttons
   - Reduced right panel width from 1/3 to 1/4 (25%) while maintaining functionality

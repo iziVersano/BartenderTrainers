@@ -51,13 +51,21 @@ export default function CocktailDisplay() {
           </Select>
         </div>
 
-        {/* Ice and Garnish Info */}
-        <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
-          <div className="bg-gray-50 p-2 rounded">
-            <span className="font-medium">Ice:</span> {currentCocktail.ice || 'Cubed'}
+        {/* Method, Ice and Garnish Info */}
+        <div className="space-y-2">
+          {/* Method */}
+          <div className="bg-blue-50 p-2 rounded text-xs text-blue-700">
+            <span className="font-medium">Method:</span> {currentCocktail.method}
           </div>
-          <div className="bg-gray-50 p-2 rounded">
-            <span className="font-medium">Garnish:</span> {currentCocktail.garnish}
+          
+          {/* Ice and Garnish */}
+          <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
+            <div className="bg-gray-50 p-2 rounded">
+              <span className="font-medium">Ice:</span> {currentCocktail.ice || 'Cubed'}
+            </div>
+            <div className="bg-gray-50 p-2 rounded">
+              <span className="font-medium">Garnish:</span> {currentCocktail.garnish}
+            </div>
           </div>
         </div>
 
@@ -78,8 +86,16 @@ export default function CocktailDisplay() {
       {/* Compact Recipe Display */}
       {showRecipe && (
         <div className="mb-3 bg-yellow-50 border border-yellow-200 rounded-md p-3">
-          <h4 className="font-semibold text-yellow-800 mb-2 text-sm">Recipe Ingredients</h4>
+          <h4 className="font-semibold text-yellow-800 mb-2 text-sm">Recipe Details</h4>
+          
+          {/* Method Display */}
+          <div className="mb-3 bg-blue-100 border border-blue-200 rounded p-2">
+            <span className="text-xs font-medium text-blue-800">Method: {currentCocktail.method}</span>
+          </div>
+          
+          {/* Ingredients */}
           <div className="space-y-1">
+            <div className="text-xs font-medium text-yellow-800 mb-1">Ingredients:</div>
             {currentCocktail.ingredients.map((ingredient, index) => {
               const ingredientData = getIngredientById(ingredient.ingredientId);
               return (
