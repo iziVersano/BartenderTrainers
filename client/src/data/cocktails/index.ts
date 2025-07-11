@@ -96,8 +96,14 @@ export const getRandomCocktail = (): Cocktail => {
   return cocktails[randomIndex];
 };
 
-export const getRandomCocktailExcluding = (excludeId?: string): Cocktail => {
-  const availableCocktails = excludeId ? cocktails.filter(cocktail => cocktail.id !== excludeId) : cocktails;
+export const getRandomCocktailExcluding = (excludeId?: string | string[]): Cocktail => {
+  let availableCocktails = cocktails;
+  
+  if (excludeId) {
+    const excludeIds = Array.isArray(excludeId) ? excludeId : [excludeId];
+    availableCocktails = cocktails.filter(cocktail => !excludeIds.includes(cocktail.id));
+  }
+  
   const randomIndex = Math.floor(Math.random() * availableCocktails.length);
   return availableCocktails[randomIndex];
 };

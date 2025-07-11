@@ -18,11 +18,6 @@
       "unit": "ml"
     },
     {
-      "ingredientId": "angostura-bitters",
-      "amount": "2",
-      "unit": "Dashes"
-    },
-    {
       "ingredientId": "orange-bitters",
       "amount": "1",
       "unit": "Dash"

@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Cocktail, SelectedIngredient } from '@shared/schema';
 
-interface GameState {
-  currentCocktail: Cocktail | null;
+interface CocktailSession {
+  cocktail: Cocktail | null;
   selectedIngredients: SelectedIngredient[];
   showRecipe: boolean;
   feedback: {
@@ -12,7 +12,34 @@ interface GameState {
   };
 }
 
+interface GameState {
+  isDualMode: boolean;
+  currentCocktail: Cocktail | null;
+  selectedIngredients: SelectedIngredient[];
+  showRecipe: boolean;
+  feedback: {
+    visible: boolean;
+    isCorrect: boolean;
+    message: string;
+  };
+  // Dual mode sessions
+  cocktailA: CocktailSession;
+  cocktailB: CocktailSession;
+}
+
+const initialCocktailSession: CocktailSession = {
+  cocktail: null,
+  selectedIngredients: [],
+  showRecipe: false,
+  feedback: {
+    visible: false,
+    isCorrect: false,
+    message: '',
+  },
+};
+
 const initialState: GameState = {
+  isDualMode: false,
   currentCocktail: null,
   selectedIngredients: [],
   showRecipe: false,
@@ -21,6 +48,8 @@ const initialState: GameState = {
     isCorrect: false,
     message: '',
   },
+  cocktailA: { ...initialCocktailSession },
+  cocktailB: { ...initialCocktailSession },
 };
 
 const gameSlice = createSlice({
@@ -82,6 +111,77 @@ const gameSlice = createSlice({
       state.showRecipe = false;
       state.feedback.visible = false;
     },
+    // Dual mode actions
+    toggleDualMode: (state) => {
+      state.isDualMode = !state.isDualMode;
+    },
+    setCocktailA: (state, action: PayloadAction<Cocktail>) => {
+      state.cocktailA.cocktail = action.payload;
+      state.cocktailA.selectedIngredients = [];
+      state.cocktailA.showRecipe = false;
+      state.cocktailA.feedback.visible = false;
+    },
+    setCocktailB: (state, action: PayloadAction<Cocktail>) => {
+      state.cocktailB.cocktail = action.payload;
+      state.cocktailB.selectedIngredients = [];
+      state.cocktailB.showRecipe = false;
+      state.cocktailB.feedback.visible = false;
+    },
+    addIngredientToCocktail: (state, action: PayloadAction<{ cocktail: 'A' | 'B'; ingredientId: string }>) => {
+      const { cocktail, ingredientId } = action.payload;
+      const session = cocktail === 'A' ? state.cocktailA : state.cocktailB;
+      const exists = session.selectedIngredients.find(ing => ing.ingredientId === ingredientId);
+      if (!exists) {
+        session.selectedIngredients.push({
+          ingredientId,
+          amount: '30 ml',
+        });
+      }
+    },
+    removeIngredientFromCocktail: (state, action: PayloadAction<{ cocktail: 'A' | 'B'; ingredientId: string }>) => {
+      const { cocktail, ingredientId } = action.payload;
+      const session = cocktail === 'A' ? state.cocktailA : state.cocktailB;
+      session.selectedIngredients = session.selectedIngredients.filter(
+        ing => ing.ingredientId !== ingredientId
+      );
+    },
+    updateIngredientAmountInCocktail: (state, action: PayloadAction<{ cocktail: 'A' | 'B'; ingredientId: string; amount: string }>) => {
+      const { cocktail, ingredientId, amount } = action.payload;
+      const session = cocktail === 'A' ? state.cocktailA : state.cocktailB;
+      const ingredient = session.selectedIngredients.find(ing => ing.ingredientId === ingredientId);
+      if (ingredient) {
+        ingredient.amount = amount;
+      }
+    },
+    clearAllIngredientsFromCocktail: (state, action: PayloadAction<'A' | 'B'>) => {
+      const session = action.payload === 'A' ? state.cocktailA : state.cocktailB;
+      session.selectedIngredients = [];
+    },
+    toggleRecipeForCocktail: (state, action: PayloadAction<'A' | 'B'>) => {
+      const session = action.payload === 'A' ? state.cocktailA : state.cocktailB;
+      session.showRecipe = !session.showRecipe;
+    },
+    setFeedbackForCocktail: (state, action: PayloadAction<{ cocktail: 'A' | 'B'; isCorrect: boolean; message: string }>) => {
+      const { cocktail, isCorrect, message } = action.payload;
+      const session = cocktail === 'A' ? state.cocktailA : state.cocktailB;
+      session.feedback = {
+        visible: true,
+        isCorrect,
+        message,
+      };
+    },
+    clearFeedbackForCocktail: (state, action: PayloadAction<'A' | 'B'>) => {
+      const session = action.payload === 'A' ? state.cocktailA : state.cocktailB;
+      session.feedback.visible = false;
+    },
+    skipCocktailInDual: (state, action: PayloadAction<{ cocktail: 'A' | 'B'; newCocktail: Cocktail }>) => {
+      const { cocktail, newCocktail } = action.payload;
+      const session = cocktail === 'A' ? state.cocktailA : state.cocktailB;
+      session.cocktail = newCocktail;
+      session.selectedIngredients = [];
+      session.showRecipe = false;
+      session.feedback.visible = false;
+    },
   },
 });
 
@@ -96,6 +196,18 @@ export const {
   clearFeedback,
   loadNextCocktail,
   skipCocktail,
+  // Dual mode actions
+  toggleDualMode,
+  setCocktailA,
+  setCocktailB,
+  addIngredientToCocktail,
+  removeIngredientFromCocktail,
+  updateIngredientAmountInCocktail,
+  clearAllIngredientsFromCocktail,
+  toggleRecipeForCocktail,
+  setFeedbackForCocktail,
+  clearFeedbackForCocktail,
+  skipCocktailInDual,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

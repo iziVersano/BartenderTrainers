@@ -1,69 +1,116 @@
-import { useDispatch } from 'react-redux';
-import { addIngredient } from '@/store/gameSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addIngredient, addIngredientToCocktail } from '@/store/gameSlice';
 import { getBackBarIngredients } from '@/data/ingredients';
 import { cn } from '@/lib/utils';
+import { RootState } from '@/store';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { useState } from 'react';
 
 export default function BackBar() {
   const dispatch = useDispatch();
+  const { isDualMode } = useSelector((state: RootState) => state.game);
   const backBarRows = getBackBarIngredients();
+  const [selectedIngredient, setSelectedIngredient] = useState<string | null>(null);
 
   const handleIngredientClick = (ingredientId: string) => {
-    dispatch(addIngredient(ingredientId));
+    if (isDualMode) {
+      setSelectedIngredient(ingredientId);
+    } else {
+      dispatch(addIngredient(ingredientId));
+    }
+  };
+
+  const handleAddToCocktail = (cocktailType: 'A' | 'B') => {
+    if (selectedIngredient) {
+      dispatch(addIngredientToCocktail({ cocktail: cocktailType, ingredientId: selectedIngredient }));
+      setSelectedIngredient(null);
+    }
   };
 
   return (
-    <div className="bg-bar-dark rounded-lg p-4">
-      <h3 className="text-white font-medium mb-3 text-center">BACK BAR</h3>
-      
-      <div className="space-y-3">
-        {backBarRows.map((row, rowIndex) => (
-          <div
-            key={rowIndex}
-            className="grid gap-2"
-            style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
-          >
-            {row.map((ingredient) => (
-              <div
-                key={ingredient.id}
-                className={cn(
-                  "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-20 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
-                  ingredient.color,
-                  // Better text color logic with stronger contrast
-                  ingredient.category === 'bitters' ? "text-white shadow-inner" : 
-                  ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-900 shadow-inner" : 
-                  rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
-                  // Dynamic text sizing based on name length
-                  ingredient.name.length > 20 ? "text-xs" : ingredient.name.length > 15 ? "text-sm" : "text-base"
-                )}
-                style={{
-                  padding: '6px 8px',
-                  whiteSpace: 'normal',
-                  wordWrap: 'break-word',
-                  overflowWrap: 'break-word',
-                  hyphens: 'auto',
-                  textAlign: 'center',
-                  lineHeight: '1.1',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                onClick={() => handleIngredientClick(ingredient.id)}
-              >
-                <span 
-                  className="leading-tight block"
+    <>
+      <div className="bg-bar-dark rounded-lg p-4">
+        <h3 className="text-white font-medium mb-3 text-center">BACK BAR</h3>
+        
+        <div className="space-y-3">
+          {backBarRows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className="grid gap-2"
+              style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
+            >
+              {row.map((ingredient) => (
+                <div
+                  key={ingredient.id}
+                  className={cn(
+                    "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-20 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
+                    ingredient.color,
+                    // Better text color logic with stronger contrast
+                    ingredient.category === 'bitters' ? "text-white shadow-inner" : 
+                    ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-900 shadow-inner" : 
+                    rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
+                    // Dynamic text sizing based on name length
+                    ingredient.name.length > 20 ? "text-xs" : ingredient.name.length > 15 ? "text-sm" : "text-base"
+                  )}
                   style={{
-                    textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
-                    maxWidth: '100%',
-                    wordBreak: 'break-word'
+                    padding: '6px 8px',
+                    whiteSpace: 'normal',
+                    wordWrap: 'break-word',
+                    overflowWrap: 'break-word',
+                    hyphens: 'auto',
+                    textAlign: 'center',
+                    lineHeight: '1.1',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}
+                  onClick={() => handleIngredientClick(ingredient.id)}
                 >
-                  {ingredient.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        ))}
+                  <span 
+                    className="leading-tight block"
+                    style={{
+                      textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
+                      maxWidth: '100%',
+                      wordBreak: 'break-word'
+                    }}
+                  >
+                    {ingredient.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+
+      {/* Dual Mode Selection Dialog */}
+      <Dialog open={!!selectedIngredient} onOpenChange={() => setSelectedIngredient(null)}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Add to Which Cocktail?</DialogTitle>
+          </DialogHeader>
+          <div className="flex flex-col space-y-3">
+            <p className="text-sm text-gray-600">
+              Select which cocktail you'd like to add this ingredient to:
+            </p>
+            <div className="flex space-x-3">
+              <Button
+                className="flex-1 bg-blue-500 hover:bg-blue-600 text-white"
+                onClick={() => handleAddToCocktail('A')}
+              >
+                Add to Cocktail A
+              </Button>
+              <Button
+                className="flex-1 bg-green-500 hover:bg-green-600 text-white"
+                onClick={() => handleAddToCocktail('B')}
+              >
+                Add to Cocktail B
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

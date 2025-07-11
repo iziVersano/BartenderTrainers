@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail, skipCocktail } from '@/store/gameSlice';
+import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail, skipCocktail, toggleDualMode, setCocktailA, setCocktailB } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
 import { getRandomCocktailExcluding, getRandomCocktail } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Check, Trash2, X, SkipForward } from 'lucide-react';
+import { Check, Trash2, X, SkipForward, ToggleLeft, ToggleRight } from 'lucide-react';
 import { AMOUNT_OPTIONS } from '@/types';
 import FeedbackArea from './FeedbackArea';
 import CocktailDisplay from './CocktailDisplay';
+import DualCocktailDisplay from './DualCocktailDisplay';
 
 export default function BuildArea() {
   const dispatch = useDispatch();
-  const { selectedIngredients, currentCocktail } = useSelector((state: RootState) => state.game);
+  const { selectedIngredients, currentCocktail, isDualMode, cocktailA, cocktailB } = useSelector((state: RootState) => state.game);
 
   const handleRemoveIngredient = (ingredientId: string) => {
     dispatch(removeIngredient(ingredientId));
@@ -29,6 +30,17 @@ export default function BuildArea() {
   const handleSkipCocktail = () => {
     const newCocktail = getRandomCocktail();
     dispatch(skipCocktail(newCocktail));
+  };
+
+  const handleToggleDualMode = () => {
+    dispatch(toggleDualMode());
+    if (!isDualMode) {
+      // Initialize both cocktails when entering dual mode
+      const cocktailAData = getRandomCocktail();
+      const cocktailBData = getRandomCocktailExcluding(cocktailAData.id);
+      dispatch(setCocktailA(cocktailAData));
+      dispatch(setCocktailB(cocktailBData));
+    }
   };
 
   // Flexible ingredient matching function
@@ -121,103 +133,150 @@ export default function BuildArea() {
 
   return (
     <div className="h-full flex flex-col">
-      {/* Cocktail Info Section */}
-      <CocktailDisplay />
-
-      {/* Build Area Section */}
-      <div className="flex-1 flex flex-col min-h-0 mb-4">
-        <div className="flex justify-between items-center mb-3">
-          <h3 className="text-lg font-semibold text-gray-800">Selected Ingredients</h3>
-          <Button 
-            variant="outline" 
+      {/* Dual Mode Toggle */}
+      <div className="flex-shrink-0 mb-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-gray-800">
+            {isDualMode ? 'Dual Practice Mode' : 'Single Practice Mode'}
+          </h3>
+          <Button
+            variant="outline"
             size="sm"
-            className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
-            onClick={handleSkipCocktail}
+            onClick={handleToggleDualMode}
+            className="bg-purple-50 hover:bg-purple-100 text-purple-600 border-purple-200"
           >
-            <SkipForward className="w-4 h-4 mr-2" />
-            Skip
+            {isDualMode ? <ToggleRight className="w-4 h-4 mr-2" /> : <ToggleLeft className="w-4 h-4 mr-2" />}
+            {isDualMode ? 'Single Mode' : 'Dual Mode'}
           </Button>
         </div>
+      </div>
 
-        {/* Selected Ingredients List */}
-        <div className="flex-1 overflow-y-auto space-y-2 pr-2 min-h-0">
-          {selectedIngredients.length === 0 ? (
-            <div className="text-center py-6 text-gray-500">
-              <div className="text-3xl mb-3">🍸</div>
-              <p className="text-sm">Click ingredients from the bar station to add them here</p>
+      {/* Render based on mode */}
+      {isDualMode ? (
+        <div className="flex-1 flex flex-col space-y-4 min-h-0">
+          {/* Cocktail A */}
+          <div className="flex-1 min-h-0">
+            <DualCocktailDisplay
+              cocktailType="A"
+              title="Cocktail A"
+              bgColor="bg-blue-50"
+              borderColor="border-blue-200"
+              accentColor="bg-blue-500 hover:bg-blue-600 border-blue-400"
+            />
+          </div>
+          
+          {/* Cocktail B */}
+          <div className="flex-1 min-h-0">
+            <DualCocktailDisplay
+              cocktailType="B"
+              title="Cocktail B"
+              bgColor="bg-green-50"
+              borderColor="border-green-200"
+              accentColor="bg-green-500 hover:bg-green-600 border-green-400"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="flex-1 flex flex-col min-h-0">
+          {/* Single Mode - Original Layout */}
+          <CocktailDisplay />
+
+          {/* Build Area Section */}
+          <div className="flex-1 flex flex-col min-h-0 mb-4">
+            <div className="flex justify-between items-center mb-3">
+              <h4 className="text-lg font-semibold text-gray-800">Selected Ingredients</h4>
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
+                onClick={handleSkipCocktail}
+              >
+                <SkipForward className="w-4 h-4 mr-2" />
+                Skip
+              </Button>
             </div>
-          ) : (
-            selectedIngredients.map((selectedIngredient) => {
-              const ingredient = getIngredientById(selectedIngredient.ingredientId);
-              if (!ingredient) return null;
 
-              return (
-                <div key={selectedIngredient.ingredientId} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-bar-accent rounded-full"></div>
-                      <span className="font-medium text-gray-800 text-sm">{ingredient.name}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Select 
-                        value={selectedIngredient.amount} 
-                        onValueChange={(value) => handleAmountChange(selectedIngredient.ingredientId, value)}
-                      >
-                        <SelectTrigger className="w-24 text-xs">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {AMOUNT_OPTIONS.map(amount => (
-                            <SelectItem key={amount} value={amount}>
-                              {amount}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => handleRemoveIngredient(selectedIngredient.ingredientId)}
-                        className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1"
-                      >
-                        <X className="w-3 h-3" />
-                      </Button>
-                    </div>
-                  </div>
+            {/* Selected Ingredients List */}
+            <div className="flex-1 overflow-y-auto space-y-2 pr-2 min-h-0">
+              {selectedIngredients.length === 0 ? (
+                <div className="text-center py-6 text-gray-500">
+                  <div className="text-3xl mb-3">🍸</div>
+                  <p className="text-sm">Click ingredients from the bar station to add them here</p>
                 </div>
-              );
-            })
-          )}
-        </div>
-      </div>
+              ) : (
+                selectedIngredients.map((selectedIngredient) => {
+                  const ingredient = getIngredientById(selectedIngredient.ingredientId);
+                  if (!ingredient) return null;
 
-      {/* Action Buttons - Always visible */}
-      <div className="flex-shrink-0 space-y-2 border-t border-gray-200 pt-4">
-        <Button 
-          className="w-full bg-bar-primary hover:bg-blue-700 text-white"
-          onClick={handleSubmit}
-          disabled={selectedIngredients.length === 0}
-        >
-          <Check className="w-4 h-4 mr-2" />
-          Submit Cocktail
-        </Button>
-        <div className="flex space-x-2">
-          <Button 
-            variant="outline" 
-            className="flex-1"
-            onClick={handleClearAll}
-            disabled={selectedIngredients.length === 0}
-          >
-            <Trash2 className="w-4 h-4 mr-2" />
-            Clear All
-          </Button>
-        </div>
-      </div>
+                  return (
+                    <div key={selectedIngredient.ingredientId} className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-2 h-2 bg-bar-accent rounded-full"></div>
+                          <span className="font-medium text-gray-800 text-sm">{ingredient.name}</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Select 
+                            value={selectedIngredient.amount} 
+                            onValueChange={(value) => handleAmountChange(selectedIngredient.ingredientId, value)}
+                          >
+                            <SelectTrigger className="w-24 text-xs">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {AMOUNT_OPTIONS.map(amount => (
+                                <SelectItem key={amount} value={amount}>
+                                  {amount}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleRemoveIngredient(selectedIngredient.ingredientId)}
+                            className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1"
+                          >
+                            <X className="w-3 h-3" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
 
-      {/* Feedback Area */}
-      <div className="flex-shrink-0 mt-2">
-        <FeedbackArea />
-      </div>
+          {/* Action Buttons - Always visible */}
+          <div className="flex-shrink-0 space-y-2 border-t border-gray-200 pt-4">
+            <Button 
+              className="w-full bg-bar-primary hover:bg-blue-700 text-white"
+              onClick={handleSubmit}
+              disabled={selectedIngredients.length === 0}
+            >
+              <Check className="w-4 h-4 mr-2" />
+              Submit Cocktail
+            </Button>
+            <div className="flex space-x-2">
+              <Button 
+                variant="outline" 
+                className="flex-1"
+                onClick={handleClearAll}
+                disabled={selectedIngredients.length === 0}
+              >
+                <Trash2 className="w-4 h-4 mr-2" />
+                Clear All
+              </Button>
+            </div>
+          </div>
+
+          {/* Feedback Area */}
+          <div className="flex-shrink-0 mt-2">
+            <FeedbackArea />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
