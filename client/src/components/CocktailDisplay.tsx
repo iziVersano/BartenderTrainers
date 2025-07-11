@@ -101,44 +101,52 @@ export default function CocktailDisplay() {
         </div>
       </div>
 
-      {/* Compact Recipe Display */}
+      {/* Full Recipe Display */}
       {showRecipe && (
         <div className="mb-3 bg-yellow-50 border border-yellow-200 rounded-md p-3">
-          <h4 className="font-semibold text-yellow-800 mb-2 text-sm">Recipe Details</h4>
+          <h4 className="font-semibold text-yellow-800 mb-3 text-sm">Recipe Details</h4>
           
-          {/* Method Display */}
-          <div className="mb-3 bg-blue-100 border border-blue-200 rounded p-2">
-            <span className="text-xs font-medium text-blue-800">Method: {currentCocktail.method}</span>
-          </div>
-          
-          {/* Glass Type Display */}
-          <div className="mb-3 bg-purple-100 border border-purple-200 rounded p-2">
-            <span className="text-xs font-medium text-purple-800">Glass: {getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}</span>
-          </div>
-          
-          {/* Ice and Garnish Display */}
-          <div className="grid grid-cols-2 gap-2 mb-3">
-            <div className="bg-gray-100 border border-gray-200 rounded p-2">
-              <span className="text-xs font-medium text-gray-800">❄️ Ice: {currentCocktail.ice || 'Cubed'}</span>
+          <div className="space-y-2">
+            {/* Ice */}
+            <div className="flex items-center text-xs text-yellow-700">
+              <span className="font-medium">🧊 Ice:</span>
+              <span className="ml-2">{currentCocktail.ice || 'Cubed'}</span>
             </div>
-            <div className="bg-gray-100 border border-gray-200 rounded p-2">
-              <span className="text-xs font-medium text-gray-800">🍋 Garnish: {currentCocktail.garnish}</span>
+            
+            {/* Glass */}
+            <div className="flex items-center text-xs text-yellow-700">
+              <span className="font-medium">🍸 Glass:</span>
+              <span className="ml-2">{getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}</span>
             </div>
-          </div>
-          
-          {/* Ingredients */}
-          <div className="space-y-1">
-            <div className="text-xs font-medium text-yellow-800 mb-1">Ingredients:</div>
-            {currentCocktail.ingredients.map((ingredient, index) => {
-              const ingredientData = getIngredientById(ingredient.ingredientId);
-              return (
-                <div key={index} className="flex items-center text-xs text-yellow-700">
-                  <span className="w-1 h-1 bg-yellow-400 rounded-full mr-2 flex-shrink-0"></span>
-                  <span className="font-medium">{ingredient.amount} {ingredient.unit}</span>
-                  <span className="ml-2">{ingredientData?.name || ingredient.ingredientId?.replace('-', ' ') || 'Unknown ingredient'}</span>
-                </div>
-              );
-            })}
+            
+            {/* Garnish */}
+            <div className="flex items-center text-xs text-yellow-700">
+              <span className="font-medium">🍋 Garnish:</span>
+              <span className="ml-2">{currentCocktail.garnish}</span>
+            </div>
+            
+            {/* Method */}
+            <div className="flex items-center text-xs text-yellow-700">
+              <span className="font-medium">🔧 Method:</span>
+              <span className="ml-2">{currentCocktail.method}</span>
+            </div>
+            
+            {/* Ingredients */}
+            <div className="text-xs text-yellow-700">
+              <div className="font-medium mb-1">🧪 Ingredients:</div>
+              <div className="space-y-1 ml-4">
+                {currentCocktail.ingredients.map((ingredient, index) => {
+                  const ingredientData = getIngredientById(ingredient.ingredientId);
+                  return (
+                    <div key={index} className="flex items-center">
+                      <span className="w-1 h-1 bg-yellow-400 rounded-full mr-2 flex-shrink-0"></span>
+                      <span className="font-medium">{ingredient.amount} {ingredient.unit}</span>
+                      <span className="ml-2">{ingredientData?.name || ingredient.ingredientId?.replace('-', ' ') || 'Unknown ingredient'}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       )}
