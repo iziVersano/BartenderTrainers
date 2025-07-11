@@ -7,6 +7,19 @@ import { Eye } from 'lucide-react';
 import { METHOD_OPTIONS, GLASS_OPTIONS } from '@/types';
 import { getIngredientById } from '@/data/ingredients';
 
+const getGlassIcon = (glass: string): string => {
+  const glassLower = glass.toLowerCase();
+  if (glassLower.includes('martini') || glassLower.includes('coupe')) return '🍸';
+  if (glassLower.includes('highball') || glassLower.includes('collins')) return '🥤';
+  if (glassLower.includes('rocks') || glassLower.includes('old fashioned')) return '🥃';
+  if (glassLower.includes('wine') || glassLower.includes('champagne')) return '🍷';
+  if (glassLower.includes('shot')) return '🥃';
+  if (glassLower.includes('tiki') || glassLower.includes('mug')) return '🌺';
+  if (glassLower.includes('hurricane')) return '🌪️';
+  if (glassLower.includes('julep')) return '🥃';
+  return '🍸'; // Default glass icon
+};
+
 export default function CocktailDisplay() {
   const dispatch = useDispatch();
   const { currentCocktail, showRecipe } = useSelector((state: RootState) => state.game);
@@ -58,13 +71,18 @@ export default function CocktailDisplay() {
             <span className="font-medium">Method:</span> {currentCocktail.method}
           </div>
           
+          {/* Glass Type */}
+          <div className="bg-purple-50 p-2 rounded text-xs text-purple-700">
+            <span className="font-medium">Glass:</span> {getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}
+          </div>
+
           {/* Ice and Garnish */}
           <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
             <div className="bg-gray-50 p-2 rounded">
-              <span className="font-medium">Ice:</span> {currentCocktail.ice || 'Cubed'}
+              <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
             </div>
             <div className="bg-gray-50 p-2 rounded">
-              <span className="font-medium">Garnish:</span> {currentCocktail.garnish}
+              <span className="font-medium">🍋 Garnish:</span> {currentCocktail.garnish}
             </div>
           </div>
         </div>
@@ -91,6 +109,21 @@ export default function CocktailDisplay() {
           {/* Method Display */}
           <div className="mb-3 bg-blue-100 border border-blue-200 rounded p-2">
             <span className="text-xs font-medium text-blue-800">Method: {currentCocktail.method}</span>
+          </div>
+          
+          {/* Glass Type Display */}
+          <div className="mb-3 bg-purple-100 border border-purple-200 rounded p-2">
+            <span className="text-xs font-medium text-purple-800">Glass: {getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}</span>
+          </div>
+          
+          {/* Ice and Garnish Display */}
+          <div className="grid grid-cols-2 gap-2 mb-3">
+            <div className="bg-gray-100 border border-gray-200 rounded p-2">
+              <span className="text-xs font-medium text-gray-800">❄️ Ice: {currentCocktail.ice || 'Cubed'}</span>
+            </div>
+            <div className="bg-gray-100 border border-gray-200 rounded p-2">
+              <span className="text-xs font-medium text-gray-800">🍋 Garnish: {currentCocktail.garnish}</span>
+            </div>
           </div>
           
           {/* Ingredients */}
