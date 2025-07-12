@@ -499,18 +499,6 @@ export const ingredients: Ingredient[] = [
     color: 'from-orange-400 to-orange-600',
     position: { section: 'speed-line', row: 0, col: 15 }
   },
-
-
-  {
-    id: 'peach-puree',
-    name: 'Peach Purée',
-    category: 'mixers',
-    color: 'from-orange-200 to-orange-400',
-    position: { section: 'speed-line', row: 0, col: 17 }
-  },
-
-
-
   {
     id: 'green-chartreuse',
     name: 'Green Chartreuse',
