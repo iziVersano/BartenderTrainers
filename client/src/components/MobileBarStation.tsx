@@ -35,34 +35,33 @@ export default function MobileBarStation() {
     }
   };
 
-  const renderBackBar = () => (
-    <div className="p-4 space-y-3">
-      <h3 className="text-white font-medium text-center text-sm">BACK BAR</h3>
-      {backBarRows.map((row, rowIndex) => (
-        <div
-          key={rowIndex}
-          className="grid gap-2"
-          style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
-        >
-          {row.map((ingredient) => (
+  const renderBackBar = () => {
+    // Flatten all ingredients from all rows for mobile grid layout
+    const allBackBarIngredients = backBarRows.flat();
+    
+    return (
+      <div className="p-4">
+        <h3 className="text-white font-medium text-center text-sm mb-3">BACK BAR</h3>
+        <div className="grid gap-2 grid-cols-3">
+          {allBackBarIngredients.map((ingredient) => (
             <div
               key={ingredient.id}
               className={cn(
                 "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
                 ingredient.color,
                 ingredient.category === 'bitters' ? "text-white shadow-inner" : 
-                ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-900 shadow-inner" : 
-                rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
-                ingredient.name.length > 20 ? "text-xs" : ingredient.name.length > 15 ? "text-sm" : "text-base"
+                ingredient.category === 'spirits' ? "text-gray-900 shadow-inner" : 
+                ingredient.category === 'liqueurs' ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
+                ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
               )}
               style={{
-                padding: '6px 8px',
+                padding: '4px 6px',
                 whiteSpace: 'normal',
                 wordWrap: 'break-word',
                 overflowWrap: 'break-word',
                 hyphens: 'auto',
                 textAlign: 'center',
-                lineHeight: '1.1',
+                lineHeight: '1.2',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -72,7 +71,7 @@ export default function MobileBarStation() {
               <span 
                 className="leading-tight block"
                 style={{
-                  textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
+                  textShadow: ingredient.category === 'bitters' || ingredient.category === 'wines' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
                   maxWidth: '100%',
                   wordBreak: 'break-word'
                 }}
@@ -82,24 +81,23 @@ export default function MobileBarStation() {
             </div>
           ))}
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    );
+  };
 
-  const renderSpeedLine = () => (
-    <div className="p-4 space-y-3">
-      <h3 className="text-white font-medium text-center text-sm">SPEED LINE</h3>
-      {speedLineRows.map((row, rowIndex) => (
-        <div
-          key={rowIndex}
-          className="grid gap-2"
-          style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
-        >
-          {row.map((ingredient) => (
+  const renderSpeedLine = () => {
+    // Flatten all ingredients from all rows for mobile grid layout
+    const allSpeedLineIngredients = speedLineRows.flat();
+    
+    return (
+      <div className="p-4">
+        <h3 className="text-white font-medium text-center text-sm mb-3">SPEED LINE</h3>
+        <div className="grid gap-2 grid-cols-3">
+          {allSpeedLineIngredients.map((ingredient) => (
             <div
               key={ingredient.id}
               className={cn(
-                "bottle-item bg-gradient-to-b rounded-sm min-h-14 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                 ingredient.color,
                 ingredient.id === 'egg-white' || ingredient.id === 'milk' ? "text-gray-800" : "text-gray-800",
                 ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
@@ -108,18 +106,31 @@ export default function MobileBarStation() {
                 padding: '4px 6px',
                 whiteSpace: 'normal',
                 wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                hyphens: 'auto',
                 textAlign: 'center',
-                lineHeight: '1.2'
+                lineHeight: '1.2',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
               onClick={() => handleIngredientClick(ingredient.id)}
             >
-              <span className="leading-tight">{ingredient.name}</span>
+              <span 
+                className="leading-tight block"
+                style={{
+                  maxWidth: '100%',
+                  wordBreak: 'break-word'
+                }}
+              >
+                {ingredient.name}
+              </span>
             </div>
           ))}
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    );
+  };
 
   const renderMixers = () => (
     <div className="p-4">
