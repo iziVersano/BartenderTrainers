@@ -4,6 +4,7 @@ import { setCurrentCocktail } from '@/store/gameSlice';
 import { getRandomCocktail } from '@/data/cocktails';
 import BarStation from '@/components/BarStation';
 import BuildArea from '@/components/BuildArea';
+import MobileBuildArea from '@/components/MobileBuildArea';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -33,15 +34,31 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col lg:flex-row h-full">
-        {/* LEFT: Bar Station Area */}
-        <div className="w-full lg:w-3/4 p-4 overflow-y-auto">
-          <BarStation />
+      <main className="flex-1 flex flex-col h-full">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex flex-1 flex-row h-full">
+          {/* LEFT: Bar Station Area */}
+          <div className="w-3/4 p-4 overflow-y-auto">
+            <BarStation />
+          </div>
+
+          {/* RIGHT: Cocktail & Build Area */}
+          <div className="w-1/4 p-4 overflow-y-auto bg-white border-l border-gray-200">
+            <BuildArea />
+          </div>
         </div>
 
-        {/* RIGHT: Cocktail & Build Area */}
-        <div className="w-full lg:w-1/4 p-4 overflow-y-auto bg-white border-t lg:border-t-0 lg:border-l border-gray-200">
-          <BuildArea />
+        {/* Mobile Layout */}
+        <div className="md:hidden flex flex-1 flex-col h-full">
+          {/* TOP: Build Area */}
+          <div className="h-1/2 bg-white border-b border-gray-200 overflow-y-auto">
+            <MobileBuildArea />
+          </div>
+
+          {/* BOTTOM: Bar Station with Tabs */}
+          <div className="h-1/2 flex flex-col">
+            <BarStation />
+          </div>
         </div>
       </main>
     </div>
