@@ -1,0 +1,51 @@
+{
+  "id": "long-island-iced-tea",
+  "name": "Long Island Iced Tea",
+  "ingredients": [
+    {
+      "ingredientId": "citron-vodka",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "light-rum",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "hendricks",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "tequila",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "triple-sec",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lemon-juice",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "cola",
+      "amount": "Top",
+      "unit": ""
+    }
+  ],
+  "method": "Shake & Strain",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "garnish": "Lemon Wedge",
+  "description": "Optional: Use Cranberry Juice for Long Beach Iced Tea."
+}

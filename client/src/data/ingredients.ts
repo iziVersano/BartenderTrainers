@@ -712,6 +712,13 @@ export const ingredients: Ingredient[] = [
     category: 'garnishes',
     color: 'from-lime-400 to-lime-600',
     position: { section: 'garnish-tray' }
+  },
+  {
+    id: 'lemon-spiral',
+    name: 'Lemon Spiral',
+    category: 'garnishes',
+    color: 'from-yellow-300 to-yellow-500',
+    position: { section: 'garnish-tray' }
   }
 ];
 

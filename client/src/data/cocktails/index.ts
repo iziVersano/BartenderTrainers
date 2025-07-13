@@ -41,6 +41,12 @@ import singaporeSling from './singapore_sling.json';
 import gimlet from './gimlet.json';
 import martinez from './martinez.json';
 import sazerac from './sazerac.json';
+import dryMartini from './dry_martini.json';
+import manhattan from './manhattan.json';
+import robRoy from './rob_roy.json';
+import horsesNeck from './horses_neck.json';
+import tomCollins from './tom_collins.json';
+import longIslandIcedTea from './long_island_iced_tea.json';
 
 export const cocktails: Cocktail[] = [
   tequilaSunrise as Cocktail,
@@ -85,6 +91,12 @@ export const cocktails: Cocktail[] = [
   gimlet as Cocktail,
   martinez as Cocktail,
   sazerac as Cocktail,
+  dryMartini as Cocktail,
+  manhattan as Cocktail,
+  robRoy as Cocktail,
+  horsesNeck as Cocktail,
+  tomCollins as Cocktail,
+  longIslandIcedTea as Cocktail,
 ];
 
 export const getCocktailById = (id: string): Cocktail | undefined => {
