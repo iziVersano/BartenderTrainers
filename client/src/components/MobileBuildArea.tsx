@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { toggleDualMode, removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail, skipCocktail } from '@/store/gameSlice';
+import { toggleDualMode, removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
-import { getRandomCocktail } from '@/data/cocktails';
+import { shuffleCocktails } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Layout, X, Trash2, SkipForward } from 'lucide-react';
@@ -13,7 +13,7 @@ import FeedbackArea from './FeedbackArea';
 
 export default function MobileBuildArea() {
   const dispatch = useDispatch();
-  const { isDualMode, selectedIngredients, currentCocktail } = useSelector((state: RootState) => state.game);
+  const { isDualMode, selectedIngredients, currentCocktail, trainingComplete, currentTrainingIndex, trainingSequence } = useSelector((state: RootState) => state.game);
 
   const handleRemoveIngredient = (ingredientId: string) => {
     dispatch(removeIngredient(ingredientId));
@@ -28,8 +28,7 @@ export default function MobileBuildArea() {
   };
 
   const handleSkipCocktail = () => {
-    const newCocktail = getRandomCocktail();
-    dispatch(skipCocktail(newCocktail));
+    dispatch(nextTrainingCocktail());
   };
 
   // Flexible ingredient matching function
@@ -90,7 +89,7 @@ export default function MobileBuildArea() {
       
       // Auto-load next cocktail after 2 seconds
       setTimeout(() => {
-        dispatch(loadNextCocktail());
+        dispatch(nextTrainingCocktail());
       }, 2000);
     } else {
       // Incorrect
@@ -148,9 +147,38 @@ export default function MobileBuildArea() {
           </div>
         ) : (
           <div className="space-y-4">
-            <CocktailDisplay />
-            {/* Build Area content without duplicate cocktail display */}
-            <div className="bg-white rounded-lg border border-gray-200 p-4">
+            {/* Training Progress */}
+            <div className="bg-gray-100 rounded-lg p-3">
+              <div className="flex items-center justify-between text-sm">
+                <span className="font-medium text-gray-700">Training Progress</span>
+                <span className="text-gray-600">{currentTrainingIndex + 1} / {trainingSequence.length}</span>
+              </div>
+              <div className="w-full bg-gray-300 rounded-full h-2 mt-2">
+                <div 
+                  className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${((currentTrainingIndex + 1) / trainingSequence.length) * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Training Complete Message */}
+            {trainingComplete ? (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                <div className="text-4xl mb-3">🎉</div>
+                <h3 className="text-xl font-semibold text-green-800 mb-2">Training Complete!</h3>
+                <p className="text-green-700 mb-4">All cocktails reviewed. Great job!</p>
+                <button 
+                  onClick={() => dispatch(restartTraining(shuffleCocktails()))}
+                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
+                >
+                  Restart Training
+                </button>
+              </div>
+            ) : (
+              <>
+                <CocktailDisplay />
+                {/* Build Area content without duplicate cocktail display */}
+                <div className="bg-white rounded-lg border border-gray-200 p-4">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-gray-800">Build Your Cocktail</h3>
                 <div className="flex items-center space-x-2">
@@ -218,8 +246,10 @@ export default function MobileBuildArea() {
                   Submit Cocktail
                 </button>
               </div>
-            </div>
-            <FeedbackArea />
+                </div>
+                <FeedbackArea />
+              </>
+            )}
           </div>
         )}
       </div>

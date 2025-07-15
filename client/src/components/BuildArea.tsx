@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, loadNextCocktail, skipCocktail, toggleDualMode, setCocktailA, setCocktailB } from '@/store/gameSlice';
+import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining, toggleDualMode, setCocktailA, setCocktailB } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
-import { getRandomCocktailExcluding, getRandomCocktail } from '@/data/cocktails';
+import { getRandomCocktailExcluding, shuffleCocktails } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Check, Trash2, X, SkipForward, ToggleLeft, ToggleRight } from 'lucide-react';
@@ -13,7 +13,7 @@ import DualCocktailDisplay from './DualCocktailDisplay';
 
 export default function BuildArea() {
   const dispatch = useDispatch();
-  const { selectedIngredients, currentCocktail, isDualMode, cocktailA, cocktailB } = useSelector((state: RootState) => state.game);
+  const { selectedIngredients, currentCocktail, isDualMode, cocktailA, cocktailB, trainingComplete, currentTrainingIndex, trainingSequence } = useSelector((state: RootState) => state.game);
 
   const handleRemoveIngredient = (ingredientId: string) => {
     dispatch(removeIngredient(ingredientId));
@@ -28,15 +28,15 @@ export default function BuildArea() {
   };
 
   const handleSkipCocktail = () => {
-    const newCocktail = getRandomCocktail();
-    dispatch(skipCocktail(newCocktail));
+    dispatch(nextTrainingCocktail());
   };
 
   const handleToggleDualMode = () => {
     dispatch(toggleDualMode());
     if (!isDualMode) {
       // Initialize both cocktails when entering dual mode
-      const cocktailAData = getRandomCocktail();
+      const shuffledCocktails = shuffleCocktails();
+      const cocktailAData = shuffledCocktails[0];
       const cocktailBData = getRandomCocktailExcluding(cocktailAData.id);
       dispatch(setCocktailA(cocktailAData));
       dispatch(setCocktailB(cocktailBData));
@@ -105,8 +105,7 @@ export default function BuildArea() {
       
       // Automatically load next cocktail after successful submission
       setTimeout(() => {
-        const nextCocktail = getRandomCocktailExcluding(currentCocktail.id);
-        dispatch(loadNextCocktail(nextCocktail));
+        dispatch(nextTrainingCocktail());
       }, 2000); // 2 second delay to show success message
     } else {
       let message = 'Not quite right. ';
@@ -178,11 +177,39 @@ export default function BuildArea() {
         </div>
       ) : (
         <div className="flex-1 flex flex-col min-h-0">
-          {/* Single Mode - Original Layout */}
-          <CocktailDisplay />
+          {/* Training Progress */}
+          <div className="bg-gray-100 rounded-lg p-3 mb-4">
+            <div className="flex items-center justify-between text-sm">
+              <span className="font-medium text-gray-700">Training Progress</span>
+              <span className="text-gray-600">{currentTrainingIndex + 1} / {trainingSequence.length}</span>
+            </div>
+            <div className="w-full bg-gray-300 rounded-full h-2 mt-2">
+              <div 
+                className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${((currentTrainingIndex + 1) / trainingSequence.length) * 100}%` }}
+              />
+            </div>
+          </div>
+          
+          {/* Training Complete Message */}
+          {trainingComplete ? (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+              <div className="text-4xl mb-3">🎉</div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Training Complete!</h3>
+              <p className="text-green-700 mb-4">All cocktails reviewed. Great job!</p>
+              <Button 
+                onClick={() => dispatch(restartTraining(shuffleCocktails()))}
+                className="bg-green-600 hover:bg-green-700"
+              >
+                Restart Training
+              </Button>
+            </div>
+          ) : (
+            <>
+              <CocktailDisplay />
 
-          {/* Build Area Section */}
-          <div className="flex-1 flex flex-col min-h-0 mb-4">
+              {/* Build Area Section */}
+              <div className="flex-1 flex flex-col min-h-0 mb-4">
             <div className="flex justify-between items-center mb-3">
               <h4 className="text-lg font-semibold text-gray-800">Selected Ingredients</h4>
               <Button 
@@ -271,10 +298,12 @@ export default function BuildArea() {
             </div>
           </div>
 
-          {/* Feedback Area */}
-          <div className="flex-shrink-0 mt-2">
-            <FeedbackArea />
-          </div>
+              {/* Feedback Area */}
+              <div className="flex-shrink-0 mt-2">
+                <FeedbackArea />
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>

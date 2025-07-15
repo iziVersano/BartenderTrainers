@@ -22,6 +22,10 @@ interface GameState {
     isCorrect: boolean;
     message: string;
   };
+  // Training sequence state
+  trainingSequence: Cocktail[];
+  currentTrainingIndex: number;
+  trainingComplete: boolean;
   // Dual mode sessions
   cocktailA: CocktailSession;
   cocktailB: CocktailSession;
@@ -48,6 +52,9 @@ const initialState: GameState = {
     isCorrect: false,
     message: '',
   },
+  trainingSequence: [],
+  currentTrainingIndex: 0,
+  trainingComplete: false,
   cocktailA: { ...initialCocktailSession },
   cocktailB: { ...initialCocktailSession },
 };
@@ -110,6 +117,40 @@ const gameSlice = createSlice({
       state.selectedIngredients = [];
       state.showRecipe = false;
       state.feedback.visible = false;
+    },
+    // Training sequence actions
+    initializeTrainingSequence: (state, action: PayloadAction<Cocktail[]>) => {
+      state.trainingSequence = action.payload;
+      state.currentTrainingIndex = 0;
+      state.trainingComplete = false;
+      if (action.payload.length > 0) {
+        state.currentCocktail = action.payload[0];
+        state.selectedIngredients = [];
+        state.showRecipe = false;
+        state.feedback.visible = false;
+      }
+    },
+    nextTrainingCocktail: (state) => {
+      if (state.currentTrainingIndex < state.trainingSequence.length - 1) {
+        state.currentTrainingIndex += 1;
+        state.currentCocktail = state.trainingSequence[state.currentTrainingIndex];
+        state.selectedIngredients = [];
+        state.showRecipe = false;
+        state.feedback.visible = false;
+      } else {
+        state.trainingComplete = true;
+      }
+    },
+    restartTraining: (state, action: PayloadAction<Cocktail[]>) => {
+      state.trainingSequence = action.payload;
+      state.currentTrainingIndex = 0;
+      state.trainingComplete = false;
+      if (action.payload.length > 0) {
+        state.currentCocktail = action.payload[0];
+        state.selectedIngredients = [];
+        state.showRecipe = false;
+        state.feedback.visible = false;
+      }
     },
     // Dual mode actions
     toggleDualMode: (state) => {
@@ -196,6 +237,10 @@ export const {
   clearFeedback,
   loadNextCocktail,
   skipCocktail,
+  // Training sequence actions
+  initializeTrainingSequence,
+  nextTrainingCocktail,
+  restartTraining,
   // Dual mode actions
   toggleDualMode,
   setCocktailA,
