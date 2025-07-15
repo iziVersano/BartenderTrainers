@@ -33,58 +33,11 @@ export default function CocktailDisplay() {
         <h2 className="text-2xl font-bold text-gray-800">{currentCocktail.name}</h2>
       </div>
 
-      {/* Dropdowns and Controls */}
+      {/* Ice and Recipe Toggle */}
       <div className="mb-3 space-y-2">
-        {/* Method and Glass Dropdowns */}
-        <div className="grid grid-cols-2 gap-2">
-          <Select value={currentCocktail.method}>
-            <SelectTrigger className="text-sm bg-yellow-50 border-yellow-200 text-yellow-700">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {METHOD_OPTIONS.map(method => (
-                <SelectItem key={method} value={method}>
-                  {method.charAt(0).toUpperCase() + method.slice(1)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          
-          <Select value={currentCocktail.glass}>
-            <SelectTrigger className="text-sm bg-yellow-50 border-yellow-200 text-yellow-700">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {GLASS_OPTIONS.map(glass => (
-                <SelectItem key={glass} value={glass}>
-                  {glass.charAt(0).toUpperCase() + glass.slice(1)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Method, Ice and Garnish Info */}
-        <div className="space-y-2">
-          {/* Method */}
-          <div className="bg-blue-50 p-2 rounded text-xs text-blue-700">
-            <span className="font-medium">Method:</span> {currentCocktail.method}
-          </div>
-          
-          {/* Glass Type */}
-          <div className="bg-purple-50 p-2 rounded text-xs text-purple-700">
-            <span className="font-medium">Glass:</span> {getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}
-          </div>
-
-          {/* Ice and Garnish */}
-          <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
-            <div className="bg-gray-50 p-2 rounded">
-              <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
-            </div>
-            <div className="bg-gray-50 p-2 rounded">
-              <span className="font-medium">🍋 Garnish:</span> {currentCocktail.garnish}
-            </div>
-          </div>
+        {/* Ice Only */}
+        <div className="bg-gray-50 p-2 rounded text-xs text-gray-600">
+          <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
         </div>
 
         {/* Show Recipe Toggle */}
@@ -107,10 +60,10 @@ export default function CocktailDisplay() {
           <h4 className="font-semibold text-yellow-800 mb-3 text-sm">Recipe Details</h4>
           
           <div className="space-y-2">
-            {/* Ice */}
+            {/* Method */}
             <div className="flex items-center text-xs text-yellow-700">
-              <span className="font-medium">🧊 Ice:</span>
-              <span className="ml-2">{currentCocktail.ice || 'Cubed'}</span>
+              <span className="font-medium">🔧 Method:</span>
+              <span className="ml-2">{currentCocktail.method}</span>
             </div>
             
             {/* Glass */}
@@ -119,16 +72,16 @@ export default function CocktailDisplay() {
               <span className="ml-2">{getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}</span>
             </div>
             
+            {/* Ice */}
+            <div className="flex items-center text-xs text-yellow-700">
+              <span className="font-medium">🧊 Ice:</span>
+              <span className="ml-2">{currentCocktail.ice || 'Cubed'}</span>
+            </div>
+            
             {/* Garnish */}
             <div className="flex items-center text-xs text-yellow-700">
               <span className="font-medium">🍋 Garnish:</span>
               <span className="ml-2">{currentCocktail.garnish}</span>
-            </div>
-            
-            {/* Method */}
-            <div className="flex items-center text-xs text-yellow-700">
-              <span className="font-medium">🔧 Method:</span>
-              <span className="ml-2">{currentCocktail.method}</span>
             </div>
             
             {/* Ingredients */}

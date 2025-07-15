@@ -182,23 +182,10 @@ export default function DualCocktailDisplay({
         <h4 className="text-xl font-bold text-gray-800">{currentCocktail.name}</h4>
       </div>
 
-      {/* Method, Glass, Ice and Garnish Info */}
-      <div className="space-y-2 mb-3">
-        <div className="bg-blue-50 p-2 rounded text-xs text-blue-700">
-          <span className="font-medium">Method:</span> {currentCocktail.method}
-        </div>
-        
-        <div className="bg-purple-50 p-2 rounded text-xs text-purple-700">
-          <span className="font-medium">Glass:</span> {getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}
-        </div>
-        
-        <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
-          <div className="bg-gray-50 p-2 rounded">
-            <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
-          </div>
-          <div className="bg-gray-50 p-2 rounded">
-            <span className="font-medium">🍋 Garnish:</span> {currentCocktail.garnish}
-          </div>
+      {/* Ice Only */}
+      <div className="mb-3">
+        <div className="bg-gray-50 p-2 rounded text-xs text-gray-600">
+          <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
         </div>
       </div>
 
@@ -221,10 +208,10 @@ export default function DualCocktailDisplay({
           <h5 className="font-semibold text-yellow-800 mb-3 text-sm">Recipe Details</h5>
           
           <div className="space-y-2">
-            {/* Ice */}
+            {/* Method */}
             <div className="flex items-center text-xs text-yellow-700">
-              <span className="font-medium">🧊 Ice:</span>
-              <span className="ml-2">{currentCocktail.ice || 'Cubed'}</span>
+              <span className="font-medium">🔧 Method:</span>
+              <span className="ml-2">{currentCocktail.method}</span>
             </div>
             
             {/* Glass */}
@@ -233,16 +220,16 @@ export default function DualCocktailDisplay({
               <span className="ml-2">{getGlassIcon(currentCocktail.glass)} {currentCocktail.glass}</span>
             </div>
             
+            {/* Ice */}
+            <div className="flex items-center text-xs text-yellow-700">
+              <span className="font-medium">🧊 Ice:</span>
+              <span className="ml-2">{currentCocktail.ice || 'Cubed'}</span>
+            </div>
+            
             {/* Garnish */}
             <div className="flex items-center text-xs text-yellow-700">
               <span className="font-medium">🍋 Garnish:</span>
               <span className="ml-2">{currentCocktail.garnish}</span>
-            </div>
-            
-            {/* Method */}
-            <div className="flex items-center text-xs text-yellow-700">
-              <span className="font-medium">🔧 Method:</span>
-              <span className="ml-2">{currentCocktail.method}</span>
             </div>
             
             {/* Ingredients */}
