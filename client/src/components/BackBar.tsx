@@ -115,21 +115,20 @@ export default function BackBar() {
                   <div
                     key={ingredient.id}
                     className={cn(
-                      "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-20 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
+                      "bottle-item bg-gradient-to-b rounded-sm min-h-20 lg:min-h-24 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
                       ingredient.color,
                       // Better text color logic with stronger contrast
                       ingredient.category === 'bitters' ? "text-white shadow-inner" : 
                       ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-900 shadow-inner" : 
-                      rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
-                      // Dynamic text sizing based on display name length
-                      displayName.length > 20 ? "text-xs" : displayName.length > 15 ? "text-sm" : "text-base"
+                      rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner"
                     )}
                     style={{
-                      padding: '4px 6px',
+                      padding: '6px 8px',
                       textAlign: 'center',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      minWidth: '80px'
                     }}
                     onClick={() => handleIngredientClick(ingredient.id)}
                   >
@@ -138,8 +137,9 @@ export default function BackBar() {
                       style={{
                         textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
                         whiteSpace: 'pre-line',
-                        fontSize: displayName.length > 20 ? '0.75rem' : displayName.length > 15 ? '0.875rem' : '1rem',
-                        lineHeight: '1.1'
+                        fontSize: displayName.length > 18 ? '0.7rem' : displayName.length > 14 ? '0.8rem' : displayName.length > 10 ? '0.9rem' : '1rem',
+                        lineHeight: '1.2',
+                        maxWidth: '100%'
                       }}
                     >
                       {formattedName}

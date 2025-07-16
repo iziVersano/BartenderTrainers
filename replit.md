@@ -110,13 +110,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-- July 16, 2025: Fixed ingredient label display with smart text formatting and normalization
-  - Implemented label normalization across all bar components (BackBar, FrontBar, MobileBarStation)
-  - Added smart text wrapping that breaks at natural word boundaries (e.g., "Crème de Mûre" becomes "Crème de\nMûre")
-  - Applied comprehensive label overrides for special cases with proper accents and apostrophes
-  - Enhanced text styling with consistent font sizes, line heights, and text shadows
-  - Improved readability with pre-line whitespace handling to prevent ugly text wrapping
-  - Applied consistently across desktop and mobile components for cohesive UI experience
+- July 16, 2025: Fixed ingredient label display with optimized tile sizing and smart text formatting
+  - Increased tile heights: BackBar (min-h-20/24), FrontBar (min-h-16/18), Mobile (min-h-18)
+  - Added minimum widths to prevent cramped layouts: BackBar (80px), FrontBar (70px), Mobile (90px)
+  - Enhanced padding from 4px/6px to 6px/8px for better text spacing
+  - Implemented progressive font scaling: 0.7rem → 0.8rem → 0.9rem → 1rem based on label length
+  - Applied smart text wrapping at natural word boundaries to prevent ugly breaks
+  - Added comprehensive label overrides for proper accents and apostrophes
+  - Enhanced text styling with consistent line heights, shadows, and maxWidth constraints
+  - Applied consistently across all bar components for cohesive responsive experience
 
 - July 16, 2025: Hide glass, method, and garnish details by default in cocktail training
   - Removed glass, method, and garnish from main cocktail display interface

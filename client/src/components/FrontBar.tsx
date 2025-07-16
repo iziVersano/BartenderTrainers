@@ -125,16 +125,17 @@ export default function FrontBar() {
                   <div
                     key={ingredient.id}
                     className={cn(
-                      "bottle-item bg-gradient-to-b rounded-sm min-h-14 lg:min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                      "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-18 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                       ingredient.color,
                       "text-gray-800"
                     )}
                     style={{
-                      padding: '4px 6px',
+                      padding: '6px 8px',
                       textAlign: 'center',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      minWidth: '70px'
                     }}
                     onClick={() => handleIngredientClick(ingredient.id)}
                   >
@@ -142,8 +143,9 @@ export default function FrontBar() {
                       className="leading-tight block font-medium"
                       style={{
                         whiteSpace: 'pre-line',
-                        fontSize: displayName.length > 18 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
-                        lineHeight: '1.1'
+                        fontSize: displayName.length > 16 ? '0.7rem' : displayName.length > 12 ? '0.8rem' : displayName.length > 8 ? '0.9rem' : '1rem',
+                        lineHeight: '1.2',
+                        maxWidth: '100%'
                       }}
                     >
                       {formattedName}
@@ -169,16 +171,17 @@ export default function FrontBar() {
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm min-h-14 lg:min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                    "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-18 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                     ingredient.color,
                     "text-gray-800"
                   )}
                   style={{
-                    padding: '4px 6px',
+                    padding: '6px 8px',
                     textAlign: 'center',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    minWidth: '70px'
                   }}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
@@ -186,8 +189,9 @@ export default function FrontBar() {
                     className="leading-tight block font-medium"
                     style={{
                       whiteSpace: 'pre-line',
-                      fontSize: displayName.length > 18 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
-                      lineHeight: '1.1'
+                      fontSize: displayName.length > 16 ? '0.7rem' : displayName.length > 12 ? '0.8rem' : displayName.length > 8 ? '0.9rem' : '1rem',
+                      lineHeight: '1.2',
+                      maxWidth: '100%'
                     }}
                   >
                     {formattedName}
@@ -209,16 +213,17 @@ export default function FrontBar() {
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm min-h-14 lg:min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                    "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-18 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
                     ingredient.color,
                     "text-white"
                   )}
                   style={{
-                    padding: '4px 6px',
+                    padding: '6px 8px',
                     textAlign: 'center',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    minWidth: '70px'
                   }}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
@@ -226,9 +231,10 @@ export default function FrontBar() {
                     className="leading-tight block font-medium"
                     style={{
                       whiteSpace: 'pre-line',
-                      fontSize: displayName.length > 18 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
-                      lineHeight: '1.1',
-                      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+                      fontSize: displayName.length > 16 ? '0.7rem' : displayName.length > 12 ? '0.8rem' : displayName.length > 8 ? '0.9rem' : '1rem',
+                      lineHeight: '1.2',
+                      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+                      maxWidth: '100%'
                     }}
                   >
                     {formattedName}

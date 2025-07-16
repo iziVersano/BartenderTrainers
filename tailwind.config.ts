@@ -66,6 +66,9 @@ export default {
         '7/10': '70%',
         '3/10': '30%',
       },
+      minHeight: {
+        '18': '4.5rem',
+      },
       keyframes: {
         "accordion-down": {
           from: {
