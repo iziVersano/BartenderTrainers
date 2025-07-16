@@ -7,6 +7,51 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { getBackBarIngredients, getSpeedLineIngredients, getIngredientsBySection } from '@/data/ingredients';
 import { cn } from '@/lib/utils';
 
+// Label normalization function with overrides (same as BackBar)
+const labelOverrides = {
+  "creme-de-mure": "Crème de Mûre",
+  "martini-extra-dry": "Martini Extra Dry",
+  "chartreuse": "Green Chartreuse",
+  "angostura-bitters": "Angostura Bitters",
+  "peychauds-bitters": "Peychaud's Bitters",
+  "orange-bitters": "Orange Bitters",
+  "white-creme-de-cacao": "White Crème de Cacao",
+  "dark-creme-de-cacao": "Dark Crème de Cacao",
+  "creme-de-cassis": "Crème de Cassis",
+  "benedictine-dom": "Bénédictine DOM",
+  "grants-scotch-whisky": "Grant's Scotch Whisky",
+  "jack-daniels": "Jack Daniel's",
+  "citron-vodka": "Citron Vodka",
+  "hendricks-gin": "Hendrick's Gin",
+  "patron-silver": "Patrón Silver",
+  "coffee-liqueur": "Coffee Liqueur",
+  "peach-liqueur": "Peach Liqueur",
+  "apple-liqueur": "Apple Liqueur",
+  "passionfruit-liqueur": "Passionfruit Liqueur",
+  "cherry-liqueur": "Cherry Liqueur",
+  "coconut-liqueur": "Coconut Liqueur",
+  "amaretto-liqueur": "Amaretto Liqueur",
+  "triple-sec": "Triple Sec",
+  "sweet-vermouth": "Sweet Vermouth",
+  "dry-vermouth": "Dry Vermouth",
+  "brut-champagne": "Brut Champagne",
+  "lime-cordial": "Lime Cordial"
+};
+
+const normalizeLabel = (id: string, originalName: string): string => {
+  // Check for specific overrides first
+  if (labelOverrides[id]) {
+    return labelOverrides[id];
+  }
+  
+  // Apply normalization rules
+  return originalName
+    .replace(/[-_]/g, ' ')         // Replace dashes and underscores with spaces
+    .replace(/\b\w/g, c => c.toUpperCase())  // Capitalize every word
+    .replace(/\s{2,}/g, ' ')       // Remove extra spaces
+    .trim();
+};
+
 type TabType = 'back-bar' | 'speed-line' | 'garnish-tray' | 'mixers';
 
 export default function MobileBarStation() {
@@ -43,43 +88,46 @@ export default function MobileBarStation() {
       <div className="p-4">
         <h3 className="text-white font-medium text-center text-sm mb-3">BACK BAR</h3>
         <div className="grid gap-2 grid-cols-3">
-          {allBackBarIngredients.map((ingredient) => (
-            <div
-              key={ingredient.id}
-              className={cn(
-                "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
-                ingredient.color,
-                ingredient.category === 'bitters' ? "text-white shadow-inner" : 
-                ingredient.category === 'spirits' ? "text-gray-900 shadow-inner" : 
-                ingredient.category === 'liqueurs' ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
-                ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
-              )}
-              style={{
-                padding: '4px 6px',
-                whiteSpace: 'normal',
-                wordWrap: 'break-word',
-                overflowWrap: 'break-word',
-                hyphens: 'auto',
-                textAlign: 'center',
-                lineHeight: '1.2',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              onClick={() => handleIngredientClick(ingredient.id)}
-            >
-              <span 
-                className="leading-tight block"
+          {allBackBarIngredients.map((ingredient) => {
+            const displayName = normalizeLabel(ingredient.id, ingredient.name);
+            return (
+              <div
+                key={ingredient.id}
+                className={cn(
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
+                  ingredient.color,
+                  ingredient.category === 'bitters' ? "text-white shadow-inner" : 
+                  ingredient.category === 'spirits' ? "text-gray-900 shadow-inner" : 
+                  ingredient.category === 'liqueurs' ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
+                  displayName.length > 18 ? "text-xs" : displayName.length > 12 ? "text-sm" : "text-base"
+                )}
                 style={{
-                  textShadow: ingredient.category === 'bitters' || ingredient.category === 'wines' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
-                  maxWidth: '100%',
-                  wordBreak: 'break-word'
+                  padding: '4px 6px',
+                  whiteSpace: 'normal',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                  hyphens: 'auto',
+                  textAlign: 'center',
+                  lineHeight: '1.2',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
+                onClick={() => handleIngredientClick(ingredient.id)}
               >
-                {ingredient.name}
-              </span>
-            </div>
-          ))}
+                <span 
+                  className="leading-tight block"
+                  style={{
+                    textShadow: ingredient.category === 'bitters' || ingredient.category === 'wines' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
+                    maxWidth: '100%',
+                    wordBreak: 'break-word'
+                  }}
+                >
+                  {displayName}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

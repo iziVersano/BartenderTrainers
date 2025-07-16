@@ -110,6 +110,20 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 16, 2025: Implemented label normalization for Back Bar ingredient display
+  - Added normalized labels for all Back Bar ingredients using proper formatting
+  - Applied label overrides for special cases like "Crème de Mûre", "Grant's Scotch Whisky", "Bénédictine DOM"
+  - Normalized labels replace dashes/underscores with spaces and capitalize each word
+  - Enhanced readability with proper accents and apostrophes for brand names
+  - Applied consistently across both desktop and mobile bar station components
+
+- July 16, 2025: Hide glass, method, and garnish details by default in cocktail training
+  - Removed glass, method, and garnish from main cocktail display interface
+  - Moved these details to the hidden "Show Recipe" section only
+  - Kept ice, selected ingredients, and answer buttons visible on main screen
+  - Applied changes to both single practice and dual practice modes
+  - Recipe section shows complete details: Method → Glass → Ice → Garnish → Ingredients
+
 - July 08, 2025: Improved recipe visibility UI layout for better user experience
   - Hide method and glass dropdowns when recipe is visible to reduce clutter
   - Repositioned "Hide Recipe" button to bottom right corner of recipe panel
