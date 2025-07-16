@@ -52,6 +52,29 @@ const normalizeLabel = (id: string, originalName: string): string => {
     .trim();
 };
 
+// Smart text wrapping for ingredient labels
+const formatDisplayName = (displayName: string): string => {
+  // For very long names, try to break at natural points
+  if (displayName.length > 20) {
+    // Try to break at common words
+    const breakWords = ['De', 'Of', 'And', 'Liqueur', 'Scotch', 'Whisky', 'Bitters'];
+    for (const word of breakWords) {
+      if (displayName.includes(` ${word} `)) {
+        return displayName.replace(` ${word} `, `\n${word} `);
+      }
+    }
+    
+    // If no natural break point, try to break at middle word
+    const words = displayName.split(' ');
+    if (words.length >= 3) {
+      const midPoint = Math.floor(words.length / 2);
+      return words.slice(0, midPoint).join(' ') + '\n' + words.slice(midPoint).join(' ');
+    }
+  }
+  
+  return displayName;
+};
+
 export default function BackBar() {
   const dispatch = useDispatch();
   const { isDualMode } = useSelector((state: RootState) => state.game);
@@ -87,6 +110,7 @@ export default function BackBar() {
             >
               {row.map((ingredient) => {
                 const displayName = normalizeLabel(ingredient.id, ingredient.name);
+                const formattedName = formatDisplayName(displayName);
                 return (
                   <div
                     key={ingredient.id}
@@ -101,13 +125,8 @@ export default function BackBar() {
                       displayName.length > 20 ? "text-xs" : displayName.length > 15 ? "text-sm" : "text-base"
                     )}
                     style={{
-                      padding: '6px 8px',
-                      whiteSpace: 'normal',
-                      wordWrap: 'break-word',
-                      overflowWrap: 'break-word',
-                      hyphens: 'auto',
+                      padding: '4px 6px',
                       textAlign: 'center',
-                      lineHeight: '1.1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center'
@@ -115,14 +134,15 @@ export default function BackBar() {
                     onClick={() => handleIngredientClick(ingredient.id)}
                   >
                     <span 
-                      className="leading-tight block"
+                      className="leading-tight block font-medium"
                       style={{
                         textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
-                        maxWidth: '100%',
-                        wordBreak: 'break-word'
+                        whiteSpace: 'pre-line',
+                        fontSize: displayName.length > 20 ? '0.75rem' : displayName.length > 15 ? '0.875rem' : '1rem',
+                        lineHeight: '1.1'
                       }}
                     >
-                      {displayName}
+                      {formattedName}
                     </span>
                   </div>
                 );

@@ -52,6 +52,32 @@ const normalizeLabel = (id: string, originalName: string): string => {
     .trim();
 };
 
+// Smart text wrapping for ingredient labels  
+const formatDisplayName = (displayName: string): string => {
+  // For very long names, try to break at natural points
+  if (displayName.length > 16) {
+    // Try to break at common words
+    const breakWords = ['De', 'Of', 'And', 'Liqueur', 'Scotch', 'Whisky', 'Bitters', 'Juice', 'Syrup', 'Purée', 'Leaves', 'Wedges', 'Slice', 'Zest', 'Pre-Mix', 'Sauce', 'Pepper', 'Salt', 'Cream', 'White', 'Beer', 'Ale', 'Water'];
+    for (const word of breakWords) {
+      if (displayName.includes(` ${word} `)) {
+        return displayName.replace(` ${word} `, `\n${word} `);
+      }
+      if (displayName.includes(` ${word}`)) {
+        return displayName.replace(` ${word}`, `\n${word}`);
+      }
+    }
+    
+    // If no natural break point, try to break at middle word
+    const words = displayName.split(' ');
+    if (words.length >= 3) {
+      const midPoint = Math.floor(words.length / 2);
+      return words.slice(0, midPoint).join(' ') + '\n' + words.slice(midPoint).join(' ');
+    }
+  }
+  
+  return displayName;
+};
+
 type TabType = 'back-bar' | 'speed-line' | 'garnish-tray' | 'mixers';
 
 export default function MobileBarStation() {
@@ -90,6 +116,7 @@ export default function MobileBarStation() {
         <div className="grid gap-2 grid-cols-3">
           {allBackBarIngredients.map((ingredient) => {
             const displayName = normalizeLabel(ingredient.id, ingredient.name);
+            const formattedName = formatDisplayName(displayName);
             return (
               <div
                 key={ingredient.id}
@@ -98,17 +125,11 @@ export default function MobileBarStation() {
                   ingredient.color,
                   ingredient.category === 'bitters' ? "text-white shadow-inner" : 
                   ingredient.category === 'spirits' ? "text-gray-900 shadow-inner" : 
-                  ingredient.category === 'liqueurs' ? "text-gray-900 shadow-inner" : "text-white shadow-inner",
-                  displayName.length > 18 ? "text-xs" : displayName.length > 12 ? "text-sm" : "text-base"
+                  ingredient.category === 'liqueurs' ? "text-gray-900 shadow-inner" : "text-white shadow-inner"
                 )}
                 style={{
                   padding: '4px 6px',
-                  whiteSpace: 'normal',
-                  wordWrap: 'break-word',
-                  overflowWrap: 'break-word',
-                  hyphens: 'auto',
                   textAlign: 'center',
-                  lineHeight: '1.2',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -116,14 +137,15 @@ export default function MobileBarStation() {
                 onClick={() => handleIngredientClick(ingredient.id)}
               >
                 <span 
-                  className="leading-tight block"
+                  className="leading-tight block font-medium"
                   style={{
                     textShadow: ingredient.category === 'bitters' || ingredient.category === 'wines' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
-                    maxWidth: '100%',
-                    wordBreak: 'break-word'
+                    whiteSpace: 'pre-line',
+                    fontSize: displayName.length > 16 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
+                    lineHeight: '1.1'
                   }}
                 >
-                  {displayName}
+                  {formattedName}
                 </span>
               </div>
             );
@@ -141,40 +163,39 @@ export default function MobileBarStation() {
       <div className="p-4">
         <h3 className="text-white font-medium text-center text-sm mb-3">SPEED LINE</h3>
         <div className="grid gap-2 grid-cols-3">
-          {allSpeedLineIngredients.map((ingredient) => (
-            <div
-              key={ingredient.id}
-              className={cn(
-                "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
-                ingredient.color,
-                ingredient.id === 'egg-white' || ingredient.id === 'milk' ? "text-gray-800" : "text-gray-800",
-                ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
-              )}
-              style={{
-                padding: '4px 6px',
-                whiteSpace: 'normal',
-                wordWrap: 'break-word',
-                overflowWrap: 'break-word',
-                hyphens: 'auto',
-                textAlign: 'center',
-                lineHeight: '1.2',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-              onClick={() => handleIngredientClick(ingredient.id)}
-            >
-              <span 
-                className="leading-tight block"
+          {allSpeedLineIngredients.map((ingredient) => {
+            const displayName = normalizeLabel(ingredient.id, ingredient.name);
+            const formattedName = formatDisplayName(displayName);
+            return (
+              <div
+                key={ingredient.id}
+                className={cn(
+                  "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                  ingredient.color,
+                  "text-gray-800"
+                )}
                 style={{
-                  maxWidth: '100%',
-                  wordBreak: 'break-word'
+                  padding: '4px 6px',
+                  textAlign: 'center',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
+                onClick={() => handleIngredientClick(ingredient.id)}
               >
-                {ingredient.name}
-              </span>
-            </div>
-          ))}
+                <span 
+                  className="leading-tight block font-medium"
+                  style={{
+                    whiteSpace: 'pre-line',
+                    fontSize: displayName.length > 16 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
+                    lineHeight: '1.1'
+                  }}
+                >
+                  {formattedName}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
@@ -184,27 +205,39 @@ export default function MobileBarStation() {
     <div className="p-4">
       <h3 className="text-white font-medium text-center text-sm mb-3">MIXERS</h3>
       <div className="grid gap-2 grid-cols-3">
-        {mixersIngredients.map((ingredient) => (
-          <div
-            key={ingredient.id}
-            className={cn(
-              "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
-              ingredient.color,
-              "text-gray-800",
-              ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
-            )}
-            style={{
-              padding: '4px 6px',
-              whiteSpace: 'normal',
-              wordWrap: 'break-word',
-              textAlign: 'center',
-              lineHeight: '1.2'
-            }}
-            onClick={() => handleIngredientClick(ingredient.id)}
-          >
-            <span className="leading-tight">{ingredient.name}</span>
-          </div>
-        ))}
+        {mixersIngredients.map((ingredient) => {
+          const displayName = normalizeLabel(ingredient.id, ingredient.name);
+          const formattedName = formatDisplayName(displayName);
+          return (
+            <div
+              key={ingredient.id}
+              className={cn(
+                "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                ingredient.color,
+                "text-gray-800"
+              )}
+              style={{
+                padding: '4px 6px',
+                textAlign: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              onClick={() => handleIngredientClick(ingredient.id)}
+            >
+              <span 
+                className="leading-tight block font-medium"
+                style={{
+                  whiteSpace: 'pre-line',
+                  fontSize: displayName.length > 16 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
+                  lineHeight: '1.1'
+                }}
+              >
+                {formattedName}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -213,27 +246,40 @@ export default function MobileBarStation() {
     <div className="p-4">
       <h3 className="text-white font-medium text-center text-sm mb-3">GARNISH TRAY</h3>
       <div className="grid gap-2 grid-cols-3">
-        {garnishIngredients.map((ingredient) => (
-          <div
-            key={ingredient.id}
-            className={cn(
-              "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
-              ingredient.color,
-              "text-white",
-              ingredient.name.length > 18 ? "text-xs" : ingredient.name.length > 12 ? "text-sm" : "text-base"
-            )}
-            style={{
-              padding: '4px 6px',
-              whiteSpace: 'normal',
-              wordWrap: 'break-word',
-              textAlign: 'center',
-              lineHeight: '1.2'
-            }}
-            onClick={() => handleIngredientClick(ingredient.id)}
-          >
-            <span className="leading-tight">{ingredient.name}</span>
-          </div>
-        ))}
+        {garnishIngredients.map((ingredient) => {
+          const displayName = normalizeLabel(ingredient.id, ingredient.name);
+          const formattedName = formatDisplayName(displayName);
+          return (
+            <div
+              key={ingredient.id}
+              className={cn(
+                "bottle-item bg-gradient-to-b rounded-sm min-h-16 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                ingredient.color,
+                "text-white"
+              )}
+              style={{
+                padding: '4px 6px',
+                textAlign: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              onClick={() => handleIngredientClick(ingredient.id)}
+            >
+              <span 
+                className="leading-tight block font-medium"
+                style={{
+                  whiteSpace: 'pre-line',
+                  fontSize: displayName.length > 16 ? '0.75rem' : displayName.length > 12 ? '0.875rem' : '1rem',
+                  lineHeight: '1.1',
+                  textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+                }}
+              >
+                {formattedName}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
