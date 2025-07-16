@@ -47,6 +47,12 @@ import robRoy from './rob_roy.json';
 import horsesNeck from './horses_neck.json';
 import tomCollins from './tom_collins.json';
 import longIslandIcedTea from './long_island_iced_tea.json';
+import paloma from './paloma.json';
+import margarita from './margarita.json';
+import sideCar from './side_car.json';
+import amarettoSour from './amaretto_sour.json';
+import whiskeySour from './whiskey_sour.json';
+import cloverClub from './clover_club.json';
 
 export const cocktails: Cocktail[] = [
   tequilaSunrise as Cocktail,
@@ -97,6 +103,12 @@ export const cocktails: Cocktail[] = [
   horsesNeck as Cocktail,
   tomCollins as Cocktail,
   longIslandIcedTea as Cocktail,
+  paloma as Cocktail,
+  margarita as Cocktail,
+  sideCar as Cocktail,
+  amarettoSour as Cocktail,
+  whiskeySour as Cocktail,
+  cloverClub as Cocktail,
 ];
 
 export const getCocktailById = (id: string): Cocktail | undefined => {

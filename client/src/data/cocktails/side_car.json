@@ -1,0 +1,30 @@
+{
+  "id": "side-car",
+  "name": "Side Car",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "method": "Shake & Fine Strain",
+  "ingredients": [
+    {
+      "ingredientId": "cognac",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "triple-sec",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lemon-juice",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
+    }
+  ],
+  "garnish": "Sugar Rim (Half, Full or None)"
+}

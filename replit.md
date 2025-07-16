@@ -110,12 +110,20 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-- July 16, 2025: Added 5 new cocktail recipes to expand training library to 55 total cocktails
+- July 16, 2025: Added 11 new cocktail recipes to expand training library to 54 total cocktails
+  - Batch 1 (5 cocktails): Manhattan (Sweet), Rob Roy, Horse's Neck, Tom Collins, Long Island Iced Tea
+  - Batch 2 (6 cocktails): Paloma, Margarita, Side Car, Amaretto Sour, Whiskey Sour, Clover Club
   - Manhattan (Sweet): Bourbon + Sweet Vermouth + Angostura Bitters + Cherry
   - Rob Roy: Scotch Whisky + Sweet Vermouth + Angostura Bitters + Cherry
   - Horse's Neck: Bourbon + Angostura Bitters + Ginger Ale + Lemon Spiral
   - Tom Collins: Gin + Lemon Juice + Sugar Syrup + Soda Water + Lemon Wedge
   - Long Island Iced Tea: Vodka + Rum + Gin + Tequila + Triple Sec + Lemon Juice + Sugar Syrup + Cola
+  - Paloma: Tequila + Lime Juice + Grapefruit Juice + Soda Water + Sugar Syrup + Salt Rim & Grapefruit Slice
+  - Margarita: Tequila + Triple Sec + Lime Juice + Sugar Syrup + Salt Rim (Optional)
+  - Side Car: Cognac + Triple Sec + Lemon Juice + Sugar Syrup + Sugar Rim (Optional)
+  - Amaretto Sour: Amaretto + Lemon Juice + Sugar Syrup + Lemon Slice & Cherry
+  - Whiskey Sour: Bourbon + Lemon Juice + Sugar Syrup + Orange Slice & Cherry
+  - Clover Club: Gin + Raspberry Purée + Lemon Juice + Egg White + Raspberry
   - Fixed ingredient mapping for cola in Long Island Iced Tea cocktail
   - All cocktails follow proper EBS specifications with correct measurements and methods
 
