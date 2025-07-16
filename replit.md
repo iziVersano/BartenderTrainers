@@ -110,6 +110,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 16, 2025: Added 5 new cocktail recipes to expand training library to 55 total cocktails
+  - Manhattan (Sweet): Bourbon + Sweet Vermouth + Angostura Bitters + Cherry
+  - Rob Roy: Scotch Whisky + Sweet Vermouth + Angostura Bitters + Cherry
+  - Horse's Neck: Bourbon + Angostura Bitters + Ginger Ale + Lemon Spiral
+  - Tom Collins: Gin + Lemon Juice + Sugar Syrup + Soda Water + Lemon Wedge
+  - Long Island Iced Tea: Vodka + Rum + Gin + Tequila + Triple Sec + Lemon Juice + Sugar Syrup + Cola
+  - Fixed ingredient mapping for cola in Long Island Iced Tea cocktail
+  - All cocktails follow proper EBS specifications with correct measurements and methods
+
 - July 16, 2025: Fixed ingredient label display with optimized tile sizing and smart text formatting
   - Increased tile heights: BackBar (min-h-20/24), FrontBar (min-h-16/18), Mobile (min-h-18)
   - Added minimum widths to prevent cramped layouts: BackBar (80px), FrontBar (70px), Mobile (90px)
