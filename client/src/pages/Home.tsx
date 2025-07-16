@@ -37,13 +37,13 @@ export default function Home() {
       <main className="flex-1 flex flex-col h-full">
         {/* Desktop Layout */}
         <div className="hidden md:flex flex-1 flex-row h-full">
-          {/* LEFT: Bar Station Area */}
-          <div className="w-3/4 p-4 overflow-y-auto">
+          {/* LEFT: Bar Station Area - Extended for ingredient selection priority */}
+          <div className="w-4/5 p-4 overflow-y-auto">
             <BarStation />
           </div>
 
-          {/* RIGHT: Cocktail & Build Area */}
-          <div className="w-1/4 p-4 overflow-y-auto bg-white border-l border-gray-200">
+          {/* RIGHT: Cocktail & Build Area - Reduced for less focus on recipe preview */}
+          <div className="w-1/5 p-4 overflow-y-auto bg-white border-l border-gray-200">
             <BuildArea />
           </div>
         </div>

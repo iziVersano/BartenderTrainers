@@ -60,28 +60,10 @@ const normalizeLabel = (id: string, originalName: string): string => {
     .trim();
 };
 
-// Smart text wrapping for ingredient labels
-const formatDisplayName = (displayName: string): string => {
-  // For very long names, try to break at natural points
-  if (displayName.length > 18) {
-    // Try to break at common words
-    const breakWords = ['Juice', 'Syrup', 'Purée', 'Leaves', 'Wedges', 'Slice', 'Zest', 'Pre-Mix', 'Sauce', 'Pepper', 'Salt', 'Cream', 'White', 'Beer', 'Ale', 'Water'];
-    for (const word of breakWords) {
-      if (displayName.includes(` ${word}`)) {
-        return displayName.replace(` ${word}`, `\n${word}`);
-      }
-    }
-    
-    // If no natural break point, try to break at middle word
-    const words = displayName.split(' ');
-    if (words.length >= 3) {
-      const midPoint = Math.floor(words.length / 2);
-      return words.slice(0, midPoint).join(' ') + '\n' + words.slice(midPoint).join(' ');
-    }
-  }
-  
-  return displayName;
-};
+// Clean label formatting function as requested
+function formatLabel(id: string): string {
+  return id.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()).trim();
+}
 
 export default function FrontBar() {
   const dispatch = useDispatch();
@@ -120,36 +102,22 @@ export default function FrontBar() {
             >
               {row.map((ingredient) => {
                 const displayName = normalizeLabel(ingredient.id, ingredient.name);
-                const formattedName = formatDisplayName(displayName);
                 return (
                   <div
                     key={ingredient.id}
                     className={cn(
-                      "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-18 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                      "bottle bg-gradient-to-b",
                       ingredient.color,
                       "text-gray-800"
                     )}
                     style={{
-                      padding: '6px 8px',
-                      textAlign: 'center',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      minWidth: '70px'
+                      height: '45px',
+                      width: '85px',
+                      fontSize: '0.75rem'
                     }}
                     onClick={() => handleIngredientClick(ingredient.id)}
                   >
-                    <span 
-                      className="leading-tight block font-medium"
-                      style={{
-                        whiteSpace: 'pre-line',
-                        fontSize: displayName.length > 16 ? '0.7rem' : displayName.length > 12 ? '0.8rem' : displayName.length > 8 ? '0.9rem' : '1rem',
-                        lineHeight: '1.2',
-                        maxWidth: '100%'
-                      }}
-                    >
-                      {formattedName}
-                    </span>
+                    {displayName}
                   </div>
                 );
               })}
@@ -166,36 +134,22 @@ export default function FrontBar() {
           <div className="grid gap-2 grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
             {mixersIngredients.map((ingredient) => {
               const displayName = normalizeLabel(ingredient.id, ingredient.name);
-              const formattedName = formatDisplayName(displayName);
               return (
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-18 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                    "bottle bg-gradient-to-b",
                     ingredient.color,
                     "text-gray-800"
                   )}
                   style={{
-                    padding: '6px 8px',
-                    textAlign: 'center',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    minWidth: '70px'
+                    height: '45px',
+                    width: '85px',
+                    fontSize: '0.75rem'
                   }}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
-                  <span 
-                    className="leading-tight block font-medium"
-                    style={{
-                      whiteSpace: 'pre-line',
-                      fontSize: displayName.length > 16 ? '0.7rem' : displayName.length > 12 ? '0.8rem' : displayName.length > 8 ? '0.9rem' : '1rem',
-                      lineHeight: '1.2',
-                      maxWidth: '100%'
-                    }}
-                  >
-                    {formattedName}
-                  </span>
+                  {displayName}
                 </div>
               );
             })}
@@ -208,37 +162,23 @@ export default function FrontBar() {
           <div className="grid gap-2 grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
             {garnishIngredients.map((ingredient) => {
               const displayName = normalizeLabel(ingredient.id, ingredient.name);
-              const formattedName = formatDisplayName(displayName);
               return (
                 <div
                   key={ingredient.id}
                   className={cn(
-                    "bottle-item bg-gradient-to-b rounded-sm min-h-16 lg:min-h-18 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center",
+                    "bottle bg-gradient-to-b",
                     ingredient.color,
                     "text-white"
                   )}
                   style={{
-                    padding: '6px 8px',
-                    textAlign: 'center',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    minWidth: '70px'
+                    height: '45px',
+                    width: '85px',
+                    fontSize: '0.75rem',
+                    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
                   }}
                   onClick={() => handleIngredientClick(ingredient.id)}
                 >
-                  <span 
-                    className="leading-tight block font-medium"
-                    style={{
-                      whiteSpace: 'pre-line',
-                      fontSize: displayName.length > 16 ? '0.7rem' : displayName.length > 12 ? '0.8rem' : displayName.length > 8 ? '0.9rem' : '1rem',
-                      lineHeight: '1.2',
-                      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-                      maxWidth: '100%'
-                    }}
-                  >
-                    {formattedName}
-                  </span>
+                  {displayName}
                 </div>
               );
             })}

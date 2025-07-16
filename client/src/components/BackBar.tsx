@@ -38,6 +38,11 @@ const labelOverrides = {
   "lime-cordial": "Lime Cordial"
 };
 
+// Clean label formatting function as requested
+function formatLabel(id: string): string {
+  return id.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()).trim();
+}
+
 const normalizeLabel = (id: string, originalName: string): string => {
   // Check for specific overrides first
   if (labelOverrides[id]) {
@@ -101,54 +106,30 @@ export default function BackBar() {
       <div className="bg-bar-dark rounded-lg p-4">
         <h3 className="text-white font-medium mb-3 text-center">BACK BAR</h3>
         
-        <div className="space-y-3">
-          {backBarRows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="grid gap-2"
-              style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}
-            >
-              {row.map((ingredient) => {
-                const displayName = normalizeLabel(ingredient.id, ingredient.name);
-                const formattedName = formatDisplayName(displayName);
-                return (
-                  <div
-                    key={ingredient.id}
-                    className={cn(
-                      "bottle-item bg-gradient-to-b rounded-sm min-h-20 lg:min-h-24 flex items-center justify-center font-medium hover:shadow-lg transition-all cursor-pointer text-center shadow-md",
-                      ingredient.color,
-                      // Better text color logic with stronger contrast
-                      ingredient.category === 'bitters' ? "text-white shadow-inner" : 
-                      ingredient.category === 'spirits' && rowIndex === 0 ? "text-gray-900 shadow-inner" : 
-                      rowIndex <= 1 ? "text-gray-900 shadow-inner" : "text-white shadow-inner"
-                    )}
-                    style={{
-                      padding: '6px 8px',
-                      textAlign: 'center',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      minWidth: '80px'
-                    }}
-                    onClick={() => handleIngredientClick(ingredient.id)}
-                  >
-                    <span 
-                      className="leading-tight block font-medium"
-                      style={{
-                        textShadow: ingredient.category === 'bitters' || rowIndex > 1 ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
-                        whiteSpace: 'pre-line',
-                        fontSize: displayName.length > 18 ? '0.7rem' : displayName.length > 14 ? '0.8rem' : displayName.length > 10 ? '0.9rem' : '1rem',
-                        lineHeight: '1.2',
-                        maxWidth: '100%'
-                      }}
-                    >
-                      {formattedName}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          ))}
+        {/* New grid layout with auto-fill for better ingredient display */}
+        <div className="back-bar-grid">
+          {backBarRows.flat().map((ingredient) => {
+            const displayName = normalizeLabel(ingredient.id, ingredient.name);
+            return (
+              <div
+                key={ingredient.id}
+                className={cn(
+                  "bottle bg-gradient-to-b",
+                  ingredient.color,
+                  // Better text color logic with stronger contrast
+                  ingredient.category === 'bitters' ? "text-white" : 
+                  ingredient.category === 'spirits' ? "text-gray-900" : 
+                  ingredient.category === 'liqueurs' ? "text-gray-900" : "text-white"
+                )}
+                style={{
+                  textShadow: ingredient.category === 'bitters' || ingredient.category === 'wines' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)'
+                }}
+                onClick={() => handleIngredientClick(ingredient.id)}
+              >
+                {displayName}
+              </div>
+            );
+          })}
         </div>
       </div>
 
