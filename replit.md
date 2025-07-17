@@ -110,6 +110,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 17, 2025: Enhanced ingredient selection instructions for better user experience
+  - Made empty state instruction more obvious with larger text and visual emphasis
+  - Added dashed border, blue background, and larger emoji (🍸) to draw attention
+  - Desktop: "👈 Click ingredients from the bar station to add them here" with mouse cursor animation
+  - Mobile: "👆 Tap ingredients from the bar below to add them here" with phone animation
+  - Added "Start Building Your Cocktail!" header to make purpose clear
+  - Improved visual hierarchy with better spacing and color contrast
+
 - July 16, 2025: Added 11 new cocktail recipes to expand training library to 54 total cocktails
   - Batch 1 (5 cocktails): Manhattan (Sweet), Rob Roy, Horse's Neck, Tom Collins, Long Island Iced Tea
   - Batch 2 (6 cocktails): Paloma, Margarita, Side Car, Amaretto Sour, Whiskey Sour, Clover Club

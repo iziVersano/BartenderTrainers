@@ -194,31 +194,43 @@ export default function MobileBuildArea() {
               
               {/* Selected Ingredients */}
               <div className="space-y-2 mb-4">
-                {selectedIngredients.map((ingredient, index) => {
-                  const ingredientData = getIngredientById(ingredient.ingredientId);
-                  return (
-                    <div key={`${ingredient.ingredientId}-${index}`} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                      <span className="font-medium text-gray-700">{ingredientData?.name || ingredient.ingredientId}</span>
-                      <div className="flex items-center space-x-2">
-                        <select
-                          value={ingredient.amount}
-                          onChange={(e) => handleAmountChange(ingredient.ingredientId, e.target.value)}
-                          className="px-2 py-1 border border-gray-300 rounded text-sm"
-                        >
-                          {AMOUNT_OPTIONS.map(option => (
-                            <option key={option} value={option}>{option}</option>
-                          ))}
-                        </select>
-                        <button
-                          onClick={() => handleRemoveIngredient(ingredient.ingredientId)}
-                          className="p-1 text-red-500 hover:text-red-700"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                      </div>
+                {selectedIngredients.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50">
+                    <div className="text-5xl mb-4">🍸</div>
+                    <p className="text-lg font-semibold text-gray-700 mb-2">Start Building Your Cocktail!</p>
+                    <p className="text-sm text-gray-600">👆 Tap ingredients from the bar below to add them here</p>
+                    <div className="mt-4 flex items-center justify-center space-x-2 text-blue-600">
+                      <span className="animate-pulse">📱</span>
+                      <span className="text-sm font-medium">Touch ingredients to select</span>
                     </div>
-                  );
-                })}
+                  </div>
+                ) : (
+                  selectedIngredients.map((ingredient, index) => {
+                    const ingredientData = getIngredientById(ingredient.ingredientId);
+                    return (
+                      <div key={`${ingredient.ingredientId}-${index}`} className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span className="font-medium text-gray-700">{ingredientData?.name || ingredient.ingredientId}</span>
+                        <div className="flex items-center space-x-2">
+                          <select
+                            value={ingredient.amount}
+                            onChange={(e) => handleAmountChange(ingredient.ingredientId, e.target.value)}
+                            className="px-2 py-1 border border-gray-300 rounded text-sm"
+                          >
+                            {AMOUNT_OPTIONS.map(option => (
+                              <option key={option} value={option}>{option}</option>
+                            ))}
+                          </select>
+                          <button
+                            onClick={() => handleRemoveIngredient(ingredient.ingredientId)}
+                            className="p-1 text-red-500 hover:text-red-700"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
               
               {/* Actions */}

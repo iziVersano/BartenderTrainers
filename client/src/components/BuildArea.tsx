@@ -226,9 +226,14 @@ export default function BuildArea() {
             {/* Selected Ingredients List */}
             <div className="flex-1 overflow-y-auto space-y-2 pr-2 min-h-0">
               {selectedIngredients.length === 0 ? (
-                <div className="text-center py-6 text-gray-500">
-                  <div className="text-3xl mb-3">🍸</div>
-                  <p className="text-sm">Click ingredients from the bar station to add them here</p>
+                <div className="text-center py-8 text-gray-500 border-2 border-dashed border-blue-300 rounded-lg bg-blue-50">
+                  <div className="text-5xl mb-4">🍸</div>
+                  <p className="text-lg font-semibold text-gray-700 mb-2">Start Building Your Cocktail!</p>
+                  <p className="text-sm text-gray-600 mb-3">👈 Click ingredients from the bar station to add them here</p>
+                  <div className="flex items-center justify-center space-x-2 text-blue-600">
+                    <span className="animate-pulse">🖱️</span>
+                    <span className="text-sm font-medium">Click ingredients to select</span>
+                  </div>
                 </div>
               ) : (
                 selectedIngredients.map((selectedIngredient) => {
