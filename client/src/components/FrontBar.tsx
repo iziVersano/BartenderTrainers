@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addIngredient, addIngredientToCocktail } from '@/store/gameSlice';
+import { addIngredient } from '@/store/gameSlice';
 import { RootState } from '@/store';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { useState } from 'react';
 import { getSpeedLineIngredients, getIngredientsBySection } from '@/data/ingredients';
 import { cn } from '@/lib/utils';
 
@@ -67,25 +64,12 @@ function formatLabel(id: string): string {
 
 export default function FrontBar() {
   const dispatch = useDispatch();
-  const { isDualMode } = useSelector((state: RootState) => state.game);
   const speedLineRows = getSpeedLineIngredients();
   const mixersIngredients = getIngredientsBySection('mixers');
   const garnishIngredients = getIngredientsBySection('garnish-tray');
-  const [selectedIngredient, setSelectedIngredient] = useState<string | null>(null);
 
   const handleIngredientClick = (ingredientId: string) => {
-    if (isDualMode) {
-      setSelectedIngredient(ingredientId);
-    } else {
-      dispatch(addIngredient(ingredientId));
-    }
-  };
-
-  const handleAddToCocktail = (cocktailType: 'A' | 'B') => {
-    if (selectedIngredient) {
-      dispatch(addIngredientToCocktail({ cocktail: cocktailType, ingredientId: selectedIngredient }));
-      setSelectedIngredient(null);
-    }
+    dispatch(addIngredient(ingredientId));
   };
 
   return (
@@ -185,34 +169,6 @@ export default function FrontBar() {
           </div>
         </div>
       </div>
-
-      {/* Dual Mode Selection Dialog */}
-      <Dialog open={!!selectedIngredient} onOpenChange={() => setSelectedIngredient(null)}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Add to Which Cocktail?</DialogTitle>
-          </DialogHeader>
-          <div className="flex flex-col space-y-3">
-            <p className="text-sm text-gray-600">
-              Select which cocktail you'd like to add this ingredient to:
-            </p>
-            <div className="flex space-x-3">
-              <Button
-                className="flex-1 bg-blue-500 hover:bg-blue-600 text-white"
-                onClick={() => handleAddToCocktail('A')}
-              >
-                Add to Cocktail A
-              </Button>
-              <Button
-                className="flex-1 bg-green-500 hover:bg-green-600 text-white"
-                onClick={() => handleAddToCocktail('B')}
-              >
-                Add to Cocktail B
-              </Button>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

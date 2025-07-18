@@ -110,6 +110,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- July 18, 2025: Implemented active cocktail selection for dual mode training
+  - Removed popup dialogs for cocktail selection - ingredients now add directly to active cocktail
+  - Added "Active" toggle UI in dual cocktail display headers with visual feedback
+  - Active cocktail shows blue ring highlight and "Active" badge
+  - "Make Active" button allows switching between cocktails A and B
+  - Updated ingredient selection logic to automatically add to currently active cocktail
+  - Added activeCocktail state management (defaults to 'A') with setActiveCocktail action
+  - Streamlined dual mode workflow - no interruptions during ingredient selection
+
 - July 17, 2025: Enhanced ingredient selection instructions for better user experience
   - Made empty state instruction more obvious with larger text and visual emphasis
   - Added dashed border, blue background, and larger emoji (🍸) to draw attention

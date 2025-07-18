@@ -8,7 +8,8 @@ import {
   clearAllIngredientsFromCocktail,
   setFeedbackForCocktail,
   skipCocktailInDual,
-  clearFeedbackForCocktail
+  clearFeedbackForCocktail,
+  setActiveCocktail
 } from '@/store/gameSlice';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -47,7 +48,7 @@ export default function DualCocktailDisplay({
   accentColor 
 }: DualCocktailDisplayProps) {
   const dispatch = useDispatch();
-  const { cocktailA, cocktailB } = useSelector((state: RootState) => state.game);
+  const { cocktailA, cocktailB, activeCocktail } = useSelector((state: RootState) => state.game);
   
   const session = cocktailType === 'A' ? cocktailA : cocktailB;
   const otherSession = cocktailType === 'A' ? cocktailB : cocktailA;
@@ -55,6 +56,7 @@ export default function DualCocktailDisplay({
   const selectedIngredients = session.selectedIngredients;
   const showRecipe = session.showRecipe;
   const feedback = session.feedback;
+  const isActive = activeCocktail === cocktailType;
 
   if (!currentCocktail) return null;
 
@@ -78,6 +80,10 @@ export default function DualCocktailDisplay({
     }
     const newCocktail = getRandomCocktailExcluding(excludeIds);
     dispatch(skipCocktailInDual({ cocktail: cocktailType, newCocktail }));
+  };
+
+  const handleSetActive = () => {
+    dispatch(setActiveCocktail(cocktailType));
   };
 
   // Flexible ingredient matching function
@@ -162,19 +168,37 @@ export default function DualCocktailDisplay({
   };
 
   return (
-    <div className={`${bgColor} ${borderColor} border-2 rounded-lg p-4 h-full max-h-[calc(50vh-2rem)] overflow-y-auto`}>
+    <div className={`${bgColor} ${borderColor} border-2 rounded-lg p-4 h-full max-h-[calc(50vh-2rem)] overflow-y-auto ${isActive ? 'ring-4 ring-blue-300 bg-blue-50' : ''}`}>
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
-        <h3 className="text-lg font-bold text-gray-800">{title}</h3>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleSkipCocktail}
-          className="bg-orange-500 hover:bg-orange-600 text-white border-orange-400 text-xs"
-        >
-          <SkipForward className="w-3 h-3 mr-1" />
-          Skip
-        </Button>
+        <div className="flex items-center space-x-2">
+          <h3 className="text-lg font-bold text-gray-800">{title}</h3>
+          {isActive && (
+            <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+              Active
+            </span>
+          )}
+        </div>
+        <div className="flex items-center space-x-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleSetActive}
+            className={`text-xs ${isActive ? 'bg-blue-500 hover:bg-blue-600 text-white border-blue-400' : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-300'}`}
+          >
+            <Check className="w-3 h-3 mr-1" />
+            {isActive ? 'Active' : 'Make Active'}
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleSkipCocktail}
+            className="bg-orange-500 hover:bg-orange-600 text-white border-orange-400 text-xs"
+          >
+            <SkipForward className="w-3 h-3 mr-1" />
+            Skip
+          </Button>
+        </div>
       </div>
 
       {/* Cocktail Name */}

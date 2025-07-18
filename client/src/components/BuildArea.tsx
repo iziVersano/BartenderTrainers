@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store';
-import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining, toggleDualMode, setCocktailA, setCocktailB } from '@/store/gameSlice';
+import { removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining, toggleDualMode, setCocktailA, setCocktailB, setActiveCocktail } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
 import { getRandomCocktailExcluding, shuffleCocktails } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';

@@ -29,6 +29,7 @@ interface GameState {
   // Dual mode sessions
   cocktailA: CocktailSession;
   cocktailB: CocktailSession;
+  activeCocktail: 'A' | 'B';
 }
 
 const initialCocktailSession: CocktailSession = {
@@ -57,6 +58,7 @@ const initialState: GameState = {
   trainingComplete: false,
   cocktailA: { ...initialCocktailSession },
   cocktailB: { ...initialCocktailSession },
+  activeCocktail: 'A' as 'A' | 'B',
 };
 
 const gameSlice = createSlice({
@@ -71,12 +73,26 @@ const gameSlice = createSlice({
     },
     addIngredient: (state, action: PayloadAction<string>) => {
       const ingredientId = action.payload;
-      const exists = state.selectedIngredients.find(ing => ing.ingredientId === ingredientId);
-      if (!exists) {
-        state.selectedIngredients.push({
-          ingredientId,
-          amount: '30 ml', // default amount
-        });
+      
+      if (state.isDualMode) {
+        // In dual mode, add to active cocktail
+        const session = state.activeCocktail === 'A' ? state.cocktailA : state.cocktailB;
+        const exists = session.selectedIngredients.find(ing => ing.ingredientId === ingredientId);
+        if (!exists) {
+          session.selectedIngredients.push({
+            ingredientId,
+            amount: '30 ml',
+          });
+        }
+      } else {
+        // In single mode, add to main ingredients
+        const exists = state.selectedIngredients.find(ing => ing.ingredientId === ingredientId);
+        if (!exists) {
+          state.selectedIngredients.push({
+            ingredientId,
+            amount: '30 ml', // default amount
+          });
+        }
       }
     },
     removeIngredient: (state, action: PayloadAction<string>) => {
@@ -155,6 +171,9 @@ const gameSlice = createSlice({
     // Dual mode actions
     toggleDualMode: (state) => {
       state.isDualMode = !state.isDualMode;
+    },
+    setActiveCocktail: (state, action: PayloadAction<'A' | 'B'>) => {
+      state.activeCocktail = action.payload;
     },
     setCocktailA: (state, action: PayloadAction<Cocktail>) => {
       state.cocktailA.cocktail = action.payload;
@@ -243,6 +262,7 @@ export const {
   restartTraining,
   // Dual mode actions
   toggleDualMode,
+  setActiveCocktail,
   setCocktailA,
   setCocktailB,
   addIngredientToCocktail,
