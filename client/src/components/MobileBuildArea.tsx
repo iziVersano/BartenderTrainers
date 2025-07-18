@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useRef } from 'react';
 import { RootState } from '@/store';
 import { toggleDualMode, removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining, setActiveCocktail } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
@@ -13,7 +14,22 @@ import FeedbackArea from './FeedbackArea';
 
 export default function MobileBuildArea() {
   const dispatch = useDispatch();
-  const { isDualMode, selectedIngredients, currentCocktail, trainingComplete, currentTrainingIndex, trainingSequence } = useSelector((state: RootState) => state.game);
+  const { isDualMode, selectedIngredients, currentCocktail, trainingComplete, currentTrainingIndex, trainingSequence, activeCocktail } = useSelector((state: RootState) => state.game);
+  const dualModeRef = useRef<HTMLDivElement>(null);
+  const buildAreaRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to dual mode content when toggled on mobile
+  useEffect(() => {
+    if (isDualMode && dualModeRef.current && buildAreaRef.current) {
+      // Small delay to ensure DOM is updated
+      setTimeout(() => {
+        dualModeRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    }
+  }, [isDualMode]);
 
   const handleRemoveIngredient = (ingredientId: string) => {
     dispatch(removeIngredient(ingredientId));
@@ -112,7 +128,7 @@ export default function MobileBuildArea() {
   };
 
   return (
-    <div className="flex flex-col h-full p-4 space-y-4">
+    <div ref={buildAreaRef} className="flex flex-col h-full p-4 space-y-4">
       {/* Header with Dual Mode Toggle */}
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-bold text-gray-800">Build Area</h2>
@@ -126,10 +142,20 @@ export default function MobileBuildArea() {
         </div>
       </div>
 
+      {/* Active Cocktail Indicator for Mobile Dual Mode */}
+      {isDualMode && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 flex items-center justify-center">
+          <span className="text-sm font-medium text-blue-700">
+            🎯 Currently Active: <span className="font-bold">Cocktail {activeCocktail}</span>
+          </span>
+          <span className="ml-2 text-xs text-blue-600">(tap cards below to switch)</span>
+        </div>
+      )}
+
       {/* Build Area Content */}
       <div className="flex-1 overflow-y-auto">
         {isDualMode ? (
-          <div className="space-y-4">
+          <div ref={dualModeRef} className="space-y-4">
             <DualCocktailDisplay 
               cocktailType="A" 
               title="Cocktail A"

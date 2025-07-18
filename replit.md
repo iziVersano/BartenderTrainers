@@ -119,6 +119,8 @@ Preferred communication style: Simple, everyday language.
   - Added activeCocktail state management (defaults to 'A') with setActiveCocktail action
   - Streamlined dual mode workflow - no interruptions during ingredient selection
   - Added hover effects for inactive cocktails to indicate clickable state
+  - Fixed mobile dual mode visibility: auto-scroll to cocktail area when dual mode enabled
+  - Added active cocktail indicator at top of mobile build area with switching instructions
 
 - July 17, 2025: Enhanced ingredient selection instructions for better user experience
   - Made empty state instruction more obvious with larger text and visual emphasis
