@@ -128,7 +128,7 @@ export default function MobileBuildArea() {
   };
 
   return (
-    <div ref={buildAreaRef} className="flex flex-col h-full p-4 space-y-4">
+    <div ref={buildAreaRef} className="flex flex-col h-full p-4 space-y-4 pb-20">
       {/* Header with Dual Mode Toggle */}
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-bold text-gray-800">Build Area</h2>

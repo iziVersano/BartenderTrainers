@@ -50,15 +50,13 @@ export default function Home() {
 
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-1 flex-col h-full">
-          {/* TOP: Build Area */}
-          <div className="h-1/2 bg-white border-b border-gray-200 overflow-y-auto">
+          {/* TOP: Build Area - Adjusted for fixed bottom bar */}
+          <div className="flex-1 bg-white border-b border-gray-200 overflow-y-auto" style={{ paddingBottom: '320px' }}>
             <MobileBuildArea />
           </div>
 
-          {/* BOTTOM: Bar Station with Tabs */}
-          <div className="h-1/2 flex flex-col">
-            <BarStation />
-          </div>
+          {/* BOTTOM: Bar Station with Fixed Tabs - No height constraint */}
+          <BarStation />
         </div>
       </main>
     </div>
