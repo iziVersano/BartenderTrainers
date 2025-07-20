@@ -50,13 +50,9 @@ export default function MobileBuildArea() {
   const handleToggleDualMode = () => {
     if (!isDualMode) {
       // Entering dual mode - initialize both cocktails
-      console.log('Initializing dual mode cocktails...');
       try {
         const cocktailACandidate = getRandomCocktailExcluding([]);
         const cocktailBCandidate = getRandomCocktailExcluding([cocktailACandidate.id]);
-        
-        console.log('Cocktail A candidate:', cocktailACandidate);
-        console.log('Cocktail B candidate:', cocktailBCandidate);
         
         dispatch(setCocktailA(cocktailACandidate));
         dispatch(setCocktailB(cocktailBCandidate));
@@ -160,38 +156,69 @@ export default function MobileBuildArea() {
         </div>
       </div>
 
-      {/* Active Cocktail Indicator for Mobile Dual Mode */}
-      {isDualMode && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 flex items-center justify-center">
-          <span className="text-sm font-medium text-blue-700">
-            🎯 Currently Active: <span className="font-bold">Cocktail {activeCocktail}</span>
-          </span>
-          <span className="ml-2 text-xs text-blue-600">(tap cards below to switch)</span>
-        </div>
-      )}
-
       {/* Build Area Content */}
       <div className="flex-1 overflow-y-auto">
         {isDualMode ? (
           <div ref={dualModeRef} className="space-y-4">
-            {/* Debug info */}
-            <div className="bg-yellow-100 p-2 text-xs text-yellow-800">
-              DEBUG: Dual Mode - A: {cocktailA.cocktail?.name || 'None'}, B: {cocktailB.cocktail?.name || 'None'}
+            {/* Mobile Tabbed Interface */}
+            <div className="space-y-4">
+              {/* Tab Navigation */}
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => dispatch(setActiveCocktail('A'))}
+                  className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all duration-200 ${
+                    activeCocktail === 'A' 
+                      ? 'bg-blue-100 border-blue-500 text-blue-700' 
+                      : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className="flex items-center justify-center space-x-2">
+                    <span className="text-lg">
+                      {activeCocktail === 'A' ? '🔘' : '⚪'}
+                    </span>
+                    <span className="font-medium">
+                      {cocktailA.cocktail?.name || 'Loading...'} (A)
+                    </span>
+                  </div>
+                </button>
+                <button
+                  onClick={() => dispatch(setActiveCocktail('B'))}
+                  className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all duration-200 ${
+                    activeCocktail === 'B' 
+                      ? 'bg-green-100 border-green-500 text-green-700' 
+                      : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  <div className="flex items-center justify-center space-x-2">
+                    <span className="text-lg">
+                      {activeCocktail === 'B' ? '🔘' : '⚪'}
+                    </span>
+                    <span className="font-medium">
+                      {cocktailB.cocktail?.name || 'Loading...'} (B)
+                    </span>
+                  </div>
+                </button>
+              </div>
+
+              {/* Active Cocktail Display */}
+              {activeCocktail === 'A' ? (
+                <DualCocktailDisplay 
+                  cocktailType="A" 
+                  title={`${cocktailA.cocktail?.name || 'Loading...'} (A)`}
+                  bgColor="bg-blue-50"
+                  borderColor="border-blue-200"
+                  accentColor="bg-blue-500 hover:bg-blue-600"
+                />
+              ) : (
+                <DualCocktailDisplay 
+                  cocktailType="B" 
+                  title={`${cocktailB.cocktail?.name || 'Loading...'} (B)`}
+                  bgColor="bg-green-50"
+                  borderColor="border-green-200"
+                  accentColor="bg-green-500 hover:bg-green-600"
+                />
+              )}
             </div>
-            <DualCocktailDisplay 
-              cocktailType="A" 
-              title="Cocktail A"
-              bgColor="bg-blue-50"
-              borderColor="border-blue-200"
-              accentColor="bg-blue-500 hover:bg-blue-600"
-            />
-            <DualCocktailDisplay 
-              cocktailType="B" 
-              title="Cocktail B"
-              bgColor="bg-green-50"
-              borderColor="border-green-200"
-              accentColor="bg-green-500 hover:bg-green-600"
-            />
           </div>
         ) : (
           <div className="space-y-4">
