@@ -54,17 +54,8 @@ export default function MobileBuildArea() {
         const cocktailACandidate = getRandomCocktailExcluding([]);
         const cocktailBCandidate = getRandomCocktailExcluding([cocktailACandidate.id]);
         
-        console.log('Setting cocktails - A:', cocktailACandidate.name, 'B:', cocktailBCandidate.name);
         dispatch(setCocktailA(cocktailACandidate));
         dispatch(setCocktailB(cocktailBCandidate));
-        
-        // Debug Redux state after setting
-        setTimeout(() => {
-          console.log('Redux state after setting:', { 
-            cocktailA: cocktailA.cocktail?.name, 
-            cocktailB: cocktailB.cocktail?.name 
-          });
-        }, 100);
       } catch (error) {
         console.error('Error loading cocktails for dual mode:', error);
       }

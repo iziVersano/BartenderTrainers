@@ -180,59 +180,33 @@ export default function DualCocktailDisplay({
   };
 
   return (
-    <div 
-      className={`${bgColor} ${borderColor} border-2 rounded-lg p-4 h-full max-h-[calc(50vh-2rem)] overflow-y-auto cursor-pointer transition-all duration-200 ${isActive ? 'ring-4 ring-blue-400 bg-blue-50 shadow-lg' : 'hover:shadow-md hover:ring-2 hover:ring-gray-300'}`}
-      onClick={handleCardClick}
-    >
-      {/* Header */}
-      <div className="flex justify-between items-center mb-3">
-        <div className="flex items-center space-x-2">
-          <h3 className="text-lg font-bold text-gray-800">{title}</h3>
-          {isActive && (
-            <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-medium flex items-center">
-              <Check className="w-3 h-3 mr-1" />
-              Active
-            </span>
-          )}
-        </div>
-        <div className="flex items-center space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleSkipCocktail();
-            }}
-            className="bg-orange-500 hover:bg-orange-600 text-white border-orange-400 text-xs"
-          >
-            <SkipForward className="w-3 h-3 mr-1" />
-            Skip
-          </Button>
-        </div>
-      </div>
-
-      {/* Cocktail Name */}
-      <div className="mb-3">
-        <h4 className="text-xl font-bold text-gray-800">{currentCocktail.name}</h4>
-      </div>
-
-      {/* Ice Only */}
-      <div className="mb-3">
-        <div className="bg-gray-50 p-2 rounded text-xs text-gray-600">
+    <div className="space-y-4">
+      {/* Ice Information */}
+      <div className="mb-4">
+        <div className="bg-gray-50 p-3 rounded-lg text-sm text-gray-700">
           <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
         </div>
       </div>
 
-      {/* Show Recipe Toggle */}
-      <div className="flex justify-end mb-3">
+      {/* Show Recipe Button */}
+      <div className="flex justify-between items-center mb-4">
         <Button 
           variant="outline" 
           size="sm" 
           onClick={() => dispatch(toggleRecipeForCocktail(cocktailType))}
-          className={`${accentColor} text-white text-xs`}
+          className="bg-blue-500 hover:bg-blue-600 text-white text-sm"
         >
-          <Eye className="w-3 h-3 mr-1" />
+          <Eye className="w-4 h-4 mr-2" />
           {showRecipe ? 'Hide Recipe' : 'Show Recipe'}
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleSkipCocktail}
+          className="bg-orange-500 hover:bg-orange-600 text-white text-sm"
+        >
+          <SkipForward className="w-4 h-4 mr-2" />
+          Skip
         </Button>
       </div>
 
