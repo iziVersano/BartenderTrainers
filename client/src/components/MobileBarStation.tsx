@@ -91,6 +91,11 @@ export default function MobileBarStation() {
     dispatch(addIngredient(ingredientId));
   };
 
+  const handleTabChange = (tab: TabType) => {
+    console.log('Switching to tab:', tab);
+    setActiveTab(tab);
+  };
+
   const renderBackBar = () => {
     // Flatten all ingredients from all rows for mobile grid layout
     const allBackBarIngredients = backBarRows.flat();
@@ -278,6 +283,7 @@ export default function MobileBarStation() {
   );
 
   const renderTabContent = () => {
+    console.log('Rendering tab content for:', activeTab);
     switch (activeTab) {
       case 'back-bar':
         return renderBackBar();
@@ -295,6 +301,11 @@ export default function MobileBarStation() {
   return (
     <>
       <div className="flex flex-col h-full">
+        {/* Debug indicator */}
+        <div className="bg-red-500 text-white text-xs p-1 text-center md:hidden">
+          Active: {activeTab}
+        </div>
+        
         {/* Tab Content */}
         <div className="flex-1 bg-bar-dark rounded-lg overflow-y-auto mb-20">
           {renderTabContent()}
@@ -304,7 +315,7 @@ export default function MobileBarStation() {
         <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-10">
           <div className="grid grid-cols-4 h-16">
             <button
-              onClick={() => setActiveTab('back-bar')}
+              onClick={() => handleTabChange('back-bar')}
               className={cn(
                 "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                 activeTab === 'back-bar' 
@@ -317,7 +328,7 @@ export default function MobileBarStation() {
             </button>
             
             <button
-              onClick={() => setActiveTab('speed-line')}
+              onClick={() => handleTabChange('speed-line')}
               className={cn(
                 "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                 activeTab === 'speed-line' 
@@ -330,7 +341,7 @@ export default function MobileBarStation() {
             </button>
             
             <button
-              onClick={() => setActiveTab('garnish-tray')}
+              onClick={() => handleTabChange('garnish-tray')}
               className={cn(
                 "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                 activeTab === 'garnish-tray' 
@@ -343,7 +354,7 @@ export default function MobileBarStation() {
             </button>
             
             <button
-              onClick={() => setActiveTab('mixers')}
+              onClick={() => handleTabChange('mixers')}
               className={cn(
                 "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                 activeTab === 'mixers' 
