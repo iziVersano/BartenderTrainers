@@ -58,7 +58,13 @@ export default function DualCocktailDisplay({
   const feedback = session.feedback;
   const isActive = activeCocktail === cocktailType;
 
-  if (!currentCocktail) return null;
+  if (!currentCocktail) {
+    return (
+      <div className="bg-red-100 border border-red-200 rounded-lg p-4">
+        <p className="text-red-700">No cocktail loaded for {cocktailType}</p>
+      </div>
+    );
+  }
 
   const handleRemoveIngredient = (ingredientId: string) => {
     dispatch(removeIngredientFromCocktail({ cocktail: cocktailType, ingredientId }));

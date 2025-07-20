@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import { RootState } from '@/store';
-import { toggleDualMode, removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining, setActiveCocktail } from '@/store/gameSlice';
+import { toggleDualMode, removeIngredient, updateIngredientAmount, clearAllIngredients, setFeedback, nextTrainingCocktail, restartTraining, setActiveCocktail, setCocktailA, setCocktailB } from '@/store/gameSlice';
 import { getIngredientById } from '@/data/ingredients';
-import { shuffleCocktails } from '@/data/cocktails';
+import { shuffleCocktails, getRandomCocktailExcluding } from '@/data/cocktails';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Layout, X, Trash2, SkipForward } from 'lucide-react';
@@ -14,7 +14,7 @@ import FeedbackArea from './FeedbackArea';
 
 export default function MobileBuildArea() {
   const dispatch = useDispatch();
-  const { isDualMode, selectedIngredients, currentCocktail, trainingComplete, currentTrainingIndex, trainingSequence, activeCocktail } = useSelector((state: RootState) => state.game);
+  const { isDualMode, selectedIngredients, currentCocktail, trainingComplete, currentTrainingIndex, trainingSequence, activeCocktail, cocktailA, cocktailB } = useSelector((state: RootState) => state.game);
   const dualModeRef = useRef<HTMLDivElement>(null);
   const buildAreaRef = useRef<HTMLDivElement>(null);
 
@@ -45,6 +45,19 @@ export default function MobileBuildArea() {
 
   const handleSkipCocktail = () => {
     dispatch(nextTrainingCocktail());
+  };
+
+  const handleToggleDualMode = () => {
+    if (!isDualMode) {
+      // Entering dual mode - initialize both cocktails
+      const excludeIds = currentCocktail ? [currentCocktail.id] : [];
+      const cocktailACandidate = getRandomCocktailExcluding([]);
+      const cocktailBCandidate = getRandomCocktailExcluding([cocktailACandidate.id]);
+      
+      dispatch(setCocktailA(cocktailACandidate));
+      dispatch(setCocktailB(cocktailBCandidate));
+    }
+    dispatch(toggleDualMode());
   };
 
   // Flexible ingredient matching function
@@ -81,7 +94,7 @@ export default function MobileBuildArea() {
   const handleSubmitCocktail = () => {
     if (!currentCocktail) return;
 
-    const requiredIngredients = currentCocktail.ingredients.map(ing => ing.name);
+    const requiredIngredients = currentCocktail.ingredients.map(ing => ing.ingredientId);
     const selectedIngredientNames = selectedIngredients.map(ing => {
       const ingredientData = getIngredientById(ing.ingredientId);
       return ingredientData?.name || ing.ingredientId;
@@ -98,7 +111,6 @@ export default function MobileBuildArea() {
     if (missingIngredients.length === 0 && extraIngredients.length === 0) {
       // Perfect match
       dispatch(setFeedback({
-        visible: true,
         isCorrect: true,
         message: `Perfect! You've made a ${currentCocktail.name} correctly!`
       }));
@@ -120,7 +132,6 @@ export default function MobileBuildArea() {
       }
       
       dispatch(setFeedback({
-        visible: true,
         isCorrect: false,
         message: message
       }));
@@ -136,7 +147,7 @@ export default function MobileBuildArea() {
           <span className="text-sm text-gray-600">Dual Mode</span>
           <Switch
             checked={isDualMode}
-            onCheckedChange={() => dispatch(toggleDualMode())}
+            onCheckedChange={handleToggleDualMode}
           />
           <Layout className="w-4 h-4 text-gray-600" />
         </div>
@@ -156,6 +167,10 @@ export default function MobileBuildArea() {
       <div className="flex-1 overflow-y-auto">
         {isDualMode ? (
           <div ref={dualModeRef} className="space-y-4">
+            {/* Debug info */}
+            <div className="bg-yellow-100 p-2 text-xs text-yellow-800">
+              DEBUG: Dual Mode - A: {cocktailA.cocktail?.name || 'None'}, B: {cocktailB.cocktail?.name || 'None'}
+            </div>
             <DualCocktailDisplay 
               cocktailType="A" 
               title="Cocktail A"
