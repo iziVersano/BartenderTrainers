@@ -50,12 +50,19 @@ export default function MobileBuildArea() {
   const handleToggleDualMode = () => {
     if (!isDualMode) {
       // Entering dual mode - initialize both cocktails
-      const excludeIds = currentCocktail ? [currentCocktail.id] : [];
-      const cocktailACandidate = getRandomCocktailExcluding([]);
-      const cocktailBCandidate = getRandomCocktailExcluding([cocktailACandidate.id]);
-      
-      dispatch(setCocktailA(cocktailACandidate));
-      dispatch(setCocktailB(cocktailBCandidate));
+      console.log('Initializing dual mode cocktails...');
+      try {
+        const cocktailACandidate = getRandomCocktailExcluding([]);
+        const cocktailBCandidate = getRandomCocktailExcluding([cocktailACandidate.id]);
+        
+        console.log('Cocktail A candidate:', cocktailACandidate);
+        console.log('Cocktail B candidate:', cocktailBCandidate);
+        
+        dispatch(setCocktailA(cocktailACandidate));
+        dispatch(setCocktailB(cocktailBCandidate));
+      } catch (error) {
+        console.error('Error loading cocktails for dual mode:', error);
+      }
     }
     dispatch(toggleDualMode());
   };
