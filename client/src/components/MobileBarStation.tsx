@@ -243,16 +243,16 @@ export default function MobileBarStation() {
             )}
           </div>
 
-          {/* Tab Navigation */}
-          <div className="bg-white border-t border-gray-200">
+          {/* Tab Navigation - Dark Mode */}
+          <div className="bg-gray-800 border-t border-gray-600">
             <div className="grid grid-cols-4 h-16">
               <button
                 onClick={() => handleTabChange('back-bar')}
                 className={cn(
                   "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'back-bar' 
-                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
               >
                 <span className="text-lg mb-1">🍻</span>
@@ -264,8 +264,8 @@ export default function MobileBarStation() {
                 className={cn(
                   "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'speed-line' 
-                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
               >
                 <span className="text-lg mb-1">🌊</span>
@@ -277,8 +277,8 @@ export default function MobileBarStation() {
                 className={cn(
                   "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'garnish-tray' 
-                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
               >
                 <span className="text-lg mb-1">🧉</span>
@@ -290,8 +290,8 @@ export default function MobileBarStation() {
                 className={cn(
                   "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'mixers' 
-                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                    : "text-gray-500 hover:text-gray-700"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
               >
                 <span className="text-lg mb-1">👶</span>

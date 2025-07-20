@@ -168,8 +168,8 @@ export default function MobileBuildArea() {
                   onClick={() => dispatch(setActiveCocktail('A'))}
                   className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all duration-200 ${
                     activeCocktail === 'A' 
-                      ? 'bg-blue-100 border-blue-500 text-blue-700' 
-                      : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                      ? 'bg-blue-900 border-blue-400 text-blue-200' 
+                      : 'bg-gray-700 border-gray-500 text-gray-300 hover:bg-gray-600'
                   }`}
                 >
                   <div className="flex items-center justify-center space-x-2">
@@ -185,8 +185,8 @@ export default function MobileBuildArea() {
                   onClick={() => dispatch(setActiveCocktail('B'))}
                   className={`flex-1 px-4 py-3 rounded-lg border-2 transition-all duration-200 ${
                     activeCocktail === 'B' 
-                      ? 'bg-green-100 border-green-500 text-green-700' 
-                      : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
+                      ? 'bg-green-900 border-green-400 text-green-200' 
+                      : 'bg-gray-700 border-gray-500 text-gray-300 hover:bg-gray-600'
                   }`}
                 >
                   <div className="flex items-center justify-center space-x-2">
@@ -205,17 +205,17 @@ export default function MobileBuildArea() {
                 <DualCocktailDisplay 
                   cocktailType="A" 
                   title={`${cocktailA.cocktail?.name || 'Loading...'} (A)`}
-                  bgColor="bg-blue-50"
-                  borderColor="border-blue-200"
-                  accentColor="bg-blue-500 hover:bg-blue-600"
+                  bgColor="bg-gray-800"
+                  borderColor="border-blue-400"
+                  accentColor="bg-blue-600 hover:bg-blue-500"
                 />
               ) : (
                 <DualCocktailDisplay 
                   cocktailType="B" 
                   title={`${cocktailB.cocktail?.name || 'Loading...'} (B)`}
-                  bgColor="bg-green-50"
-                  borderColor="border-green-200"
-                  accentColor="bg-green-500 hover:bg-green-600"
+                  bgColor="bg-gray-800"
+                  borderColor="border-green-400"
+                  accentColor="bg-green-600 hover:bg-green-500"
                 />
               )}
             </div>
@@ -223,12 +223,12 @@ export default function MobileBuildArea() {
         ) : (
           <div className="space-y-4">
             {/* Training Progress */}
-            <div className="bg-gray-100 rounded-lg p-3">
+            <div className="bg-gray-800 rounded-lg p-3 border border-gray-600">
               <div className="flex items-center justify-between text-sm">
-                <span className="font-medium text-gray-700">Training Progress</span>
-                <span className="text-gray-600">{currentTrainingIndex + 1} / {trainingSequence.length}</span>
+                <span className="font-medium text-gray-200">Training Progress</span>
+                <span className="text-gray-300">{currentTrainingIndex + 1} / {trainingSequence.length}</span>
               </div>
-              <div className="w-full bg-gray-300 rounded-full h-2 mt-2">
+              <div className="w-full bg-gray-600 rounded-full h-2 mt-2">
                 <div 
                   className="bg-blue-500 h-2 rounded-full transition-all duration-300"
                   style={{ width: `${((currentTrainingIndex + 1) / trainingSequence.length) * 100}%` }}
@@ -238,13 +238,13 @@ export default function MobileBuildArea() {
 
             {/* Training Complete Message */}
             {trainingComplete ? (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+              <div className="bg-green-900 border border-green-400 rounded-lg p-6 text-center">
                 <div className="text-4xl mb-3">🎉</div>
-                <h3 className="text-xl font-semibold text-green-800 mb-2">Training Complete!</h3>
-                <p className="text-green-700 mb-4">All cocktails reviewed. Great job!</p>
+                <h3 className="text-xl font-semibold text-green-200 mb-2">Training Complete!</h3>
+                <p className="text-green-300 mb-4">All cocktails reviewed. Great job!</p>
                 <button 
                   onClick={() => dispatch(restartTraining(shuffleCocktails()))}
-                  className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
+                  className="bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-md"
                 >
                   Restart Training
                 </button>
@@ -253,13 +253,13 @@ export default function MobileBuildArea() {
               <>
                 <CocktailDisplay />
                 {/* Build Area content without duplicate cocktail display */}
-                <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="bg-gray-800 rounded-lg border border-gray-600 p-4">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-800">Build Your Cocktail</h3>
+                <h3 className="text-lg font-semibold text-white">Build Your Cocktail</h3>
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={() => dispatch(toggleDualMode())}
-                    className="flex items-center space-x-2 px-3 py-2 bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200 transition-colors"
+                    className="flex items-center space-x-2 px-3 py-2 bg-purple-700 text-purple-200 rounded-md hover:bg-purple-600 transition-colors"
                   >
                     <Layout className="w-4 h-4" />
                     <span className="text-sm">Dual Mode</span>
@@ -270,11 +270,11 @@ export default function MobileBuildArea() {
               {/* Selected Ingredients */}
               <div className="space-y-2 mb-4">
                 {selectedIngredients.length === 0 ? (
-                  <div className="text-center py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50">
+                  <div className="text-center py-8 text-gray-400 border-2 border-dashed border-gray-500 rounded-lg bg-gray-700">
                     <div className="text-5xl mb-4">🍸</div>
-                    <p className="text-lg font-semibold text-gray-700 mb-2">Start Building Your Cocktail!</p>
-                    <p className="text-sm text-gray-600">👆 Tap ingredients from the bar below to add them here</p>
-                    <div className="mt-4 flex items-center justify-center space-x-2 text-blue-600">
+                    <p className="text-lg font-semibold text-gray-200 mb-2">Start Building Your Cocktail!</p>
+                    <p className="text-sm text-gray-400">👆 Tap ingredients from the bar below to add them here</p>
+                    <div className="mt-4 flex items-center justify-center space-x-2 text-blue-400">
                       <span className="animate-pulse">📱</span>
                       <span className="text-sm font-medium">Touch ingredients to select</span>
                     </div>
@@ -283,13 +283,13 @@ export default function MobileBuildArea() {
                   selectedIngredients.map((ingredient, index) => {
                     const ingredientData = getIngredientById(ingredient.ingredientId);
                     return (
-                      <div key={`${ingredient.ingredientId}-${index}`} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                        <span className="font-medium text-gray-700">{ingredientData?.name || ingredient.ingredientId}</span>
+                      <div key={`${ingredient.ingredientId}-${index}`} className="flex items-center justify-between p-2 bg-gray-700 border border-gray-600 rounded">
+                        <span className="font-medium text-gray-200">{ingredientData?.name || ingredient.ingredientId}</span>
                         <div className="flex items-center space-x-2">
                           <select
                             value={ingredient.amount}
                             onChange={(e) => handleAmountChange(ingredient.ingredientId, e.target.value)}
-                            className="px-2 py-1 border border-gray-300 rounded text-sm"
+                            className="px-2 py-1 border border-gray-500 rounded text-sm bg-gray-600 text-gray-200"
                           >
                             {AMOUNT_OPTIONS.map(option => (
                               <option key={option} value={option}>{option}</option>
@@ -313,14 +313,14 @@ export default function MobileBuildArea() {
                 <div className="flex space-x-2">
                   <button
                     onClick={handleClearAll}
-                    className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2"
+                    className="flex-1 px-4 py-2 bg-gray-600 text-gray-200 rounded-md hover:bg-gray-500 transition-colors flex items-center justify-center space-x-2"
                   >
                     <Trash2 className="w-4 h-4" />
                     <span>Clear All</span>
                   </button>
                   <button
                     onClick={handleSkipCocktail}
-                    className="flex-1 px-4 py-2 bg-orange-100 text-orange-700 rounded-md hover:bg-orange-200 transition-colors flex items-center justify-center space-x-2"
+                    className="flex-1 px-4 py-2 bg-orange-700 text-orange-200 rounded-md hover:bg-orange-600 transition-colors flex items-center justify-center space-x-2"
                   >
                     <SkipForward className="w-4 h-4" />
                     <span>Skip</span>
@@ -328,7 +328,7 @@ export default function MobileBuildArea() {
                 </div>
                 <button
                   onClick={handleSubmitCocktail}
-                  className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors font-medium"
+                  className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-colors font-medium"
                 >
                   Submit Cocktail
                 </button>
