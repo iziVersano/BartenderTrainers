@@ -121,6 +121,10 @@ Preferred communication style: Simple, everyday language.
   - Added hover effects for inactive cocktails to indicate clickable state
   - Fixed mobile dual mode visibility: auto-scroll to cocktail area when dual mode enabled
   - Added active cocktail indicator at top of mobile build area with switching instructions
+  - Redesigned mobile bar layout with sliding panels that appear directly above tabs
+  - Fixed mobile bar navigation: panels slide in/out smoothly without requiring scroll
+  - Added toggle functionality: tap same tab again to collapse the panel
+  - Mobile bar panels now positioned at bottom of screen for easy thumb access
 
 - July 17, 2025: Enhanced ingredient selection instructions for better user experience
   - Made empty state instruction more obvious with larger text and visual emphasis

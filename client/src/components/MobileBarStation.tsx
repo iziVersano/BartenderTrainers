@@ -38,8 +38,8 @@ const labelOverrides = {
 
 const normalizeLabel = (id: string, originalName: string): string => {
   // Check for specific overrides first
-  if (labelOverrides[id]) {
-    return labelOverrides[id];
+  if (labelOverrides[id as keyof typeof labelOverrides]) {
+    return labelOverrides[id as keyof typeof labelOverrides];
   }
   
   // Apply normalization rules
@@ -80,7 +80,7 @@ type TabType = 'back-bar' | 'speed-line' | 'garnish-tray' | 'mixers';
 
 export default function MobileBarStation() {
   const dispatch = useDispatch();
-  const [activeTab, setActiveTab] = useState<TabType>('back-bar');
+  const [activeTab, setActiveTab] = useState<TabType | null>(null);
 
   const backBarRows = getBackBarIngredients();
   const speedLineRows = getSpeedLineIngredients();
@@ -92,8 +92,9 @@ export default function MobileBarStation() {
   };
 
   const handleTabChange = (tab: TabType) => {
-    console.log('Switching to tab:', tab);
-    setActiveTab(tab);
+    console.log('Switching to tab:', tab, 'Current:', activeTab);
+    // Toggle: if same tab is clicked, close it; otherwise open the new tab
+    setActiveTab(activeTab === tab ? null : tab);
   };
 
   const renderBackBar = () => {
@@ -130,7 +131,7 @@ export default function MobileBarStation() {
                 <span 
                   className="leading-tight block font-medium"
                   style={{
-                    textShadow: ingredient.category === 'bitters' || ingredient.category === 'wines' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
+                    textShadow: ingredient.category === 'bitters' ? '0 1px 2px rgba(0,0,0,0.3)' : '0 1px 2px rgba(255,255,255,0.5)',
                     whiteSpace: 'pre-line',
                     fontSize: displayName.length > 14 ? '0.65rem' : displayName.length > 10 ? '0.75rem' : displayName.length > 8 ? '0.85rem' : '0.9rem',
                     lineHeight: '1.2',
@@ -301,70 +302,78 @@ export default function MobileBarStation() {
   return (
     <>
       <div className="flex flex-col h-full">
-        {/* Debug indicator */}
-        <div className="bg-red-500 text-white text-xs p-1 text-center md:hidden">
-          Active: {activeTab}
-        </div>
-        
-        {/* Tab Content */}
-        <div className="flex-1 bg-bar-dark rounded-lg overflow-y-auto mb-20">
-          {renderTabContent()}
-        </div>
+        {/* Fixed Bottom Layout: Sliding Panel + Tab Navigation */}
+        <div className="fixed bottom-0 left-0 right-0 z-10">
+          {/* Sliding Bar Panel - appears above tabs */}
+          <div className={cn(
+            "bg-bar-dark transition-all duration-300 ease-in-out overflow-y-auto",
+            activeTab ? "h-64 border-t border-gray-600" : "h-0"
+          )}>
+            {activeTab && (
+              <>
+                <div className="bg-red-500 text-white text-xs p-1 text-center">
+                  Active: {activeTab}
+                </div>
+                {renderTabContent()}
+              </>
+            )}
+          </div>
 
-        {/* Fixed Bottom Tab Navigation */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-10">
-          <div className="grid grid-cols-4 h-16">
-            <button
-              onClick={() => handleTabChange('back-bar')}
-              className={cn(
-                "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
-                activeTab === 'back-bar' 
-                  ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                  : "text-gray-500 hover:text-gray-700"
-              )}
-            >
-              <span className="text-lg mb-1">🍻</span>
-              <span>Back Bar</span>
-            </button>
-            
-            <button
-              onClick={() => handleTabChange('speed-line')}
-              className={cn(
-                "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
-                activeTab === 'speed-line' 
-                  ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                  : "text-gray-500 hover:text-gray-700"
-              )}
-            >
-              <span className="text-lg mb-1">🌊</span>
-              <span>Speed Line</span>
-            </button>
-            
-            <button
-              onClick={() => handleTabChange('garnish-tray')}
-              className={cn(
-                "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
-                activeTab === 'garnish-tray' 
-                  ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                  : "text-gray-500 hover:text-gray-700"
-              )}
-            >
-              <span className="text-lg mb-1">🧉</span>
-              <span>Garnish Tray</span>
-            </button>
-            
-            <button
-              onClick={() => handleTabChange('mixers')}
-              className={cn(
-                "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
-                activeTab === 'mixers' 
-                  ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
-                  : "text-gray-500 hover:text-gray-700"
-              )}
-            >
-              <span className="text-lg mb-1">👶</span>
-              <span>Mixers</span>
-            </button>
+          {/* Tab Navigation */}
+          <div className="bg-white border-t border-gray-200">
+            <div className="grid grid-cols-4 h-16">
+              <button
+                onClick={() => handleTabChange('back-bar')}
+                className={cn(
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  activeTab === 'back-bar' 
+                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                <span className="text-lg mb-1">🍻</span>
+                <span>Back Bar</span>
+              </button>
+              
+              <button
+                onClick={() => handleTabChange('speed-line')}
+                className={cn(
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  activeTab === 'speed-line' 
+                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                <span className="text-lg mb-1">🌊</span>
+                <span>Speed Line</span>
+              </button>
+              
+              <button
+                onClick={() => handleTabChange('garnish-tray')}
+                className={cn(
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  activeTab === 'garnish-tray' 
+                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                <span className="text-lg mb-1">🧉</span>
+                <span>Garnish Tray</span>
+              </button>
+              
+              <button
+                onClick={() => handleTabChange('mixers')}
+                className={cn(
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  activeTab === 'mixers' 
+                    ? "bg-blue-50 text-blue-600 border-t-2 border-blue-600" 
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                <span className="text-lg mb-1">👶</span>
+                <span>Mixers</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
