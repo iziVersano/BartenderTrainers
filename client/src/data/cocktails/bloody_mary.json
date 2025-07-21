@@ -14,36 +14,10 @@
       "ingredientId": "fresh-lemon-juice",
       "amount": "10",
       "unit": "ml"
-    },
-    {
-      "ingredientId": "bloody-mary-pre-mix",
-      "amount": "20",
+    }, {
+      "ingredientId": "Bloody-mary-mix",
+      "amount": "120",
       "unit": "ml"
-    },
-    {
-      "ingredientId": "worcestershire-sauce",
-      "amount": "3",
-      "unit": "Dashes"
-    },
-    {
-      "ingredientId": "tabasco",
-      "amount": "3",
-      "unit": "Dashes"
-    },
-    {
-      "ingredientId": "black-pepper",
-      "amount": "3",
-      "unit": "Grinds"
-    },
-    {
-      "ingredientId": "celery-salt",
-      "amount": "1",
-      "unit": "Pinch"
-    },
-    {
-      "ingredientId": "tomato-juice",
-      "amount": "Fill",
-      "unit": ""
     }
   ],
   "garnish": "Celery Stick",

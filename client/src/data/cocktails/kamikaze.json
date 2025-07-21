@@ -4,7 +4,7 @@
   "ingredients": [
     {
       "ingredientId": "vodka",
-      "amount": "10",
+      "amount": "20",
       "unit": "ml"
     },
     {

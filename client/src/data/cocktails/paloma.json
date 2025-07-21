@@ -10,6 +10,11 @@
       "amount": "10",
       "unit": "ml"
     },
+      {
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
+    },
     {
       "ingredientId": "tequila",
       "amount": "60",
