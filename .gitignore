@@ -1,6 +1,10 @@
 node_modules
+.replit
+.env
 dist
+build
+.vscode
+server
 .DS_Store
-server/public
 vite.config.ts.*
 *.tar.gz
