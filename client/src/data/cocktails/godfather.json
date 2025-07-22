@@ -8,6 +8,5 @@
     { "ingredientId": "grants-scotch-whisky", "amount": "30", "unit": "ml" },
     { "ingredientId": "amaretto", "amount": "30", "unit": "ml" }
   ],
-  "garnish": null,
-  "optional": "Replace Scotch with Vodka"
+  "garnish": ""
 }

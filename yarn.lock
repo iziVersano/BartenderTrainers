@@ -2695,6 +2695,14 @@ express-session@^1.18.1:
     safe-buffer "5.2.1"
     uid-safe "~2.1.5"
 
+express-static-gzip@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/express-static-gzip/-/express-static-gzip-2.2.0.tgz#7c3f7dd89da68e51c591edf02e6de6169c017f5f"
+  integrity sha512-4ZQ0pHX0CAauxmzry2/8XFLM6aZA4NBvg9QezSlsEO1zLnl7vMFa48/WIcjzdfOiEUS4S1npPPKP2NHHYAp6qg==
+  dependencies:
+    parseurl "^1.3.3"
+    serve-static "^1.16.2"
+
 express@^4.21.2:
   version "4.21.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.21.2.tgz#cf250e48362174ead6cea4a566abef0162c1ec32"
@@ -3378,7 +3386,7 @@ package-json-from-dist@^1.0.0:
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz#4f1471a010827a86f94cfd9b0727e36d267de505"
   integrity sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==
 
-parseurl@~1.3.3:
+parseurl@^1.3.3, parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
@@ -3950,7 +3958,7 @@ send@0.19.0:
     range-parser "~1.2.1"
     statuses "2.0.1"
 
-serve-static@1.16.2:
+serve-static@1.16.2, serve-static@^1.16.2:
   version "1.16.2"
   resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.16.2.tgz#b6a5343da47f6bdd2673848bf45754941e803296"
   integrity sha512-VqpjJZKadQB/PEbEwvFdO43Ax5dFBZ2UECszz8bQ7pi7wt//PWe1P6MN7eCnjsatYtBT6EuiClbjSWP2WrIoTw==
@@ -4341,6 +4349,14 @@ victory-vendor@^36.6.8:
     d3-shape "^3.1.0"
     d3-time "^3.0.0"
     d3-timer "^3.0.1"
+
+vite-express@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/vite-express/-/vite-express-0.21.1.tgz#67fc5ee54821851860a6159f96e77bb2d05fe93a"
+  integrity sha512-/dz1syfdKfWwcNRSl9wxZQmH7dImrvxNR9TptbpYGqrlawWFD+USzbLR1ytWei8XJpDPDRUgOoT8dEIf/vviyQ==
+  dependencies:
+    express-static-gzip "^2.2.0"
+    picocolors "^1.1.1"
 
 vite@^5.4.19:
   version "5.4.19"

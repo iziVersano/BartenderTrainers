@@ -8,6 +8,5 @@
     { "ingredientId": "gin", "amount": "40", "unit": "ml" },
     { "ingredientId": "tonic-water", "amount": "Fill", "unit": "" }
   ],
-  "garnish": "Lime Wedges",
-  "optional": "Replace Gin with Vodka"
+  "garnish": "Lime Wedges"
 }
