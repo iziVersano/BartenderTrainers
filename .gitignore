@@ -9,3 +9,5 @@ server
 vite.config.ts.*
 *.tar.gz.replit
 vite.config.ts
+vite.config.ts
+.replit
