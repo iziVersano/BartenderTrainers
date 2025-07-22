@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Bar Station Trainer is a full-stack cocktail training application that simulates a realistic bar environment. It allows users to practice making cocktails by selecting ingredients from different bar sections and provides feedback on their selections. The application features a React frontend with a Node.js/Express backend, using PostgreSQL for data persistence.
+The Bar Station Trainer is a frontend-only cocktail training application that simulates a realistic bar environment. It allows users to practice making cocktails by selecting ingredients from different bar sections and provides feedback on their selections. The application is built with React and TypeScript, storing all cocktail data as static JSON files for Vercel deployment compatibility.
 
 ## System Architecture
 
@@ -12,14 +12,13 @@ The Bar Station Trainer is a full-stack cocktail training application that simul
 - **Routing**: Wouter for client-side routing
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **Build Tool**: Vite for development and production builds
-- **Data Fetching**: TanStack Query for server state management
+- **Data Storage**: Client-side JSON files for cocktail recipes and ingredients
+- **Deployment**: Frontend-only application (Vercel-compatible)
 
-### Backend Architecture
-- **Runtime**: Node.js with Express.js server
-- **Database**: PostgreSQL with Drizzle ORM
-- **Database Provider**: Neon serverless PostgreSQL
-- **Session Management**: In-memory storage (MemStorage class)
-- **API Structure**: RESTful endpoints with `/api` prefix
+### Data Architecture
+- **Cocktail Data**: Static JSON files in `/client/src/data/cocktails/`
+- **Ingredient Data**: TypeScript definitions in `/client/src/data/ingredients.ts`
+- **No Backend Required**: Fully self-contained frontend application
 
 ### Key Design Decisions
 - **Monorepo Structure**: Shared schema between client and server using TypeScript
@@ -37,14 +36,9 @@ The Bar Station Trainer is a full-stack cocktail training application that simul
 5. **CocktailDisplay**: Shows current cocktail challenge with recipe toggle
 6. **FeedbackArea**: Provides success/failure feedback with detailed messages
 
-### Backend Components
-1. **Storage Interface**: Abstraction layer for data operations (currently in-memory)
-2. **Route Handler**: Express route registration system
-3. **Vite Integration**: Development server with hot module replacement
-
 ### Shared Components
-1. **Schema Definitions**: Zod schemas for ingredients, cocktails, and game state
-2. **Type Exports**: Shared TypeScript interfaces
+1. **Schema Definitions**: Zod schemas for ingredients, cocktails, and game state in `/shared/schema.ts`
+2. **Type Exports**: Shared TypeScript interfaces for frontend components
 
 ## Data Flow
 
@@ -58,11 +52,11 @@ The Bar Station Trainer is a full-stack cocktail training application that simul
 ### State Management
 - **Redux Store**: Manages current cocktail, selected ingredients, and feedback state
 - **Local Component State**: Handles UI interactions and form inputs
-- **Server State**: TanStack Query manages API calls and caching
+- **Static Data**: All cocktail recipes and ingredients stored as JSON/TypeScript files
 
 ### Data Persistence
-- **Development**: In-memory storage for rapid prototyping
-- **Production Ready**: Drizzle ORM with PostgreSQL schema defined
+- **Client-Side Only**: All data stored in static files within the application
+- **No Database Required**: Perfect for static hosting on Vercel, Netlify, etc.
 
 ## External Dependencies
 
@@ -74,41 +68,41 @@ The Bar Station Trainer is a full-stack cocktail training application that simul
 - **Form Handling**: React Hook Form with Zod validation
 - **Icons**: Lucide React icon library
 
-### Backend Dependencies
-- **Server**: Express.js with TypeScript
-- **Database**: Drizzle ORM with Neon PostgreSQL driver
-- **Development**: tsx for TypeScript execution
-- **Build**: esbuild for production bundling
-
 ### Development Tools
 - **Build System**: Vite with React plugin
-- **TypeScript**: Full type safety across the stack
-- **Linting**: ESLint configuration
+- **TypeScript**: Full type safety across frontend
 - **Development**: Hot reload and error overlay
+- **Static Assets**: All cocktail data bundled with application
 
 ## Deployment Strategy
 
 ### Build Process
 1. **Frontend Build**: Vite compiles React app to static files
-2. **Backend Build**: esbuild bundles server code with external dependencies
-3. **Database Migration**: Drizzle kit handles schema migrations
+2. **Static Assets**: Cocktail JSON files bundled into build
+3. **Vercel Ready**: No server-side components required
 
 ### Environment Configuration
-- **Development**: `NODE_ENV=development` with local database
-- **Production**: `NODE_ENV=production` with DATABASE_URL configuration
-- **Database**: PostgreSQL connection via environment variables
+- **Development**: Vite development server
+- **Production**: Static site deployment (Vercel, Netlify compatible)
+- **No Environment Variables**: All data is client-side
 
 ### Deployment Commands
 - `npm run dev`: Development server with hot reload
-- `npm run build`: Production build for both client and server
-- `npm run start`: Production server startup
-- `npm run db:push`: Database schema synchronization
+- `npm run build`: Production build for static hosting
+- `npm run preview`: Preview production build locally
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
+
+- July 22, 2025: Converted to frontend-only architecture for Vercel deployment
+  - Removed server-side components to support static hosting
+  - Cleaned up JSON data validation errors (null values)
+  - Updated documentation to reflect client-side only approach
+  - Confirmed all cocktail data stored as static JSON files
+  - Application now fully compatible with Vercel, Netlify, and other static hosts
 
 - July 18, 2025: Implemented active cocktail selection for dual mode training
   - Removed popup dialogs for cocktail selection - ingredients now add directly to active cocktail
