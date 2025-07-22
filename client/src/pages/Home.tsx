@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { initializeTrainingSequence } from '@/store/gameSlice';
-import { shuffleCocktails } from '@/data/cocktails';
-import BarStation from '@/components/BarStation';
-import BuildArea from '@/components/BuildArea';
-import MobileBuildArea from '@/components/MobileBuildArea';
+import { initializeTrainingSequence } from '../store/gameSlice';
+import { shuffleCocktails } from '../data/cocktails';
+import BarStation from '../components/BarStation';
+import BuildArea from '../components/BuildArea';
+import MobileBuildArea from '../components/MobileBuildArea';
 
 export default function Home() {
   const dispatch = useDispatch();
