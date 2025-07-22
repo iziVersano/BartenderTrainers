@@ -98,17 +98,15 @@ export default function MobileBuildArea() {
     if (!currentCocktail) return;
 
     const requiredIngredients = currentCocktail.ingredients.map(ing => ing.ingredientId);
-    const selectedIngredientNames = selectedIngredients.map(ing => {
-      const ingredientData = getIngredientById(ing.ingredientId);
-      return ingredientData?.name || ing.ingredientId;
-    });
+    const selectedIngredientIds = selectedIngredients.map(ing => ing.ingredientId);
 
-    const missingIngredients = requiredIngredients.filter(required => 
-      !selectedIngredientNames.some(selected => isMatch(required, selected))
+    // Case-insensitive, order-insensitive comparison of IDs
+    const normalize = (str: string) => str.toLowerCase().trim();
+    const missingIngredients = requiredIngredients.filter(required =>
+      !selectedIngredientIds.some(selected => normalize(selected) === normalize(required))
     );
-
-    const extraIngredients = selectedIngredientNames.filter(selected => 
-      !requiredIngredients.some(required => isMatch(required, selected))
+    const extraIngredients = selectedIngredientIds.filter(selected =>
+      !requiredIngredients.some(required => normalize(selected) === normalize(required))
     );
 
     if (missingIngredients.length === 0 && extraIngredients.length === 0) {
