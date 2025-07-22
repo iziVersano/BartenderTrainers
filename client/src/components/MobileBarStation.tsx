@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
-import { addIngredient } from '@/store/gameSlice';
-import { getBackBarIngredients, getSpeedLineIngredients, getIngredientsBySection } from '@/data/ingredients';
-import { cn } from '@/lib/utils';
-import { ingredients } from '@/data/ingredients';
+import { RootState } from '../store';
+import { addIngredient } from '../store/gameSlice';
+import { getBackBarIngredients, getSpeedLineIngredients, getIngredientsBySection } from '../data/ingredients';
+import { cn } from '../lib/utils';
 
 // Label normalization function with overrides (same as BackBar)
 const labelOverrides = {
@@ -77,7 +76,7 @@ const formatDisplayName = (displayName: string): string => {
   return displayName;
 };
 
-type TabType = 'back-bar' | 'speed-line' | 'garnish-tray' | 'mixers' | 'bitters';
+type TabType = 'back-bar' | 'speed-line' | 'garnish-tray' | 'mixers';
 
 export default function MobileBarStation() {
   const dispatch = useDispatch();
@@ -87,7 +86,6 @@ export default function MobileBarStation() {
   const speedLineRows = getSpeedLineIngredients();
   const mixersIngredients = getIngredientsBySection('mixers');
   const garnishIngredients = getIngredientsBySection('garnish-tray');
-  const bittersIngredients = ingredients.filter(ing => ing.category === 'bitters');
 
   const handleIngredientClick = (ingredientId: string) => {
     dispatch(addIngredient(ingredientId));
@@ -209,32 +207,8 @@ export default function MobileBarStation() {
     </div>
   );
 
-  const renderBitters = () => (
-    <div className="p-4">
-      <h3 className="text-white font-medium text-center text-sm mb-3">BITTERS</h3>
-      <div className="grid gap-2 grid-cols-3">
-        {bittersIngredients.map((ingredient) => {
-          const displayName = normalizeLabel(ingredient.id, ingredient.name);
-          const formattedName = formatDisplayName(displayName);
-          return (
-            <div
-              key={ingredient.id}
-              className={cn(
-                "bottle-item bg-gradient-to-b flex items-center justify-center",
-                ingredient.color,
-                "text-white"
-              )}
-              onClick={() => handleIngredientClick(ingredient.id)}
-            >
-              <span>{formattedName}</span>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-
   const renderTabContent = () => {
+    console.log('Rendering tab content for:', activeTab);
     switch (activeTab) {
       case 'back-bar':
         return renderBackBar();
@@ -242,8 +216,6 @@ export default function MobileBarStation() {
         return renderSpeedLine();
       case 'mixers':
         return renderMixers();
-      case 'bitters':
-        return renderBitters();
       case 'garnish-tray':
         return renderGarnishTray();
       default:
@@ -273,76 +245,57 @@ export default function MobileBarStation() {
 
           {/* Tab Navigation - Dark Mode */}
           <div className="bg-gray-800 border-t border-gray-600">
-            <div className="grid grid-cols-5 h-16 gap-1 px-1">
+            <div className="grid grid-cols-4 h-16">
               <button
                 onClick={() => handleTabChange('back-bar')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'back-bar' 
-                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
-                tabIndex={0}
-                aria-label="Back Bar"
               >
-                <span className="text-xl mb-1">🍻</span>
+                <span className="text-lg mb-1">🍻</span>
                 <span>Back Bar</span>
               </button>
+              
               <button
                 onClick={() => handleTabChange('speed-line')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'speed-line' 
-                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
-                tabIndex={0}
-                aria-label="Speed Line"
               >
-                <span className="text-xl mb-1">🌊</span>
+                <span className="text-lg mb-1">🌊</span>
                 <span>Speed Line</span>
               </button>
+              
               <button
                 onClick={() => handleTabChange('garnish-tray')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'garnish-tray' 
-                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
-                tabIndex={0}
-                aria-label="Garnish Tray"
               >
-                <span className="text-xl mb-1">🧉</span>
+                <span className="text-lg mb-1">🧉</span>
                 <span>Garnish Tray</span>
               </button>
+              
               <button
                 onClick={() => handleTabChange('mixers')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
+                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
                   activeTab === 'mixers' 
-                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
+                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
+                    : "text-gray-400 hover:text-gray-200"
                 )}
-                tabIndex={0}
-                aria-label="Mixers"
               >
-                <span className="text-xl mb-1">👶</span>
+                <span className="text-lg mb-1">👶</span>
                 <span>Mixers</span>
-              </button>
-              <button
-                onClick={() => handleTabChange('bitters')}
-                className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
-                  activeTab === 'bitters' 
-                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
-                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
-                )}
-                tabIndex={0}
-                aria-label="Bitters"
-              >
-                <span className="text-xl mb-1">🧂</span>
-                <span>Bitters</span>
               </button>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
+import { RootState } from '../store';
 import { 
   toggleRecipeForCocktail, 
   addIngredientToCocktail, 
@@ -10,14 +10,14 @@ import {
   skipCocktailInDual,
   clearFeedbackForCocktail,
   setActiveCocktail
-} from '@/store/gameSlice';
-import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+} from '../store/gameSlice';
+import { Button } from './ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Eye, Trash2, X, SkipForward, Check } from 'lucide-react';
-import { METHOD_OPTIONS, GLASS_OPTIONS, AMOUNT_OPTIONS } from '@/types';
-import { getIngredientById } from '@/data/ingredients';
-import { getRandomCocktailExcluding } from '@/data/cocktails';
-import { Cocktail } from '@shared/schema';
+import { METHOD_OPTIONS, GLASS_OPTIONS, AMOUNT_OPTIONS } from '../types';
+import { getIngredientById } from '../data/ingredients';
+import { getRandomCocktailExcluding } from '../data/cocktails';
+import { Cocktail } from '../../../shared/schema';
 
 const getGlassIcon = (glass: string): string => {
   const glassLower = glass.toLowerCase();

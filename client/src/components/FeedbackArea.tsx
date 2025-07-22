@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
-import { clearFeedback } from '@/store/gameSlice';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
+import { RootState } from '../store';
+import { clearFeedback } from '../store/gameSlice';
+import { Alert, AlertDescription } from './ui/alert';
+import { Button } from './ui/button';
 import { CheckCircle, XCircle, X } from 'lucide-react';
 
 export default function FeedbackArea() {

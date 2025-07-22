@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '@/store';
-import { toggleRecipe } from '@/store/gameSlice';
-import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { RootState } from '../store';
+import { toggleRecipe } from '../store/gameSlice';
+import { Button } from './ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Eye } from 'lucide-react';
-import { METHOD_OPTIONS, GLASS_OPTIONS } from '@/types';
-import { getIngredientById } from '@/data/ingredients';
+import { METHOD_OPTIONS, GLASS_OPTIONS } from '../types';
+import { getIngredientById } from '../data/ingredients';
 
 const getGlassIcon = (glass: string): string => {
   const glassLower = glass.toLowerCase();

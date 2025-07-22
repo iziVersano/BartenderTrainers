@@ -1,4 +1,4 @@
-export * from '@shared/schema';
+export * from '../../../shared/schema';
 
 export interface IngredientPosition {
   section: 'back-bar' | 'speed-line' | 'mixers' | 'garnish-tray';
