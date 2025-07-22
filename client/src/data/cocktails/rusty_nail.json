@@ -8,6 +8,5 @@
     { "ingredientId": "grants-scotch-whisky", "amount": "30", "unit": "ml" },
     { "ingredientId": "drambuie", "amount": "30", "unit": "ml" }
   ],
-  "garnish": "Lemon Zest",
-
+  "garnish": "Lemon Zest"
 }

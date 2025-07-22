@@ -8,6 +8,5 @@
     { "ingredientId": "vodka", "amount": "40", "unit": "ml" },
     { "ingredientId": "tonic-water", "amount": "Fill", "unit": "" }
   ],
-  "garnish": "Lemon Wedges or Lime Wedges or None",
-
+  "garnish": "Lemon Wedges or Lime Wedges or None"
 }
