@@ -35,14 +35,8 @@ export default function CocktailDisplay() {
         </div>
       </div>
 
-      {/* Ice and Recipe Toggle */}
-      <div className="mb-4 space-y-2">
-        {/* Ice Only */}
-        <div className="bg-gray-50 p-2 rounded text-xs text-gray-600 border border-gray-200">
-          <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
-        </div>
-
-        {/* Show Recipe Toggle */}
+      {/* Recipe Toggle */}
+      <div className="mb-4">
         <div className="flex justify-end">
           <Button 
             variant="outline" 
