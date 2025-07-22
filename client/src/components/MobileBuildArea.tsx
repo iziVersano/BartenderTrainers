@@ -151,7 +151,7 @@ export default function MobileBuildArea() {
           <Switch
             checked={isDualMode}
             onCheckedChange={handleToggleDualMode}
-            className={`scale-125 ${isDualMode ? 'bg-green-600 border-green-700' : 'bg-gray-300 border-gray-400'}`}
+            className={`scale-125 ${isDualMode ? 'bg-green-600 border-green-700' : 'bg-zinc-700 border-zinc-500'}`}
           />
         </div>
       </div>
