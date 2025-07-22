@@ -133,19 +133,20 @@ export default function BuildArea() {
   return (
     <div className="h-full flex flex-col">
       {/* Dual Mode Toggle */}
-      <div className="flex-shrink-0 mb-4">
+      <div className="flex-shrink-0 mb-6">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold text-gray-800">
             {isDualMode ? 'Dual Practice Mode' : 'Single Practice Mode'}
           </h3>
           <Button
-            variant="outline"
-            size="sm"
+            variant={isDualMode ? 'default' : 'outline'}
+            size="lg"
             onClick={handleToggleDualMode}
-            className="bg-purple-50 hover:bg-purple-100 text-purple-600 border-purple-200"
+            className={`transition-all duration-200 px-6 py-3 text-base font-bold rounded-xl shadow-md border-2 focus:ring-2 focus:ring-offset-2 focus:ring-green-500
+              ${isDualMode ? 'bg-green-600 text-white border-green-700 hover:bg-green-700' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
           >
-            {isDualMode ? <ToggleRight className="w-4 h-4 mr-2" /> : <ToggleLeft className="w-4 h-4 mr-2" />}
-            {isDualMode ? 'Single Mode' : 'Dual Mode'}
+            {isDualMode ? <ToggleRight className="w-6 h-6 mr-3" /> : <ToggleLeft className="w-6 h-6 mr-3" />}
+            Dual Mode
           </Button>
         </div>
       </div>
@@ -210,18 +211,20 @@ export default function BuildArea() {
 
               {/* Build Area Section */}
               <div className="flex-1 flex flex-col min-h-0 mb-4">
-            <div className="flex justify-between items-center mb-3">
-              <h4 className="text-lg font-semibold text-gray-800">Selected Ingredients</h4>
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
-                onClick={handleSkipCocktail}
-              >
-                <SkipForward className="w-4 h-4 mr-2" />
-                Skip
-              </Button>
-            </div>
+                <div className="flex justify-between items-center mb-3">
+                  <h4 className="text-lg font-semibold text-gray-800 bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-2 shadow-sm">
+                    Selected Ingredients
+                  </h4>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="bg-orange-50 hover:bg-orange-100 text-orange-600 border-orange-200"
+                    onClick={handleSkipCocktail}
+                  >
+                    <SkipForward className="w-4 h-4 mr-2" />
+                    Skip
+                  </Button>
+                </div>
 
             {/* Selected Ingredients List */}
             <div className="flex-1 overflow-y-auto space-y-2 pr-2 min-h-0">

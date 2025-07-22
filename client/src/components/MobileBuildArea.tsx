@@ -144,20 +144,28 @@ export default function MobileBuildArea() {
   return (
     <div ref={buildAreaRef} className="flex flex-col h-full p-4 space-y-4 pb-20">
       {/* Header with Dual Mode Toggle */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-bold text-gray-800">Build Area</h2>
-        <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-600">Dual Mode</span>
+        <div className="flex items-center space-x-3 p-2 bg-gray-100 rounded-xl shadow-md border border-gray-200">
+          <span className="text-base font-semibold text-gray-700 mr-2">Dual Mode</span>
           <Switch
             checked={isDualMode}
             onCheckedChange={handleToggleDualMode}
+            className={`scale-125 ${isDualMode ? 'bg-green-600 border-green-700' : 'bg-gray-300 border-gray-400'}`}
           />
-          <Layout className="w-4 h-4 text-gray-600" />
         </div>
       </div>
 
       {/* Build Area Content */}
       <div className="flex-1 overflow-y-auto">
+        {/* Cocktail Name Styling Example (if present) */}
+        {currentCocktail && (
+          <div className="mb-4">
+            <div className="inline-block bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-2 shadow-sm text-lg font-bold text-yellow-900">
+              {currentCocktail.name}
+            </div>
+          </div>
+        )}
         {isDualMode ? (
           <div ref={dualModeRef} className="space-y-4">
             {/* Mobile Tabbed Interface */}
@@ -267,8 +275,9 @@ export default function MobileBuildArea() {
                 </div>
               </div>
               
-              {/* Selected Ingredients */}
-              <div className="space-y-2 mb-4">
+              {/* Improve contrast for Selected Ingredients */}
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 shadow-sm mb-2">
+                <h4 className="text-base font-semibold text-gray-800 mb-2">Selected Ingredients</h4>
                 {selectedIngredients.length === 0 ? (
                   <div className="text-center py-8 text-gray-400 border-2 border-dashed border-gray-500 rounded-lg bg-gray-700">
                     <div className="text-5xl mb-4">🍸</div>

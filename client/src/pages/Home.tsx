@@ -18,16 +18,16 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+      <header className="bg-white dark:bg-background shadow-sm border-b border-gray-200 dark:border-border px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <div className="text-2xl">🍸</div>
-            <h1 className="text-2xl font-semibold text-gray-800">Bar Station Trainer</h1>
+            <h1 className="text-2xl font-semibold text-gray-800 dark:text-foreground">Bar Station Trainer</h1>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-600">Training Mode</span>
-            <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
-              <span className="text-sm text-white">👤</span>
+            <span className="text-sm text-gray-600 dark:text-muted-foreground">Training Mode</span>
+            <div className="w-8 h-8 bg-gray-400 dark:bg-muted rounded-full flex items-center justify-center">
+              <span className="text-sm text-white dark:text-foreground">👤</span>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT: Cocktail & Build Area - Reduced for less focus on recipe preview */}
-          <div className="w-1/5 p-4 overflow-y-auto bg-white border-l border-gray-200">
+          <div className="w-1/5 p-4 overflow-y-auto bg-white dark:bg-card border-l border-gray-200 dark:border-border">
             <BuildArea />
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function Home() {
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-1 flex-col h-full">
           {/* TOP: Build Area - Adjusted for fixed bottom bar */}
-          <div className="flex-1 bg-white border-b border-gray-200 overflow-y-auto" style={{ paddingBottom: '320px' }}>
+          <div className="flex-1 bg-white dark:bg-card border-b border-gray-200 dark:border-border overflow-y-auto" style={{ paddingBottom: '320px' }}>
             <MobileBuildArea />
           </div>
 

@@ -245,56 +245,61 @@ export default function MobileBarStation() {
 
           {/* Tab Navigation - Dark Mode */}
           <div className="bg-gray-800 border-t border-gray-600">
-            <div className="grid grid-cols-4 h-16">
+            <div className="grid grid-cols-4 h-16 gap-1 px-1">
               <button
                 onClick={() => handleTabChange('back-bar')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
                   activeTab === 'back-bar' 
-                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
-                    : "text-gray-400 hover:text-gray-200"
+                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
                 )}
+                tabIndex={0}
+                aria-label="Back Bar"
               >
-                <span className="text-lg mb-1">🍻</span>
+                <span className="text-xl mb-1">🍻</span>
                 <span>Back Bar</span>
               </button>
-              
               <button
                 onClick={() => handleTabChange('speed-line')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
                   activeTab === 'speed-line' 
-                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
-                    : "text-gray-400 hover:text-gray-200"
+                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
                 )}
+                tabIndex={0}
+                aria-label="Speed Line"
               >
-                <span className="text-lg mb-1">🌊</span>
+                <span className="text-xl mb-1">🌊</span>
                 <span>Speed Line</span>
               </button>
-              
               <button
                 onClick={() => handleTabChange('garnish-tray')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
                   activeTab === 'garnish-tray' 
-                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
-                    : "text-gray-400 hover:text-gray-200"
+                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
                 )}
+                tabIndex={0}
+                aria-label="Garnish Tray"
               >
-                <span className="text-lg mb-1">🧉</span>
+                <span className="text-xl mb-1">🧉</span>
                 <span>Garnish Tray</span>
               </button>
-              
               <button
                 onClick={() => handleTabChange('mixers')}
                 className={cn(
-                  "flex flex-col items-center justify-center p-2 text-xs font-medium transition-colors",
+                  "flex flex-col items-center justify-center p-2 text-xs font-bold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400",
                   activeTab === 'mixers' 
-                    ? "bg-blue-900 text-blue-300 border-t-2 border-blue-400" 
-                    : "text-gray-400 hover:text-gray-200"
+                    ? "bg-blue-900 text-blue-200 border-t-2 border-blue-400 shadow-lg" 
+                    : "text-gray-400 hover:text-blue-500 hover:bg-gray-700 active:bg-blue-800"
                 )}
+                tabIndex={0}
+                aria-label="Mixers"
               >
-                <span className="text-lg mb-1">👶</span>
+                <span className="text-xl mb-1">👶</span>
                 <span>Mixers</span>
               </button>
             </div>

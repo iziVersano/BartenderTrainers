@@ -181,6 +181,12 @@ export default function DualCocktailDisplay({
 
   return (
     <div className="space-y-4">
+      {/* Cocktail Name Styling */}
+      <div className="mb-4">
+        <div className="inline-block bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-2 shadow text-lg font-bold text-yellow-900">
+          {currentCocktail.name}
+        </div>
+      </div>
       {/* Ice Information */}
       <div className="mb-4">
         <div className="bg-gray-700 p-3 rounded-lg text-sm text-gray-200">
@@ -263,7 +269,7 @@ export default function DualCocktailDisplay({
       {/* Selected Ingredients */}
       <div className="mb-3">
         <div className="flex justify-between items-center mb-2">
-          <h5 className="font-semibold text-gray-200 text-sm">Selected Ingredients</h5>
+          <h5 className="font-semibold text-gray-200 text-sm bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-1 shadow-sm text-yellow-900">Selected Ingredients</h5>
           {selectedIngredients.length > 0 && (
             <Button
               variant="outline"
@@ -277,7 +283,7 @@ export default function DualCocktailDisplay({
           )}
         </div>
 
-        <div className="space-y-2 max-h-32 overflow-y-auto">
+        <div className="space-y-2 max-h-32 overflow-y-auto bg-gray-50 border border-gray-200 rounded-md p-2">
           {selectedIngredients.length === 0 ? (
             <p className="text-gray-400 text-center py-4 text-sm">No ingredients selected</p>
           ) : (
@@ -286,10 +292,10 @@ export default function DualCocktailDisplay({
               const displayName = ingredientData?.name || ingredient.ingredientId?.replace('-', ' ') || 'Unknown ingredient';
               
               return (
-                <div key={ingredient.ingredientId} className="flex items-center gap-2 p-2 bg-gray-700 border border-gray-600 rounded-md">
+                <div key={ingredient.ingredientId} className="flex items-center gap-2 p-2 bg-gray-100 border border-gray-200 rounded-md">
                   <div className="flex-1">
-                    <div className="font-medium text-sm text-gray-200">{displayName}</div>
-                    <div className="text-xs text-gray-400">{ingredient.amount}</div>
+                    <div className="font-medium text-sm text-gray-800">{displayName}</div>
+                    <div className="text-xs text-gray-500">{ingredient.amount}</div>
                   </div>
                   <div className="flex items-center gap-1">
                     <Select
@@ -311,7 +317,7 @@ export default function DualCocktailDisplay({
                       variant="ghost"
                       size="sm"
                       onClick={() => handleRemoveIngredient(ingredient.ingredientId)}
-              className="h-6 w-6 p-0 text-red-400 hover:text-red-300"
+                      className="h-6 w-6 p-0 text-red-400 hover:text-red-300"
                     >
                       <X className="w-3 h-3" />
                     </Button>

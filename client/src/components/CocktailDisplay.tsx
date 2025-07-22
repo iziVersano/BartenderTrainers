@@ -29,14 +29,16 @@ export default function CocktailDisplay() {
   return (
     <div className="flex-shrink-0">
       {/* Cocktail Name */}
-      <div className="mb-3">
-        <h2 className="text-2xl font-bold text-gray-800">{currentCocktail.name}</h2>
+      <div className="mb-4">
+        <div className="inline-block bg-yellow-50 border border-yellow-200 rounded-lg px-6 py-2 shadow text-2xl font-bold text-yellow-900">
+          {currentCocktail.name}
+        </div>
       </div>
 
       {/* Ice and Recipe Toggle */}
-      <div className="mb-3 space-y-2">
+      <div className="mb-4 space-y-2">
         {/* Ice Only */}
-        <div className="bg-gray-50 p-2 rounded text-xs text-gray-600">
+        <div className="bg-gray-50 p-2 rounded text-xs text-gray-600 border border-gray-200">
           <span className="font-medium">❄️ Ice:</span> {currentCocktail.ice || 'Cubed'}
         </div>
 
@@ -46,7 +48,7 @@ export default function CocktailDisplay() {
             variant="outline" 
             size="sm" 
             onClick={() => dispatch(toggleRecipe())}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white border-yellow-400 text-xs"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white border-yellow-400 text-xs shadow"
           >
             <Eye className="w-3 h-3 mr-1" />
             {showRecipe ? 'Hide Recipe' : 'Show Recipe'}
