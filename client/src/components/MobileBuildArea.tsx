@@ -265,19 +265,13 @@ export default function MobileBuildArea() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-semibold text-white">Build Your Cocktail</h3>
                 <div className="flex items-center space-x-2">
-                  <button
-                    onClick={() => dispatch(toggleDualMode())}
-                    className="flex items-center space-x-2 px-3 py-2 bg-purple-700 text-purple-200 rounded-md hover:bg-purple-600 transition-colors"
-                  >
-                    <Layout className="w-4 h-4" />
-                    <span className="text-sm">Dual Mode</span>
-                  </button>
                 </div>
               </div>
               
               {/* Improve contrast for Selected Ingredients */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 shadow-sm mb-2">
                 <h4 className="text-base font-semibold text-gray-800 mb-2">Selected Ingredients</h4>
+                {/* selectedIngredients is updated by MobileBarStation via addIngredient action */}
                 {selectedIngredients.length === 0 ? (
                   <div className="text-center py-8 text-gray-400 border-2 border-dashed border-gray-500 rounded-lg bg-gray-700">
                     <div className="text-5xl mb-4">🍸</div>
