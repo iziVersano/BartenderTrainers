@@ -7,4 +7,5 @@ build
 server
 .DS_Store
 vite.config.ts.*
-*.tar.gz
+*.tar.gz.replit
+vite.config.ts
