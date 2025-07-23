@@ -1,0 +1,12 @@
+{
+  "id": "godfather",
+  "name": "Godfather",
+  "glass": "rocks",
+  "ice": "cubed",
+  "method": "build",
+  "ingredients": [
+    { "ingredientId": "grants-scotch-whisky", "amount": "30", "unit": "ml" },
+    { "ingredientId": "amaretto", "amount": "30", "unit": "ml" }
+  ],
+  "garnish": ""
+}

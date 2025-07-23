@@ -1,0 +1,15 @@
+{
+  "id": "bramble",
+  "name": "Bramble",
+  "ingredients": [
+    { "ingredientId": "fresh-lemon-juice", "amount": "20", "unit": "ml" },
+    { "ingredientId": "sugar-syrup", "amount": "10", "unit": "ml" },
+    { "ingredientId": "gin", "amount": "40", "unit": "ml" },
+    { "ingredientId": "creme-de-mure", "amount": "20", "unit": "ml" }
+  ],
+  "method": "Shake, Strain & Float",
+  "glass": "Rocks",
+  "ice": "Crushed",
+  "garnish": "Lemon wedge & 2 Blackberries",
+  "description": "A modern classic cocktail created by Dick Bradsell, featuring gin with blackberry liqueur floated on top."
+}

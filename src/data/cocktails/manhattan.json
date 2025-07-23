@@ -1,0 +1,25 @@
+{
+  "id": "manhattan",
+  "name": "Manhattan (Sweet)",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "method": "Stir & Julep Strain",
+  "ingredients": [
+    {
+      "ingredientId": "angostura-bitters",
+      "amount": "2",
+      "unit": "dashes"
+    },
+    {
+      "ingredientId": "sweet-vermouth",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "bourbon",
+      "amount": "60",
+      "unit": "ml"
+    }
+  ],
+  "garnish": "1 Cherry"
+}

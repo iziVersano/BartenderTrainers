@@ -1,0 +1,25 @@
+{
+  "id": "bloody-mary",
+  "name": "Bloody Mary",
+  "method": "Build",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "ingredients": [
+    {
+      "ingredientId": "vodka",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lemon-juice",
+      "amount": "10",
+      "unit": "ml"
+    }, {
+      "ingredientId": "Bloody-mary-mix",
+      "amount": "120",
+      "unit": "ml"
+    }
+  ],
+  "garnish": "Celery Stick",
+  "description": "Red Snapper: Replace Vodka with Gin"
+}

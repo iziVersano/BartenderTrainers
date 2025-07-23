@@ -1,0 +1,31 @@
+{
+  "id": "el_diablo",
+  "name": "El Diablo",
+  "ingredients": [
+    {
+      "ingredientId": "tequila",
+      "amount": "30",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "creme-de-cassis",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime-juice",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "ginger-ale",
+      "amount": "Fill",
+      "unit": ""
+    }
+  ],
+  "method": "Build",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "garnish": "Lime Wedge",
+  "description": "A refreshing tequila-based cocktail with crème de cassis and ginger beer."
+}

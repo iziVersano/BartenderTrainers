@@ -1,0 +1,56 @@
+{
+  "id": "zombie",
+  "name": "Zombie",
+  "ingredients": [
+    {
+      "ingredientId": "absinthe",
+      "amount": "Rinse",
+      "unit": ""
+    },
+    {
+      "ingredientId": "angostura-bitters",
+      "amount": "4",
+      "unit": "Dash"
+    },
+    {
+      "ingredientId": "light-rum",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "overproof-rum",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "dark-rum",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime-juice",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "grenadine",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "cinnamon-syrup",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "grapefruit-juice",
+      "amount": "20",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Strain",
+  "glass": "Highball / Tiki Mug",
+  "ice": "Cubed",
+  "garnish": "Mint Sprig",
+  "description": "A potent tiki cocktail with multiple rums and tropical fruit flavors."
+}

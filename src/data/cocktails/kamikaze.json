@@ -1,0 +1,26 @@
+{
+  "id": "kamikaze",
+  "name": "Kamikaze",
+  "ingredients": [
+    {
+      "ingredientId": "vodka",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "triple-sec",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime-juice",
+      "amount": "10",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Shooter",
+  "ice": "None",
+  "garnish": "None",
+  "description": "A strong shooter with vodka, triple sec, and lime juice."
+}

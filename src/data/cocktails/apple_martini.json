@@ -1,0 +1,31 @@
+{
+  "id": "apple_martini",
+  "name": "Apple Martini",
+  "ingredients": [
+    {
+      "ingredientId": "vodka",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "apple-liqueur",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lemon-juice",
+      "amount": "30",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "garnish": "Lemon Zest",
+  "description": "A crisp and refreshing apple-flavored martini with vodka and apple liqueur."
+}

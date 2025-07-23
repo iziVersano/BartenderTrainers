@@ -1,0 +1,21 @@
+{
+  "id": "kir_royal",
+  "name": "Kir Royal",
+  "ingredients": [
+    {
+      "ingredientId": "creme-de-cassis",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "brut-champagne",
+      "amount": "Fill",
+      "unit": ""
+    }
+  ],
+  "method": "Build",
+  "glass": "Champagne Flute",
+  "ice": "None",
+  "garnish": "None",
+  "description": "A classic French aperitif with crème de cassis and champagne."
+}

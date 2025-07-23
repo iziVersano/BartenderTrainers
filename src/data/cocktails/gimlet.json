@@ -1,0 +1,21 @@
+{
+  "id": "gimlet",
+  "name": "Gimlet",
+  "ingredients": [
+    {
+      "ingredientId": "gin",
+      "amount": "60",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "lime-cordial",
+      "amount": "10",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Fine Strain",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "garnish": "Lime Zest",
+  "description": "A classic gin cocktail with lime cordial. Optional: Pink Gimlet - Replace Lime Cordial with equal dashes of Aperol & lime juice."
+}

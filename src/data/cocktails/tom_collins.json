@@ -1,0 +1,30 @@
+{
+  "id": "tom-collins",
+  "name": "Tom Collins",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "method": "Shake & Strain",
+  "ingredients": [
+    {
+      "ingredientId": "gin",
+      "amount": "60",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lemon-juice",
+      "amount": "30",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "sugar-syrup",
+      "amount": "15",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "soda-water",
+      "amount": "Top",
+      "unit": ""
+    }
+  ],
+  "garnish": "Lemon Wedge"
+}

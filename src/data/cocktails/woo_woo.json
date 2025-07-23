@@ -1,0 +1,26 @@
+{
+  "id": "woo_woo",
+  "name": "Woo Woo",
+  "ingredients": [
+    {
+      "ingredientId": "vodka",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "peach-liqueur",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "cranberry-juice",
+      "amount": "Fill",
+      "unit": ""
+    }
+  ],
+  "method": "Build",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "garnish": "Lime Wedge",
+  "description": "An official EBS cocktail made with vodka, peach liqueur, and cranberry juice."
+}

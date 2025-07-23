@@ -1,0 +1,13 @@
+{
+  "id": "cuba_libre",
+  "name": "Cuba Libre",
+  "glass": "highball",
+  "ice": "cubed",
+  "method": "build",
+  "ingredients": [
+    { "ingredientId": "light-rum", "amount": "40", "unit": "ml" },
+    { "ingredientId": "fresh-lime-juice", "amount": "10", "unit": "ml" },
+    { "ingredientId": "cola", "amount": "Fill", "unit": "" }
+  ],
+  "garnish": "Lime Wedges"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "hemingway-daiquiri",
+  "name": "Hemingway Daiquiri",
+  "method": "Shake & Fine Strain",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "ingredients": [
+    {
+      "ingredientId": "light-rum",
+      "amount": "50",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "maraschino",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime-juice",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "grapefruit-juice",
+      "amount": "20",
+      "unit": "ml"
+    }
+  ],
+  "garnish": "1 Cherry",
+  "description": "On the Rocks: served in a rocks glass with cubed ice"
+}

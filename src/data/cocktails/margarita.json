@@ -1,0 +1,30 @@
+{
+  "id": "margarita",
+  "name": "Margarita",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "method": "Shake & Fine Strain",
+  "ingredients": [
+    {
+      "ingredientId": "tequila",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "triple-sec",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime-juice",
+      "amount": "30",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "sugar-syrup",
+      "amount": "10",
+      "unit": "ml"
+    }
+  ],
+  "garnish": "Salt Rim (Half, Full or None)"
+}

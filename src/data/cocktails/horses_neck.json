@@ -1,0 +1,25 @@
+{
+  "id": "horses-neck",
+  "name": "Horse's Neck",
+  "glass": "Highball",
+  "ice": "Cubed",
+  "method": "Build",
+  "ingredients": [
+    {
+      "ingredientId": "angostura-bitters",
+      "amount": "2",
+      "unit": "dashes"
+    },
+    {
+      "ingredientId": "bourbon",
+      "amount": "40",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "ginger-ale",
+      "amount": "Top",
+      "unit": ""
+    }
+  ],
+  "garnish": "Lemon Spiral"
+}

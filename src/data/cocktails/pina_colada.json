@@ -1,0 +1,36 @@
+{
+  "id": "pina_colada",
+  "name": "Piña Colada",
+  "ingredients": [
+    {
+      "ingredientId": "light-rum",
+      "amount": "40",
+      "unit": "ml"
+    },
+      {
+      "ingredientId": "coconut-liqueur",
+      "amount": "20",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "fresh-lime",
+      "amount": "10",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "pineapple-juice",
+      "amount": "60",
+      "unit": "ml"
+    },
+    {
+      "ingredientId": "coconut-cream",
+      "amount": "40",
+      "unit": "ml"
+    }
+  ],
+  "method": "Shake & Strain",
+  "glass": "Highball / Hurricane",
+  "ice": "Cubed",
+  "garnish": "Pineapple Wedge & Cherry",
+  "description": "A tropical favorite with rum, coconut, and pineapple flavors."
+}

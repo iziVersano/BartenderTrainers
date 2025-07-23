@@ -1,0 +1,21 @@
+{
+  "id": "dry-martini",
+  "name": "Dry Martini",
+  "ingredients": [
+    {
+      "ingredientId": "martini-extra-dry",
+      "amount": "1",
+      "unit": "barspoon"
+    },
+    {
+      "ingredientId": "hendricks",
+      "amount": "60",
+      "unit": "ml"
+    }
+  ],
+  "method": "Stir & Julep Strain",
+  "glass": "Chilled Martini / Coupe",
+  "ice": "None",
+  "garnish": "Olives or Lemon Zest",
+  "description": "Optional versions: Wet, Dry, Gibson, Dirty"
+}
