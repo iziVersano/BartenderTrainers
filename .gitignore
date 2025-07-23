@@ -8,6 +8,4 @@ server
 .DS_Store
 vite.config.ts.*
 *.tar.gz.replit
-vite.config.ts
-vite.config.ts
 .replit
